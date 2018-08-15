@@ -1,6 +1,10 @@
 # CEP Aberto
 Wrapper da API (V3) do site [CEP Aberto](http://www.cepaberto.com/) escrita em C#/.NET
 
+[![Build status](https://ci.appveyor.com/api/projects/status/l9cuqk1s1gdppqpn?svg=true)](https://ci.appveyor.com/project/guibranco/cepaberto)
+[![CEPAberto NuGet Version](https://img.shields.io/nuget/v/CEPAberto.svg)](https://www.nuget.org/packages/CEPAberto/)
+[![CEPAberto NuGet Downloads](https://img.shields.io/nuget/dt/CEPAberto.svg)](https://www.nuget.org/packages/CEPAberto/)
+[![Github All Releases](https://img.shields.io/github/downloads/guibranco/CEPAberto/total.svg?style=plastic)](https://github.com/guibranco/CEPAberto)
 
 ----------
 
