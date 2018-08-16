@@ -46,7 +46,6 @@ namespace CEPAberto.Tests
         [TestMethod]
         public void TestSearchCep()
         {
-            Thread.Sleep(1000);//delay for automatic tests in AppVeyor - too many requests return 503 in API
             var result = _client.GetData("40010000");
             Assert.IsTrue(result.Success);
             Assert.AreEqual(7, result.Altitude);
@@ -70,7 +69,6 @@ namespace CEPAberto.Tests
         [TestMethod]
         public void TestSearchNearest()
         {
-            Thread.Sleep(1000);//delay for automatic tests in AppVeyor - too many requests return 503 in API
             var result = _client.GetData("-20.55", "-43.63");
             Assert.IsTrue(result.Success);
             Assert.AreEqual(1072.4, result.Altitude);
@@ -93,7 +91,6 @@ namespace CEPAberto.Tests
         [TestMethod]
         public void TestSearchFullAdddress()
         {
-            Thread.Sleep(1000);//delay for automatic tests in AppVeyor - too many requests return 503 in API
             var result = _client.GetData("SP", "Ubatuba", String.Empty, String.Empty);
             Assert.IsTrue(result.Success);
             Assert.AreEqual(4.8, result.Altitude);
@@ -117,7 +114,6 @@ namespace CEPAberto.Tests
         [TestMethod]
         public void TestSearchCities()
         {
-            Thread.Sleep(1000);//delay for automatic tests in AppVeyor - too many requests return 503 in API
             var result = _client.GetCities("AM");
             Assert.IsTrue(result.Success);
             Assert.AreEqual("Agrovila São Sebastião do Caburi (Parintins)", result.Cities.First().Name);
