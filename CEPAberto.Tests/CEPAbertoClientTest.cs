@@ -1,7 +1,19 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+﻿// ***********************************************************************
+// Assembly         : CEPAberto.Tests
+// Author           : Guilherme Branco Stracini
+// Created          : 2018-08-15
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 2018-08-16
+// ***********************************************************************
+// <copyright file="CEPAbertoClientTest.cs" company="Guilherme Branco Stracini">
+//     Copyright © 2018 Guilherme Branco Stracini
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 namespace CEPAberto.Tests
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using System.Linq;
 

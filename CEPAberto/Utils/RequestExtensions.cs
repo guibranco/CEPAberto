@@ -4,7 +4,7 @@
 // Created          : 2018-08-15
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 2018-08-15
+// Last Modified On : 2018-08-16
 // ***********************************************************************
 // <copyright file="RequestExtensions.cs" company="Guilherme Branco Stracini">
 //     Copyright © 2018 Guilherme Branco Stracini
@@ -15,16 +15,17 @@ namespace CEPAberto.Utils
 {
     using Attributes;
     using GoodPractices;
+    using Newtonsoft.Json;
     using System;
     using System.Linq;
+    using System.Text;
     using System.Text.RegularExpressions;
     using Transport;
 
     /// <summary>
-    /// The request extensions class.
-    /// Provides extensions methods for requests attributes.
+    /// Class Extensions.
     /// </summary>
-    public static class RequestExtensions
+    public static class RequestHelpers
     {
         /// <summary>
         /// Gets the request end point attribute.
@@ -83,14 +84,48 @@ namespace CEPAberto.Utils
                     continue;
                 }
                 used = counter;
-                var value = propertyValue.ToString();
-                if (property.PropertyType.IsEnum)
-                    value = value.ToLower();
-                endpoint = endpoint.Replace(match.Groups["pattern"].Value, value);
+                endpoint = endpoint.Replace(match.Groups["pattern"].Value, propertyValue.ToString());
             }
             if (skiped != 0 && skiped < used)
                 throw new InvalidRequestEndPointException(originalEndpoint, endpoint);
             return endpoint.Trim('/');
+        }
+
+        /// <summary>
+        /// Gets the request additional parameter.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <param name="requestMethod">The request method.</param>
+        /// <returns>String.</returns>
+        public static String GetRequestAdditionalParameter(this BaseRequest request, ActionMethod requestMethod)
+        {
+            var type = request.GetType();
+            var properties = type.GetProperties().Where(prop => prop.IsDefined(typeof(RequestAdditionalParameterAttribute), false)).ToList();
+            if (!properties.Any())
+                return String.Empty;
+            var builder = new StringBuilder();
+            foreach (var property in properties)
+            {
+                if (!(property.GetCustomAttributes(typeof(RequestAdditionalParameterAttribute), false) is RequestAdditionalParameterAttribute[] attributes) || attributes.All(a => a.Type != requestMethod))
+                    continue;
+                var addAsQueryString = attributes.Single(a => a.Type == requestMethod).AsQueryString;
+                var propertyValue = property.GetValue(request);
+                if (propertyValue == null)
+                    continue;
+
+                if (property.PropertyType == typeof(Boolean))
+                    propertyValue = propertyValue.ToString().ToLower();
+                var propertyName = property.Name;
+                if (property.GetCustomAttributes(typeof(JsonPropertyAttribute), false) is JsonPropertyAttribute[] attributesJson &&
+                    attributesJson.Any())
+                    propertyName = attributesJson.Single().PropertyName;
+                if (property.PropertyType == typeof(String) && !String.IsNullOrWhiteSpace(propertyValue.ToString()) ||
+                    property.PropertyType == typeof(Boolean) ||
+                    property.PropertyType == typeof(Int32) && Convert.ToInt32(propertyValue) > 0 ||
+                    property.PropertyType == typeof(Int64) && Convert.ToInt64(propertyValue) > 0)
+                    builder.AppendFormat("{0}", addAsQueryString ? $"&{propertyName}=" : String.Empty).Append(propertyValue);
+            }
+            return builder.ToString();
         }
     }
 }

@@ -1,4 +1,17 @@
-﻿namespace CEPAberto.Utils
+﻿// ***********************************************************************
+// Assembly         : CEPAberto
+// Author           : Guilherme Branco Stracini
+// Created          : 2018-08-15
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 2018-08-16
+// ***********************************************************************
+// <copyright file="ServiceFactory.cs" company="Guilherme Branco Stracini">
+//     Copyright © 2018 Guilherme Branco Stracini
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+namespace CEPAberto.Utils
 {
     using GoodPractices;
     using System;
@@ -58,7 +71,8 @@
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 if (!String.IsNullOrEmpty(requestObject.Token))
                     client.DefaultRequestHeaders.Add("Authorization", String.Concat("Token token=", requestObject.Token));
-                var endpoint = requestObject.GetRequestEndPoint();
+                var endpoint = String.Concat(requestObject.GetRequestEndPoint(),
+                                             requestObject.GetRequestAdditionalParameter(method));
                 try
                 {
                     HttpResponseMessage response;

@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\RequestAdditionalParameterAttribute.cs" />
     <Compile Include="Attributes\RequestEndPointAttribute.cs" />
     <Compile Include="CEPAbertoClient.cs" />
     <Compile Include="GoodPractices\CEPAbertoAPIException.cs" />
