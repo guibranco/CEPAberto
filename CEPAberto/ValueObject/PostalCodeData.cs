@@ -38,7 +38,7 @@ namespace CEPAberto.ValueObject
         /// The altitude.
         /// </value>
         [JsonProperty("altitude")]
-        public Double Altitude { get; set; }
+        public Double? Altitude { get; set; }
 
         /// <summary>
         /// Gets or sets the postal code.
