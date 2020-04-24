@@ -1,5 +1,5 @@
 theme: jekyll-theme-minimal
-title: API Client Boilerplate .NET
+title: CEPAberto SDK (.NET)
 description: A template repository for .NET API clients projects.
 logo: https://raw.githubusercontent.com/guibranco/CEPAberto/master/logo.png
 show_downloads: true
