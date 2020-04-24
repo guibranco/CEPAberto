@@ -11,11 +11,11 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
+using Newtonsoft.Json;
+
 namespace CEPAberto.Transport
 {
-    using Newtonsoft.Json;
-    using System;
-
     /// <summary>
     /// All classes that performs a direct request to the CEP Aberto API must inherit from this class.
     /// </summary>
@@ -28,6 +28,6 @@ namespace CEPAberto.Transport
         /// The token.
         /// </value>
         [JsonIgnore]
-        public String Token { get; set; }
+        public string Token { get; set; }
     }
 }

@@ -11,11 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
+using Newtonsoft.Json;
+
 namespace CEPAberto.Transport
 {
     using Attributes;
-    using Newtonsoft.Json;
-    using System;
     using Utils;
 
     /// <summary>
@@ -31,7 +32,7 @@ namespace CEPAberto.Transport
         /// <value>
         /// The state initials.
         /// </value>
-        public String StateInitials { get; set; }
+        public string StateInitials { get; set; }
 
         /// <summary>
         /// Gets or sets the city.
@@ -39,7 +40,7 @@ namespace CEPAberto.Transport
         /// <value>
         /// The city.
         /// </value>
-        public String City { get; set; }
+        public string City { get; set; }
 
         /// <summary>
         /// Gets or sets the neighborhood.
@@ -47,9 +48,9 @@ namespace CEPAberto.Transport
         /// <value>
         /// The neighborhood.
         /// </value>
-        [RequestAdditionalParameter(ActionMethod.GET, true)]
+        [RequestAdditionalParameter(ActionMethod.Get, true)]
         [JsonProperty("bairro")]
-        public String Neighborhood { get; set; }
+        public string Neighborhood { get; set; }
 
         /// <summary>
         /// Gets or sets the street.
@@ -57,8 +58,8 @@ namespace CEPAberto.Transport
         /// <value>
         /// The street.
         /// </value>
-        [RequestAdditionalParameter(ActionMethod.GET, true)]
+        [RequestAdditionalParameter(ActionMethod.Get, true)]
         [JsonProperty("logradouro")]
-        public String Street { get; set; }
+        public string Street { get; set; }
     }
 }

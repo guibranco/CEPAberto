@@ -14,7 +14,6 @@
 namespace CEPAberto.Transport
 {
     using Attributes;
-    using System;
 
     /// <summary>
     /// The cities request class.
@@ -29,6 +28,6 @@ namespace CEPAberto.Transport
         /// <value>
         /// The state initials.
         /// </value>
-        public String StateInitials { get; set; }
+        public string StateInitials { get; set; }
     }
 }

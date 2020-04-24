@@ -13,7 +13,6 @@
 // ***********************************************************************
 namespace CEPAberto
 {
-    using System;
     using System.Threading;
     using System.Threading.Tasks;
     using ValueObject;
@@ -28,7 +27,7 @@ namespace CEPAberto
         /// </summary>
         /// <param name="postalCode">The postal code.</param>
         /// <returns></returns>
-        PostalCodeData GetData(String postalCode);
+        PostalCodeData GetData(string postalCode);
 
         /// <summary>
         /// Gets the data asynchronous.
@@ -36,7 +35,7 @@ namespace CEPAberto
         /// <param name="postalCode">The postal code.</param>
         /// <param name="token">The cancellation token.</param>
         /// <returns></returns>
-        Task<PostalCodeData> GetDataAsync(String postalCode, CancellationToken token);
+        Task<PostalCodeData> GetDataAsync(string postalCode, CancellationToken token);
 
         /// <summary>
         /// Gets the data.
@@ -44,7 +43,7 @@ namespace CEPAberto
         /// <param name="latitude">The latitude.</param>
         /// <param name="longitude">The longitude.</param>
         /// <returns></returns>
-        PostalCodeData GetData(String latitude, String longitude);
+        PostalCodeData GetData(string latitude, string longitude);
 
         /// <summary>
         /// Gets the data asynchronous.
@@ -53,7 +52,7 @@ namespace CEPAberto
         /// <param name="longitude">The longitude.</param>
         /// <param name="token">The cancellation token.</param>
         /// <returns></returns>
-        Task<PostalCodeData> GetDataAsync(String latitude, String longitude, CancellationToken token);
+        Task<PostalCodeData> GetDataAsync(string latitude, string longitude, CancellationToken token);
 
         /// <summary>
         /// Gets the data.
@@ -63,7 +62,7 @@ namespace CEPAberto
         /// <param name="neighborhood">The neighborhood.</param>
         /// <param name="street">The street.</param>
         /// <returns></returns>
-        PostalCodeData GetData(String stateInitials, String city, String neighborhood, String street);
+        PostalCodeData GetData(string stateInitials, string city, string neighborhood, string street);
 
         /// <summary>
         /// Gets the data asynchronous.
@@ -74,14 +73,14 @@ namespace CEPAberto
         /// <param name="street">The street.</param>
         /// <param name="token">The cancellation token.</param>
         /// <returns></returns>
-        Task<PostalCodeData> GetDataAsync(String stateInitials, String city, String neighborhood, String street, CancellationToken token);
+        Task<PostalCodeData> GetDataAsync(string stateInitials, string city, string neighborhood, string street, CancellationToken token);
 
         /// <summary>
         /// Gets the cities.
         /// </summary>
         /// <param name="stateInitials">The state initials.</param>
         /// <returns></returns>
-        CitiesData GetCities(String stateInitials);
+        CitiesData GetCities(string stateInitials);
 
         /// <summary>
         /// Gets the cities asynchronous.
@@ -89,6 +88,6 @@ namespace CEPAberto
         /// <param name="stateInitials">The state initials.</param>
         /// <param name="token">The cancellation token.</param>
         /// <returns></returns>
-        Task<CitiesData> GetCitiesAsync(String stateInitials, CancellationToken token);
+        Task<CitiesData> GetCitiesAsync(string stateInitials, CancellationToken token);
     }
 }

@@ -14,7 +14,6 @@
 namespace CEPAberto.Transport
 {
     using Attributes;
-    using System;
 
     /// <summary>
     /// The postal code request class.
@@ -28,6 +27,6 @@ namespace CEPAberto.Transport
         /// <value>
         /// The postal code.
         /// </value>
-        public String PostalCode { get; set; }
+        public string PostalCode { get; set; }
     }
 }

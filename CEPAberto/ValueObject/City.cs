@@ -11,11 +11,11 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
+using Newtonsoft.Json;
+
 namespace CEPAberto.ValueObject
 {
-    using Newtonsoft.Json;
-    using System;
-
     /// <summary>
     /// The city enttiy of  the postal code response
     /// </summary>
@@ -29,7 +29,7 @@ namespace CEPAberto.ValueObject
         /// The area code.
         /// </value>
         [JsonProperty("ddd")]
-        public Int32? AreaCode { get; set; }
+        public int? AreaCode { get; set; }
 
         /// <summary>
         /// Gets or sets the fiscal code.
@@ -38,7 +38,7 @@ namespace CEPAberto.ValueObject
         /// The fiscal code.
         /// </value>
         [JsonProperty("ibge")]
-        public Int32? FiscalCode { get; set; }
+        public int? FiscalCode { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -47,6 +47,6 @@ namespace CEPAberto.ValueObject
         /// The name.
         /// </value>
         [JsonProperty("nome")]
-        public String Name { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -14,7 +14,6 @@
 namespace CEPAberto.Tests
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System;
     using Transport;
     using Utils;
 
@@ -30,7 +29,7 @@ namespace CEPAberto.Tests
         [TestMethod]
         public void RequestEndPoint()
         {
-            const String expected = "cep?cep=12345678";
+            const string expected = "cep?cep=12345678";
             var postalCode = new PostalCodeRequest
             {
                 PostalCode = "12345678"
@@ -45,7 +44,7 @@ namespace CEPAberto.Tests
         [TestMethod]
         public void RequestEndPointWithMultipleParameters()
         {
-            const String expected = "nearest?lat=10&lng=-20";
+            const string expected = "nearest?lat=10&lng=-20";
             var nearest = new NearestRequest
             {
                 Latitude = "10",
@@ -66,8 +65,8 @@ namespace CEPAberto.Tests
                 StateInitials = "SP",
                 City = "São Paulo"
             };
-            var result = address.GetRequestAdditionalParameter(ActionMethod.GET);
-            Assert.AreEqual(String.Empty, result, "The endpoint was not resolves as expected");
+            var result = address.GetRequestAdditionalParameter(ActionMethod.Get);
+            Assert.AreEqual(string.Empty, result, "The endpoint was not resolves as expected");
         }
 
 
@@ -77,7 +76,7 @@ namespace CEPAberto.Tests
         [TestMethod]
         public void RequestAdditionalParameterAsQueryString()
         {
-            const String expected = "&bairro=Centro&logradouro=Se";
+            const string expected = "&bairro=Centro&logradouro=Se";
             var address = new AddressRequest
             {
                 StateInitials = "SP",
@@ -85,7 +84,7 @@ namespace CEPAberto.Tests
                 Neighborhood = "Centro",
                 Street = "Se"
             };
-            var result = address.GetRequestAdditionalParameter(ActionMethod.GET);
+            var result = address.GetRequestAdditionalParameter(ActionMethod.Get);
             Assert.AreEqual(expected, result, "The additional parameter should be query string");
         }
     }

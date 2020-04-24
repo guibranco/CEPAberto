@@ -11,11 +11,11 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
+using Newtonsoft.Json;
+
 namespace CEPAberto.ValueObject
 {
-    using Newtonsoft.Json;
-    using System;
-
     /// <summary>
     /// The state entity of the postal code response.
     /// </summary>
@@ -28,6 +28,6 @@ namespace CEPAberto.ValueObject
         /// The initials.
         /// </value>
         [JsonProperty("sigla")]
-        public String Initials { get; set; }
+        public string Initials { get; set; }
     }
 }

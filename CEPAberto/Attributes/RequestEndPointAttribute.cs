@@ -29,7 +29,7 @@ namespace CEPAberto.Attributes
         /// Initializes a new instance of the <see cref="RequestEndPointAttribute"/> class.
         /// </summary>
         /// <param name="endPoint">The end point path of the request.</param>
-        public RequestEndPointAttribute(String endPoint)
+        public RequestEndPointAttribute(string endPoint)
         {
             EndPoint = endPoint;
         }
@@ -42,7 +42,7 @@ namespace CEPAberto.Attributes
         /// Gets the end point.
         /// </summary>
         /// <value>The end point path.</value>
-        public String EndPoint { get; }
+        public string EndPoint { get; }
 
         #endregion
 

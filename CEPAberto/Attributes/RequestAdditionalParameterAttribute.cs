@@ -72,14 +72,14 @@ namespace CEPAberto.Attributes
         /// <value>
         ///   <c>true</c> if [as query string]; otherwise, <c>false</c>.
         /// </value>
-        public Boolean AsQueryString { get; set; }
+        public bool AsQueryString { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RequestAdditionalParameterAttribute" /> class.
         /// </summary>
         /// <param name="type">The type of request.</param>
         /// <param name="asQueryString">if set to <c>true</c> the additional parameter is added in the url as query string.</param>
-        public RequestAdditionalParameterAttribute(ActionMethod type, Boolean asQueryString = false)
+        public RequestAdditionalParameterAttribute(ActionMethod type, bool asQueryString = false)
         {
             AsQueryString = asQueryString;
             Type = type;

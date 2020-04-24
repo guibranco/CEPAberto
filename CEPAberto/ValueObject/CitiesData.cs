@@ -11,11 +11,11 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
+using Newtonsoft.Json;
+
 namespace CEPAberto.ValueObject
 {
-    using Newtonsoft.Json;
-    using System;
-
     /// <summary>
     /// The cities data response class.
     /// </summary>
@@ -28,7 +28,7 @@ namespace CEPAberto.ValueObject
         ///   <c>true</c> if success; otherwise, <c>false</c>.
         /// </value>
         [JsonIgnore]
-        public Boolean Success { get; set; }
+        public bool Success { get; set; }
 
         /// <summary>
         /// Gets or sets the state initials.
@@ -37,7 +37,7 @@ namespace CEPAberto.ValueObject
         /// The state initials.
         /// </value>
         [JsonIgnore]
-        public String StateInitials { get; set; }
+        public string StateInitials { get; set; }
 
         /// <summary>
         /// Gets or sets the cities.

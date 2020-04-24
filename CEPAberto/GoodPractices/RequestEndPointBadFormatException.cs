@@ -27,7 +27,7 @@ namespace CEPAberto.GoodPractices
         /// Initializes a new instance of the <see cref="RequestEndPointBadFormatException"/> class.
         /// </summary>
         /// <param name="endpointFormat">The endpoint format.</param>
-        public RequestEndPointBadFormatException(String endpointFormat)
+        public RequestEndPointBadFormatException(string endpointFormat)
             : base($"Unable to resolve the endpoint format {endpointFormat}")
         { }
 

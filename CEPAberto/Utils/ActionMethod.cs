@@ -21,6 +21,6 @@ namespace CEPAberto.Utils
         /// <summary>
         /// The HTTP method GET
         /// </summary>
-        GET
+        Get
     }
 }

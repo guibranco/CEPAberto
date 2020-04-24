@@ -11,11 +11,11 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
+using Newtonsoft.Json;
+
 namespace CEPAberto.ValueObject
 {
-    using Newtonsoft.Json;
-    using System;
-
     /// <summary>
     /// The postal code data class.
     /// This class contains the responde of a request to the API
@@ -29,7 +29,7 @@ namespace CEPAberto.ValueObject
         ///   <c>true</c> if success; otherwise, <c>false</c>.
         /// </value>
         [JsonIgnore]
-        public Boolean Success { get; set; }
+        public bool Success { get; set; }
 
         /// <summary>
         /// Gets or sets the altitude.
@@ -38,7 +38,7 @@ namespace CEPAberto.ValueObject
         /// The altitude.
         /// </value>
         [JsonProperty("altitude")]
-        public Double? Altitude { get; set; }
+        public double? Altitude { get; set; }
 
         /// <summary>
         /// Gets or sets the postal code.
@@ -47,7 +47,7 @@ namespace CEPAberto.ValueObject
         /// The postal code.
         /// </value>
         [JsonProperty("cep")]
-        public String PostalCode { get; set; }
+        public string PostalCode { get; set; }
 
         /// <summary>
         /// Gets or sets the latitude.
@@ -56,7 +56,7 @@ namespace CEPAberto.ValueObject
         /// The latitude.
         /// </value>
         [JsonProperty("latitude")]
-        public String Latitude { get; set; }
+        public string Latitude { get; set; }
 
         /// <summary>
         /// Gets or sets the longitude.
@@ -65,7 +65,7 @@ namespace CEPAberto.ValueObject
         /// The longitude.
         /// </value>
         [JsonProperty("longitude")]
-        public String Longitude { get; set; }
+        public string Longitude { get; set; }
 
         /// <summary>
         /// Gets or sets the street.
@@ -74,7 +74,7 @@ namespace CEPAberto.ValueObject
         /// The street.
         /// </value>
         [JsonProperty("logradouro")]
-        public String Street { get; set; }
+        public string Street { get; set; }
 
         /// <summary>
         /// Gets or sets the neighborhood.
@@ -83,7 +83,7 @@ namespace CEPAberto.ValueObject
         /// The neighborhood.
         /// </value>
         [JsonProperty("bairro")]
-        public String Neighborhood { get; set; }
+        public string Neighborhood { get; set; }
 
         /// <summary>
         /// Gets or sets the city.

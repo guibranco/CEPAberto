@@ -13,7 +13,6 @@
 // ***********************************************************************
 namespace CEPAberto
 {
-    using System;
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
@@ -33,12 +32,12 @@ namespace CEPAberto
         /// <summary>
         /// The token
         /// </summary>
-        private readonly String _token;
+        private readonly string _token;
 
         /// <summary>
         /// The configure await
         /// </summary>
-        private readonly Boolean _configureAwait;
+        private readonly bool _configureAwait;
 
         #endregion
 
@@ -49,7 +48,7 @@ namespace CEPAberto
         /// </summary>
         /// <param name="token">The token.</param>
         /// <param name="configureAwait">if set to <c>true</c> [configure await].</param>
-        public CEPAbertoClient(String token, Boolean configureAwait = true)
+        public CEPAbertoClient(string token, bool configureAwait = true)
         {
             _token = token;
             _configureAwait = configureAwait;
@@ -65,7 +64,7 @@ namespace CEPAberto
         /// </summary>
         /// <param name="postalCode">The postal code.</param>
         /// <returns></returns>
-        public PostalCodeData GetData(String postalCode)
+        public PostalCodeData GetData(string postalCode)
         {
             return GetDataAsync(postalCode, CancellationToken.None).Result;
         }
@@ -76,7 +75,7 @@ namespace CEPAberto
         /// <param name="postalCode">The postal code.</param>
         /// <param name="token">The cancellation token.</param>
         /// <returns></returns>
-        public async Task<PostalCodeData> GetDataAsync(String postalCode, CancellationToken token)
+        public async Task<PostalCodeData> GetDataAsync(string postalCode, CancellationToken token)
         {
             var data = new PostalCodeRequest
             {
@@ -84,7 +83,7 @@ namespace CEPAberto
                 PostalCode = postalCode
             };
             var result = await _service.Get<PostalCodeData, PostalCodeRequest>(data, token).ConfigureAwait(_configureAwait);
-            if (!String.IsNullOrEmpty(result.PostalCode))
+            if (!string.IsNullOrEmpty(result.PostalCode))
                 result.Success = true;
             return result;
         }
@@ -95,7 +94,7 @@ namespace CEPAberto
         /// <param name="latitude">The latitude.</param>
         /// <param name="longitude">The longitude.</param>
         /// <returns></returns>
-        public PostalCodeData GetData(String latitude, String longitude)
+        public PostalCodeData GetData(string latitude, string longitude)
         {
             return GetDataAsync(latitude, longitude, CancellationToken.None).Result;
         }
@@ -107,7 +106,7 @@ namespace CEPAberto
         /// <param name="longitude">The longitude.</param>
         /// <param name="token">The cancellation token.</param>
         /// <returns></returns>
-        public async Task<PostalCodeData> GetDataAsync(String latitude, String longitude, CancellationToken token)
+        public async Task<PostalCodeData> GetDataAsync(string latitude, string longitude, CancellationToken token)
         {
             var data = new NearestRequest
             {
@@ -116,7 +115,7 @@ namespace CEPAberto
                 Longitude = longitude
             };
             var result = await _service.Get<PostalCodeData, NearestRequest>(data, token).ConfigureAwait(_configureAwait);
-            if (!String.IsNullOrEmpty(result.PostalCode))
+            if (!string.IsNullOrEmpty(result.PostalCode))
                 result.Success = true;
             return result;
         }
@@ -129,7 +128,7 @@ namespace CEPAberto
         /// <param name="neighborhood">The neighborhood.</param>
         /// <param name="street">The street.</param>
         /// <returns></returns>
-        public PostalCodeData GetData(String stateInitials, String city, String neighborhood, String street)
+        public PostalCodeData GetData(string stateInitials, string city, string neighborhood, string street)
         {
             return GetDataAsync(stateInitials, city, neighborhood, street, CancellationToken.None).Result;
         }
@@ -143,7 +142,7 @@ namespace CEPAberto
         /// <param name="street">The street.</param>
         /// <param name="token">The cancellation token.</param>
         /// <returns></returns>
-        public async Task<PostalCodeData> GetDataAsync(String stateInitials, String city, String neighborhood, String street, CancellationToken token)
+        public async Task<PostalCodeData> GetDataAsync(string stateInitials, string city, string neighborhood, string street, CancellationToken token)
         {
             var data = new AddressRequest
             {
@@ -154,7 +153,7 @@ namespace CEPAberto
                 Street = street
             };
             var result = await _service.Get<PostalCodeData, AddressRequest>(data, token).ConfigureAwait(_configureAwait);
-            if (!String.IsNullOrEmpty(result.PostalCode))
+            if (!string.IsNullOrEmpty(result.PostalCode))
                 result.Success = true;
             return result;
         }
@@ -164,7 +163,7 @@ namespace CEPAberto
         /// </summary>
         /// <param name="stateInitials">The state initials.</param>
         /// <returns></returns>
-        public CitiesData GetCities(String stateInitials)
+        public CitiesData GetCities(string stateInitials)
         {
             return GetCitiesAsync(stateInitials, CancellationToken.None).Result;
         }
@@ -175,7 +174,7 @@ namespace CEPAberto
         /// <param name="stateInitials">The state initials.</param>
         /// <param name="token">The cancellation token.</param>
         /// <returns></returns>
-        public async Task<CitiesData> GetCitiesAsync(String stateInitials, CancellationToken token)
+        public async Task<CitiesData> GetCitiesAsync(string stateInitials, CancellationToken token)
         {
             var data = new CitiesRequest
             {

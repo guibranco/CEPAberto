@@ -14,7 +14,6 @@
 namespace CEPAberto.Transport
 {
     using Attributes;
-    using System;
 
     /// <summary>
     /// The nearest request class.
@@ -29,7 +28,7 @@ namespace CEPAberto.Transport
         /// <value>
         /// The latitude.
         /// </value>
-        public String Latitude { get; set; }
+        public string Latitude { get; set; }
 
         /// <summary>
         /// Gets or sets the longitude.
@@ -37,7 +36,7 @@ namespace CEPAberto.Transport
         /// <value>
         /// The longitude.
         /// </value>
-        public String Longitude { get; set; }
+        public string Longitude { get; set; }
 
     }
 }

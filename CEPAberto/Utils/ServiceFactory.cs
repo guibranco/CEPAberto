@@ -28,12 +28,12 @@ namespace CEPAberto.Utils
         /// <summary>
         /// The service end point
         /// </summary>
-        private const String ServiceEndPoint = "http://www.cepaberto.com/api/v3/";
+        private const string ServiceEndPoint = "https://www.cepaberto.com/api/v3/";
 
         /// <summary>
         /// The configure await flag.
         /// </summary>
-        private readonly Boolean _configureAwait;
+        private readonly bool _configureAwait;
 
         #endregion
 
@@ -43,7 +43,7 @@ namespace CEPAberto.Utils
         /// Initializes a new instance of the <see cref="ServiceFactory"/> class.
         /// </summary>
         /// <param name="configureAwait">if set to <c>true</c> [configure await].</param>
-        public ServiceFactory(Boolean configureAwait = false)
+        public ServiceFactory(bool configureAwait = false)
         {
             _configureAwait = configureAwait;
         }
@@ -69,16 +69,16 @@ namespace CEPAberto.Utils
                 client.DefaultRequestHeaders.ExpectContinue = false;
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                if (!String.IsNullOrEmpty(requestObject.Token))
-                    client.DefaultRequestHeaders.Add("Authorization", String.Concat("Token token=", requestObject.Token));
-                var endpoint = String.Concat(requestObject.GetRequestEndPoint(),
+                if (!string.IsNullOrEmpty(requestObject.Token))
+                    client.DefaultRequestHeaders.Add("Authorization", string.Concat("Token token=", requestObject.Token));
+                var endpoint = string.Concat(requestObject.GetRequestEndPoint(),
                                              requestObject.GetRequestAdditionalParameter(method));
                 try
                 {
                     HttpResponseMessage response;
                     switch (method)
                     {
-                        case ActionMethod.GET:
+                        case ActionMethod.Get:
                             response = await client.GetAsync(endpoint, cancellationToken).ConfigureAwait(_configureAwait);
                             break;
                         default:
@@ -107,7 +107,7 @@ namespace CEPAberto.Utils
         /// <returns>Task&lt;TOut&gt;.</returns>
         public async Task<TOut> Get<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : BaseRequest
         {
-            return await Execute<TOut, TIn>(ActionMethod.GET, requestObject, token).ConfigureAwait(_configureAwait);
+            return await Execute<TOut, TIn>(ActionMethod.Get, requestObject, token).ConfigureAwait(_configureAwait);
         }
 
         #endregion
