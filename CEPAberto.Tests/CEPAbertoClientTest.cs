@@ -11,6 +11,9 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
+using System.Threading;
+
 namespace CEPAberto.Tests
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -45,6 +48,7 @@ namespace CEPAberto.Tests
         [TestMethod]
         public void TestSearchCep()
         {
+            Thread.Sleep(1000);
             var result = _client.GetData("40010000");
             Assert.IsTrue(result.Success);
             Assert.AreEqual(7, result.Altitude);
@@ -68,6 +72,7 @@ namespace CEPAberto.Tests
         [TestMethod]
         public void TestSearchNearest()
         {
+            Thread.Sleep(1000);
             var result = _client.GetData("-20.55", "-43.63");
             Assert.IsTrue(result.Success);
             Assert.AreEqual(1072.4, result.Altitude);
@@ -116,6 +121,7 @@ namespace CEPAberto.Tests
         [TestMethod]
         public void TestSearchCities()
         {
+            Thread.Sleep(1000);
             var result = _client.GetCities("AM");
             Assert.IsTrue(result.Success);
             Assert.AreEqual("Agrovila São Sebastião do Caburi (Parintins)", result.Cities.First().Name);
