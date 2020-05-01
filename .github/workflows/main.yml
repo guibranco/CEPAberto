@@ -17,7 +17,7 @@ jobs:
         id: run_webhook
         with:
           route: POST https://ci.appveyor.com/api/builds
-          headers: "{authorization: 'Bearer :APP_VEYOR'}"
+          headers: "{'authorization': 'Bearer :app_veyor'}"
           body: "{'accountName': 'guibranco','projectSlug': 'cepaberto','branch': 'master' }"
           APP_VEYOR: ${{secrets.APP_VEYOR}} 
         env:
