@@ -17,9 +17,11 @@ jobs:
         id: run_webhook
         with:
           route: POST https://ci.appveyor.com/api/builds
-          headers: "{'authorization': 'Bearer :app_veyor'}"
-          body: "{'accountName': 'guibranco','projectSlug': 'cepaberto','branch': 'master' }"
-          APP_VEYOR: ${{secrets.APP_VEYOR}} 
+          authorization: Bearer :app_veyor
+          accountName: guibranco
+          projectSlug: cepaberto
+          branch: master
+          app_veyor: ${{secrets.APP_VEYOR}} 
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - run: "echo latest release: ${{ steps.run_webhook.outputs.data }}"  
