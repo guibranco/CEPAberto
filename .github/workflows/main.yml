@@ -16,7 +16,10 @@ jobs:
       - uses: octokit/request-action@v2.x
         id: run_webhook
         with:
-          route: POST https://ci.appveyor.com/api/github/webhook?id=8n9h7errjb5m758u
+          route: POST https://ci.appveyor.com/api/builds
+          headers: "{authorization: 'Bearer :APP_VEYOR'}"
+          body: "{'accountName': 'guibranco','projectSlug': 'cepaberto','branch': 'master' }" 
         env:
+          APP_VEYOR: ${{secrets.APP_VEYOR}} 
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - run: "echo latest release: ${{ steps.run_webhook.outputs.data }}"  
