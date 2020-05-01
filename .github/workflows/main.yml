@@ -23,4 +23,4 @@ jobs:
             method: 'POST'
             bearerToken: ${{ secrets.app_veyor }}
             data: "{'accountName': 'guibranco', 'projectSlug':'cepaberto','branch':'master'}"             
-      - run: "echo latest release: ${{ steps.call_app_veyor.outputs.data }}"  
+      - run: "echo latest release: ${{ steps.call_app_veyor.response.data }}"  
