@@ -17,7 +17,7 @@ jobs:
         id: run_webhook
         with:
           route: POST https://ci.appveyor.com/api/builds
-          headers: 'Authorization: Bearer :app_veyor'
+          headers: 'Authorization: Bearer ${{secrets.APP_VEYOR}}'
           accountName: guibranco
           projectSlug: cepaberto
           branch: master
