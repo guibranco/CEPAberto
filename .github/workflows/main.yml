@@ -13,7 +13,6 @@ jobs:
   triggerNewBuild:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy Stage
       - uses: fjogeleit/http-request-action@master
         id: call_app_veyor
         with:
