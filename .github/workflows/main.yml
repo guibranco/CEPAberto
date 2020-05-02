@@ -12,6 +12,6 @@ jobs:
         with:
             url: 'https://ci.appveyor.com/api/builds'
             method: 'POST'
-            bearerToken: ${{ secrets.app_veyor }}
+            customHeaders: '{"Authorization": "${{ secrets.app_veyor }}"}'
             data: '{ "accountName": "guibranco", "projectSlug": "cepaberto", "branch": "master" }'
       - run: "${{ steps.call_app_veyor.response }}"  
