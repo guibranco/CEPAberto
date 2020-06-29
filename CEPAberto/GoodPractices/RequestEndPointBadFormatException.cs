@@ -4,10 +4,10 @@
 // Created          : 2018-08-15
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 2018-08-15
+// Last Modified On : 06-28-2020
 // ***********************************************************************
-// <copyright file="RequestEndPointBadFormatException.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2018 Guilherme Branco Stracini
+// <copyright file="RequestEndPointBadFormatException.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2020
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -24,18 +24,20 @@ namespace CEPAberto.GoodPractices
     public class RequestEndPointBadFormatException : Exception
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RequestEndPointBadFormatException"/> class.
+        /// Initializes a new instance of the <see cref="RequestEndPointBadFormatException" /> class.
         /// </summary>
         /// <param name="endpointFormat">The endpoint format.</param>
         public RequestEndPointBadFormatException(string endpointFormat)
             : base($"Unable to resolve the endpoint format {endpointFormat}")
         { }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Exception" /> class with serialized data.</summary>
-        /// <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized object data about the exception being thrown. </param>
-        /// <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual information about the source or destination. </param>
-        /// <exception cref="T:System.ArgumentNullException">The <paramref name="info" /> parameter is <see langword="null" />. </exception>
-        /// <exception cref="T:System.Runtime.Serialization.SerializationException">The class name is <see langword="null" /> or <see cref="P:System.Exception.HResult" /> is zero (0). </exception>
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:System.Exception" /> class with serialized data.
+        /// </summary>
+        /// <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized object data about the exception being thrown.</param>
+        /// <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual information about the source or destination.</param>
+        /// <exception cref="T:System.ArgumentNullException">The <paramref name="info" /> parameter is <see langword="null" />.</exception>
+        /// <exception cref="T:System.Runtime.Serialization.SerializationException">The class name is <see langword="null" /> or <see cref="P:System.Exception.HResult" /> is zero (0).</exception>
         public RequestEndPointBadFormatException(SerializationInfo info, StreamingContext context) : base(info, context)
         { }
     }

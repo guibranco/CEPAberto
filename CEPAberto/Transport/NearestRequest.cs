@@ -4,10 +4,10 @@
 // Created          : 2018-08-15
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 2018-08-15
+// Last Modified On : 06-28-2020
 // ***********************************************************************
-// <copyright file="NearestRequest.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2018 Guilherme Branco Stracini
+// <copyright file="NearestRequest.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2020
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -25,17 +25,13 @@ namespace CEPAberto.Transport
         /// <summary>
         /// Gets or sets the latitude.
         /// </summary>
-        /// <value>
-        /// The latitude.
-        /// </value>
+        /// <value>The latitude.</value>
         public string Latitude { get; set; }
 
         /// <summary>
         /// Gets or sets the longitude.
         /// </summary>
-        /// <value>
-        /// The longitude.
-        /// </value>
+        /// <value>The longitude.</value>
         public string Longitude { get; set; }
 
     }

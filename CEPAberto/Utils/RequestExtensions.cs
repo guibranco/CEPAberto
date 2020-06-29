@@ -4,15 +4,18 @@
 // Created          : 2018-08-15
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 2018-08-16
+// Last Modified On : 06-28-2020
 // ***********************************************************************
-// <copyright file="RequestExtensions.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2018 Guilherme Branco Stracini
+// <copyright file="RequestExtensions.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2020
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
+using System.Globalization;
 
 namespace CEPAberto.Utils
 {
@@ -33,7 +36,7 @@ namespace CEPAberto.Utils
         /// Gets the request end point attribute.
         /// </summary>
         /// <param name="request">The request.</param>
-        /// <returns></returns>
+        /// <returns>RequestEndPointAttribute.</returns>
         public static RequestEndPointAttribute GetRequestEndPointAttribute(this BaseRequest request)
         {
             if (!(request.GetType().GetCustomAttributes(typeof(RequestEndPointAttribute), false) is RequestEndPointAttribute[]
@@ -48,6 +51,8 @@ namespace CEPAberto.Utils
         /// </summary>
         /// <param name="request">The request.</param>
         /// <returns>String.</returns>
+        /// <exception cref="CEPAberto.GoodPractices.RequestEndPointBadFormatException"></exception>
+        /// <exception cref="CEPAberto.GoodPractices.InvalidRequestEndPointException"></exception>
         /// <exception cref="RequestEndPointBadFormatException"></exception>
         /// <exception cref="InvalidRequestEndPointException"></exception>
         public static string GetRequestEndPoint(this BaseRequest request)
@@ -62,7 +67,7 @@ namespace CEPAberto.Utils
             if (!regex.IsMatch(endpoint))
                 return endpoint;
             var used = 0;
-            var skiped = 0;
+            var skipped = 0;
             var counter = 0;
             foreach (Match match in regex.Matches(endpoint))
             {
@@ -81,14 +86,14 @@ namespace CEPAberto.Utils
                 {
                     var defaultValue = string.Empty;
                     endpoint = endpoint.Replace(match.Value, defaultValue);
-                    if (skiped == 0 && defaultValue == string.Empty)
-                        skiped = counter;
+                    if (skipped == 0 && defaultValue == string.Empty)
+                        skipped = counter;
                     continue;
                 }
                 used = counter;
                 endpoint = endpoint.Replace(match.Groups["pattern"].Value, propertyValue.ToString());
             }
-            if (skiped != 0 && skiped < used)
+            if (skipped != 0 && skipped < used)
                 throw new InvalidRequestEndPointException(originalEndpoint, endpoint);
             return endpoint.Trim('/');
         }
@@ -128,6 +133,55 @@ namespace CEPAberto.Utils
                     builder.AppendFormat("{0}", addAsQueryString ? $"&{propertyName}=" : string.Empty).Append(propertyValue);
             }
             return builder.ToString();
+        }
+
+        /// <summary>
+        /// Converts to key value.
+        /// </summary>
+        /// <param name="metaToken">The meta token.</param>
+        /// <returns>IDictionary&lt;System.String, System.String&gt;.</returns>
+        public static IDictionary<string, string> ToKeyValue(this object metaToken)
+        {
+            while (true)
+            {
+                if (metaToken == null)
+                {
+                    return null;
+                }
+
+                JToken token = metaToken as JToken;
+                if (token == null)
+                {
+                    metaToken = JObject.FromObject(metaToken);
+                    continue;
+                }
+
+                if (token.HasValues)
+                {
+                    var contentData = new Dictionary<string, string>();
+                    foreach (var child in token.Children().ToList())
+                    {
+                        var childContent = child.ToKeyValue();
+                        if (childContent != null)
+                        {
+                            contentData = contentData.Concat(childContent)
+                                .ToDictionary(k => k.Key, v => v.Value);
+                        }
+                    }
+
+                    return contentData;
+                }
+
+                var jValue = token as JValue;
+                if (jValue?.Value == null)
+                {
+                    return null;
+                }
+
+                var value = jValue.Type == JTokenType.Date ? jValue.ToString("o", CultureInfo.InvariantCulture) : jValue.ToString(CultureInfo.InvariantCulture);
+
+                return new Dictionary<string, string> { { token.Path, value } };
+            }
         }
     }
 }
