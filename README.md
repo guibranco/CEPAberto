@@ -40,6 +40,7 @@ This client supports the following operations/features of the API V3:
  2. Get data of a nearest geo location (lat/lon) (Max of 10km).
  3. Get data based on state initials (UF), city, neighborhood and street/address.
  4. Get list of cities of a state based on state initials.
+ 5. Update the postal code (CEP).
 
  ---
 
@@ -120,5 +121,20 @@ var result = client.GetCities("AM");
 if(result.Success)
     foreach(var city in result.Cities)
         Console.WriteLine("Found city {0} in Amazonas (AM)", city.Name);
+
+```
+
+## Update the postal code (CEP)
+
+Request an update on postal codes that may be outdated or not registered.
+Accepts upon 100 postal codes (CEP)
+
+```cs
+
+var client = new CEPAbertoClient("my API key");
+var result = client.Update("03177010");
+
+if(result.Success)
+    Console.WriteLine("Success on request update on postal code 03177-010");
 
 ```

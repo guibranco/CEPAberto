@@ -1,4 +1,4 @@
-version: 1.0.{build}
+version: 2.0.{build}
 skip_tags: true
 image: Visual Studio 2017
 configuration: Release
@@ -26,8 +26,12 @@ artifacts:
   name: ZipFile
 deploy:
 - provider: Environment
+  on:
+   branch: master
   name: NuGet
 - provider: GitHub
+  on:
+   branch: master
   tag: $(appveyor_build_version)
   auth_token:
     secure: VgYYJdvNLy/n9/uxxlaF0bMpIIrVxCb+dGr66U9nWfPWSN2ySdfuilO8klAw0uvF

@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CEPAberto</RootNamespace>
     <AssemblyName>CEPAberto</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,9 +58,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transport\AddressRequest.cs" />
     <Compile Include="Transport\BaseRequest.cs" />
+    <Compile Include="Transport\BaseResponse.cs" />
     <Compile Include="Transport\CitiesRequest.cs" />
+    <Compile Include="Transport\UpdateRequest.cs" />
     <Compile Include="Transport\NearestRequest.cs" />
     <Compile Include="Transport\PostalCodeRequest.cs" />
+    <Compile Include="Transport\UpdateResponse.cs" />
     <Compile Include="Utils\ActionMethod.cs" />
     <Compile Include="Utils\RequestExtensions.cs" />
     <Compile Include="Utils\ServiceFactory.cs" />
@@ -67,6 +71,7 @@
     <Compile Include="ValueObject\City.cs" />
     <Compile Include="ValueObject\PostalCodeData.cs" />
     <Compile Include="ValueObject\State.cs" />
+    <Compile Include="ValueObject\UpdateData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

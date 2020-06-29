@@ -1,24 +1,25 @@
 ﻿// ***********************************************************************
 // Assembly         : CEPAberto.Tests
 // Author           : Guilherme Branco Stracini
-// Created          : 2018-08-15
+// Created          : 15-08-2018
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 2018-08-16
+// Last Modified On : 06-28-2020
 // ***********************************************************************
-// <copyright file="CEPAbertoClientTest.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2018 Guilherme Branco Stracini
+// <copyright file="CEPAbertoClientTest.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2020
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 using System.Threading;
 
 namespace CEPAberto.Tests
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System.Linq;
-
+    /// <summary>
+    /// Defines test class CEPAbertoClientTest.
+    /// </summary>
     [TestClass]
     public class CEPAbertoClientTest
     {
@@ -33,9 +34,8 @@ namespace CEPAberto.Tests
         private CEPAbertoClient _client;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:System.Object" /> class.
+        /// Tests the initialize.
         /// </summary>
-        /// <returns></returns>
         [TestInitialize]
         public void TestInitialize()
         {
@@ -43,14 +43,17 @@ namespace CEPAberto.Tests
         }
 
         /// <summary>
-        /// Tests the search cep.
+        /// Defines the test method TestSearchCep.
         /// </summary>
         [TestMethod]
         public void TestSearchCep()
         {
             Thread.Sleep(1000);
+
             var result = _client.GetData("40010000");
+
             Assert.IsTrue(result.Success);
+
             Assert.AreEqual(7, result.Altitude);
             Assert.AreEqual("40010000", result.PostalCode);
             Assert.AreEqual("-12.967192", result.Latitude);
@@ -67,14 +70,17 @@ namespace CEPAberto.Tests
         }
 
         /// <summary>
-        /// Tests the search nearest.
+        /// Defines the test method TestSearchNearest.
         /// </summary>
         [TestMethod]
         public void TestSearchNearest()
         {
             Thread.Sleep(1000);
+
             var result = _client.GetData("-20.55", "-43.63");
+
             Assert.IsTrue(result.Success);
+
             Assert.AreEqual(1072.4, result.Altitude);
             Assert.AreEqual("36420000", result.PostalCode);
             Assert.AreEqual("-20.5236387", result.Latitude);
@@ -90,41 +96,76 @@ namespace CEPAberto.Tests
         }
 
         /// <summary>
-        /// Tests the search full adddress.
+        /// Defines the test method TestSearchFullAddress.
         /// </summary>
         [TestMethod]
-        public void TestSearchFullAdddress()
+        public void TestSearchFullAddress()
         {
-            //var result = _client.GetData("SP", "Ubatuba", string.Empty, string.Empty);
 
-            //remover após o CEP Aberto passar a responder corretamente!
-            Assert.IsTrue(true);
-            //Assert.IsTrue(result.Success);
-            //Assert.AreEqual(4.8, result.Altitude);
-            //Assert.AreEqual("11680000", result.PostalCode);
-            //Assert.AreEqual("-23.4336578", result.Latitude);
-            //Assert.AreEqual("-45.0838481", result.Longitude);
-            //Assert.AreEqual("Ubatuba", result.Street);
-            //Assert.IsTrue(string.IsNullOrWhiteSpace(result.Neighborhood));
-            //Assert.IsTrue(result.City.AreaCode.HasValue);
-            //Assert.AreEqual(12, result.City.AreaCode);
-            //Assert.IsTrue(result.City.FiscalCode.HasValue);
-            //Assert.AreEqual(3555406, result.City.FiscalCode);
-            //Assert.AreEqual("Ubatuba", result.City.Name);
-            //Assert.AreEqual("SP", result.State.Initials);
+            Thread.Sleep(1000);
+
+            var result = _client.GetData("SP", "Ubatuba", string.Empty, string.Empty);
+
+
+            Assert.IsTrue(result.Success);
+
+            Assert.AreEqual(4.8, result.Altitude);
+            Assert.AreEqual("11680000", result.PostalCode);
+            Assert.AreEqual("-23.4336578", result.Latitude);
+            Assert.AreEqual("-45.0838481", result.Longitude);
+            Assert.IsNull(result.Street);
+            Assert.IsNull(result.Neighborhood);
+            Assert.IsTrue(result.City.AreaCode.HasValue);
+            Assert.AreEqual(12, result.City.AreaCode);
+            Assert.IsTrue(result.City.FiscalCode.HasValue);
+            Assert.AreEqual(3555406, result.City.FiscalCode);
+            Assert.AreEqual("Ubatuba", result.City.Name);
+            Assert.AreEqual("SP", result.State.Initials);
         }
 
 
         /// <summary>
-        /// Tests the search cities.
+        /// Defines the test method TestSearchCities.
         /// </summary>
         [TestMethod]
         public void TestSearchCities()
         {
             Thread.Sleep(1000);
+
             var result = _client.GetCities("AM");
+
             Assert.IsTrue(result.Success);
+
             Assert.AreEqual("Agrovila São Sebastião do Caburi (Parintins)", result.Cities.First().Name);
         }
+
+        /// <summary>
+        /// Defines the test method TestUpdate.
+        /// </summary>
+        [TestMethod]
+        public void TestUpdate()
+        {
+            Thread.Sleep(1000);
+
+            var postalCodeList = new[] { "03177010", "36420000" };
+
+            var result = _client.Update(postalCodeList);
+
+            Assert.IsTrue(result.Success);
+
+        }
+
+        [TestMethod]
+        public void TestUpdateWrongData()
+        {
+            Thread.Sleep(1000);
+
+            var postalCodeLIst = new[] { "03177010", "0012" };
+
+            var result = _client.Update(postalCodeLIst);
+
+            Assert.IsFalse(result.Success);
+        }
+
     }
 }

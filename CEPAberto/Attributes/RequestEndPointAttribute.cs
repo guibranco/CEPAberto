@@ -4,10 +4,10 @@
 // Created          : 2018-08-15
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 2018-08-15
+// Last Modified On : 06-28-2020
 // ***********************************************************************
-// <copyright file="RequestEndPointAttribute.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2018 Guilherme Branco Stracini
+// <copyright file="RequestEndPointAttribute.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2020
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -26,7 +26,7 @@ namespace CEPAberto.Attributes
         #region ~Ctor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RequestEndPointAttribute"/> class.
+        /// Initializes a new instance of the <see cref="RequestEndPointAttribute" /> class.
         /// </summary>
         /// <param name="endPoint">The end point path of the request.</param>
         public RequestEndPointAttribute(string endPoint)
