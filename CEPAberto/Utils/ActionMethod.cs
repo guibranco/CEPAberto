@@ -1,13 +1,13 @@
 ﻿// ***********************************************************************
 // Assembly         : CEPAberto
 // Author           : Guilherme Branco Stracini
-// Created          : 2018-08-15
+// Created          : 15-08-2018
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 2018-08-15
+// Last Modified On : 06-28-2020
 // ***********************************************************************
-// <copyright file="ActionMethod.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2018 Guilherme Branco Stracini
+// <copyright file="ActionMethod.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2020
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -21,6 +21,11 @@ namespace CEPAberto.Utils
         /// <summary>
         /// The HTTP method GET
         /// </summary>
-        Get
+        Get,
+
+        /// <summary>
+        /// The HTTP method post
+        /// </summary>
+        Post
     }
 }

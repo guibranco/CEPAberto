@@ -1,16 +1,17 @@
 ﻿// ***********************************************************************
-// Assembly         : GuiStracini.Mandae
+// Assembly         : CEPAberto.Tests
 // Author           : Guilherme Branco Stracini
-// Created          : 2018-08-16
+// Created          : 16-08-2018
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 2018-08-16
+// Last Modified On : 06-28-2020
 // ***********************************************************************
-// <copyright file="RequestExtensionsTests" company="Guilherme Branco Stracini">
-//     Copyright © 2018 Guilherme Branco Stracini
+// <copyright file="RequestExtensionsTest.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2020
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 namespace CEPAberto.Tests
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -18,13 +19,13 @@ namespace CEPAberto.Tests
     using Utils;
 
     /// <summary>
-    /// The request helpers test class
+    /// Defines test class RequestHelpersTest.
     /// </summary>
     [TestClass]
     public class RequestHelpersTest
     {
         /// <summary>
-        /// Validates the request end point.
+        /// Defines the test method RequestEndPoint.
         /// </summary>
         [TestMethod]
         public void RequestEndPoint()
@@ -39,7 +40,7 @@ namespace CEPAberto.Tests
         }
 
         /// <summary>
-        /// Validates the request end point with multiple parameters.
+        /// Defines the test method RequestEndPointWithMultipleParameters.
         /// </summary>
         [TestMethod]
         public void RequestEndPointWithMultipleParameters()
@@ -55,7 +56,7 @@ namespace CEPAberto.Tests
         }
 
         /// <summary>
-        /// Validates the request end point with null values.
+        /// Defines the test method RequestEndPointWithNullValues.
         /// </summary>
         [TestMethod]
         public void RequestEndPointWithNullValues()
@@ -69,9 +70,8 @@ namespace CEPAberto.Tests
             Assert.AreEqual(string.Empty, result, "The endpoint was not resolves as expected");
         }
 
-
         /// <summary>
-        /// Validates the request additional parameter as query string.
+        /// Defines the test method RequestAdditionalParameterAsQueryString.
         /// </summary>
         [TestMethod]
         public void RequestAdditionalParameterAsQueryString()

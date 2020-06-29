@@ -4,10 +4,10 @@
 // Created          : 2018-08-15
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 2018-08-16
+// Last Modified On : 06-28-2020
 // ***********************************************************************
-// <copyright file="AddressRequest.cs" company="Guilherme Branco Stracini">
-//     Copyright © 2018 Guilherme Branco Stracini
+// <copyright file="AddressRequest.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2020
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -29,25 +29,19 @@ namespace CEPAberto.Transport
         /// <summary>
         /// Gets or sets the state initials.
         /// </summary>
-        /// <value>
-        /// The state initials.
-        /// </value>
+        /// <value>The state initials.</value>
         public string StateInitials { get; set; }
 
         /// <summary>
         /// Gets or sets the city.
         /// </summary>
-        /// <value>
-        /// The city.
-        /// </value>
+        /// <value>The city.</value>
         public string City { get; set; }
 
         /// <summary>
         /// Gets or sets the neighborhood.
         /// </summary>
-        /// <value>
-        /// The neighborhood.
-        /// </value>
+        /// <value>The neighborhood.</value>
         [RequestAdditionalParameter(ActionMethod.Get, true)]
         [JsonProperty("bairro")]
         public string Neighborhood { get; set; }
@@ -55,9 +49,7 @@ namespace CEPAberto.Transport
         /// <summary>
         /// Gets or sets the street.
         /// </summary>
-        /// <value>
-        /// The street.
-        /// </value>
+        /// <value>The street.</value>
         [RequestAdditionalParameter(ActionMethod.Get, true)]
         [JsonProperty("logradouro")]
         public string Street { get; set; }

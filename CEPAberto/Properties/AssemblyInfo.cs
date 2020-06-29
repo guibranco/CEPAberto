@@ -1,11 +1,24 @@
-﻿using System.Reflection;
+﻿// ***********************************************************************
+// Assembly         : CEPAberto
+// Author           : Guilherme Branco Stracini
+// Created          : 06-28-2020
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 06-28-2020
+// ***********************************************************************
+// <copyright file="AssemblyInfo.cs" company="Guilherme Branco Stracini ME">
+//     Copyright © 2020
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System.Reflection;
 using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("CEPAberto")]
 [assembly: AssemblyDescription("Provides a simple implementation of the CEP Aberto REST API in C#/.NET")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Guilherme Branco Stracini")]
 [assembly: AssemblyProduct("CEPAberto")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyCopyright("Copyright © 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
