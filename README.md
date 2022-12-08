@@ -9,7 +9,7 @@ Fully tested!
 [![GitHub last release](https://img.shields.io/github/release-date/guibranco/CEPAberto.svg?style=flat)](https://github.com/guibranco/CEPAbertot)
 [![GitHub license](https://img.shields.io/github/license/guibranco/CEPAberto)](https://github.com/guibranco/CEPAberto)
 [![time tracker](https://wakatime.com/badge/github/guibranco/CEPAberto.svg)](https://wakatime.com/badge/github/guibranco/CEPAberto)
-![Trigger AppVeyor](https://github.com/guibranco/CEPAberto/workflows/Trigger%20AppVeyor/badge.svg)
+
 ---
 
 ## Installation
