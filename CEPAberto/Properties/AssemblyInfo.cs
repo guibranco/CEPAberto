@@ -4,10 +4,10 @@
 // Created          : 06-28-2020
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 06-28-2020
+// Last Modified On : 01-10-2023
 // ***********************************************************************
 // <copyright file="AssemblyInfo.cs" company="Guilherme Branco Stracini ME">
-//     Copyright © 2020
+//     Copyright © 2023
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -18,7 +18,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Guilherme Branco Stracini")]
 [assembly: AssemblyProduct("CEPAberto")]
-[assembly: AssemblyCopyright("Copyright © 2020")]
+[assembly: AssemblyCopyright("Copyright © 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]

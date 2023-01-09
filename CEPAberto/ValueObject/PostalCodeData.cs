@@ -4,18 +4,18 @@
 // Created          : 2018-08-15
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 06-28-2020
+// Last Modified On : 01-10-2023
 // ***********************************************************************
 // <copyright file="PostalCodeData.cs" company="Guilherme Branco Stracini ME">
-//     Copyright © 2020
+//     Copyright © 2023
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 
-using Newtonsoft.Json;
-
 namespace CEPAberto.ValueObject
 {
+    using Newtonsoft.Json;
+
     /// <summary>
     /// The postal code data class.
     /// This class contains the response of a request to the API

@@ -4,28 +4,27 @@
 // Created          : 2018-08-15
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 06-28-2020
+// Last Modified On : 01-10-2023
 // ***********************************************************************
 // <copyright file="RequestExtensions.cs" company="Guilherme Branco Stracini ME">
-//     Copyright © 2020
+//     Copyright © 2023
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
-using System.Globalization;
-
 namespace CEPAberto.Utils
 {
-    using Attributes;
-    using GoodPractices;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using CEPAberto.Attributes;
+    using CEPAberto.GoodPractices;
     using System;
     using System.Linq;
     using System.Text;
     using System.Text.RegularExpressions;
-    using Transport;
+    using CEPAberto.Transport;
 
     /// <summary>
     /// Class Extensions.
@@ -149,7 +148,7 @@ namespace CEPAberto.Utils
                     return null;
                 }
 
-                JToken token = metaToken as JToken;
+                var token = metaToken as JToken;
                 if (token == null)
                 {
                     metaToken = JObject.FromObject(metaToken);

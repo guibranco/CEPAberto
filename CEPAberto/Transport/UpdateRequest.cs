@@ -4,19 +4,19 @@
 // Created          : 06-28-2020
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 06-28-2020
+// Last Modified On : 01-10-2023
 // ***********************************************************************
 // <copyright file="UpdateRequest.cs" company="Guilherme Branco Stracini ME">
-//     Copyright © 2020
+//     Copyright © 2023
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 
-using CEPAberto.Attributes;
-using Newtonsoft.Json;
-
 namespace CEPAberto.Transport
 {
+    using CEPAberto.Attributes;
+    using Newtonsoft.Json;
+
     /// <summary>
     /// Class UpdateRequest. This class cannot be inherited.
     /// </summary>

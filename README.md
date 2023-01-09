@@ -4,8 +4,8 @@
 Implements all V3 features
 Fully tested!
 
-[![Build status](https://ci.appveyor.com/api/projects/status/l9cuqk1s1gdppqpn?svg=true)](https://ci.appveyor.com/project/guibranco/cepaberto)
-[![GitHub last commit](https://img.shields.io/github/last-commit/guibranco/CEPAberto)](https://github.com/guibranco/CEPAberto)
+[![Build status](https://ci.appveyor.com/api/projects/status/l9cuqk1s1gdppqpn/branch/master?svg=true)](https://ci.appveyor.com/project/guibranco/cepaberto/branch/master)
+[![GitHub last commit](https://img.shields.io/github/last-commit/guibranco/CEPAberto/master)](https://github.com/guibranco/CEPAberto)
 [![GitHub last release](https://img.shields.io/github/release-date/guibranco/CEPAberto.svg?style=flat)](https://github.com/guibranco/CEPAbertot)
 [![GitHub license](https://img.shields.io/github/license/guibranco/CEPAberto)](https://github.com/guibranco/CEPAberto)
 [![time tracker](https://wakatime.com/badge/github/guibranco/CEPAberto.svg)](https://wakatime.com/badge/github/guibranco/CEPAberto)

@@ -4,10 +4,10 @@
 // Created          : 2018-08-15
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 06-28-2020
+// Last Modified On : 01-10-2023
 // ***********************************************************************
 // <copyright file="CEPAbertoClient.cs" company="Guilherme Branco Stracini ME">
-//     Copyright © 2020
+//     Copyright © 2023
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -75,6 +75,17 @@ namespace CEPAberto
         }
 
         /// <summary>
+        /// Gets the data.
+        /// </summary>
+        /// <param name="latitude">The latitude.</param>
+        /// <param name="longitude">The longitude.</param>
+        /// <returns>PostalCodeData.</returns>
+        public PostalCodeData GetData(string latitude, string longitude)
+        {
+            return GetDataAsync(latitude, longitude, CancellationToken.None).Result;
+        }
+
+        /// <summary>
         /// Gets the data asynchronous.
         /// </summary>
         /// <param name="postalCode">The postal code.</param>
@@ -94,17 +105,6 @@ namespace CEPAberto
                 result.Success = true;
 
             return result;
-        }
-
-        /// <summary>
-        /// Gets the data.
-        /// </summary>
-        /// <param name="latitude">The latitude.</param>
-        /// <param name="longitude">The longitude.</param>
-        /// <returns>PostalCodeData.</returns>
-        public PostalCodeData GetData(string latitude, string longitude)
-        {
-            return GetDataAsync(latitude, longitude, CancellationToken.None).Result;
         }
 
         /// <summary>
