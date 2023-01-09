@@ -26,7 +26,7 @@ namespace CEPAberto.Tests
         /// <summary>
         /// The token
         /// </summary>
-        private const string Token = "97bd98aa2ab0bab41140a06a7f7742a4";
+        private const string _token = "97bd98aa2ab0bab41140a06a7f7742a4";
 
         /// <summary>
         /// The client
@@ -39,7 +39,7 @@ namespace CEPAberto.Tests
         [TestInitialize]
         public void TestInitialize()
         {
-            _client = new CEPAbertoClient(Token);
+            _client = new CEPAbertoClient(_token);
         }
 
         /// <summary>

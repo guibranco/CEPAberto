@@ -75,6 +75,17 @@ namespace CEPAberto
         }
 
         /// <summary>
+        /// Gets the data.
+        /// </summary>
+        /// <param name="latitude">The latitude.</param>
+        /// <param name="longitude">The longitude.</param>
+        /// <returns>PostalCodeData.</returns>
+        public PostalCodeData GetData(string latitude, string longitude)
+        {
+            return GetDataAsync(latitude, longitude, CancellationToken.None).Result;
+        }
+
+        /// <summary>
         /// Gets the data asynchronous.
         /// </summary>
         /// <param name="postalCode">The postal code.</param>
@@ -94,17 +105,6 @@ namespace CEPAberto
                 result.Success = true;
 
             return result;
-        }
-
-        /// <summary>
-        /// Gets the data.
-        /// </summary>
-        /// <param name="latitude">The latitude.</param>
-        /// <param name="longitude">The longitude.</param>
-        /// <returns>PostalCodeData.</returns>
-        public PostalCodeData GetData(string latitude, string longitude)
-        {
-            return GetDataAsync(latitude, longitude, CancellationToken.None).Result;
         }
 
         /// <summary>

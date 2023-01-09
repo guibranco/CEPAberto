@@ -67,7 +67,7 @@ namespace CEPAberto.Utils
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>Returns the response as <typeparamref name="TOut" /></returns>
         /// <exception cref="HttpRequestException">Requested method {method} not implemented in V3</exception>
-        /// <exception cref="CEPAberto.GoodPractices.CEPAbertoAPIException"></exception>
+        /// <exception cref="CEPAberto.GoodPractices.CEPAbertoApiException"></exception>
         private async Task<TOut> Execute<TOut, TIn>(ActionMethod method, TIn requestObject, CancellationToken cancellationToken) where TIn : BaseRequest
         {
             using (var client = new HttpClient())
@@ -112,7 +112,7 @@ namespace CEPAberto.Utils
                 }
                 catch (HttpRequestException e)
                 {
-                    throw new CEPAbertoAPIException(requestObject.GetRequestEndPoint(), e);
+                    throw new CEPAbertoApiException(requestObject.GetRequestEndPoint(), e);
                 }
             }
         }
