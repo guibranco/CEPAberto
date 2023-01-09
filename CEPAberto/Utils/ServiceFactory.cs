@@ -4,25 +4,24 @@
 // Created          : 2018-08-15
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 06-28-2020
+// Last Modified On : 01-10-2023
 // ***********************************************************************
 // <copyright file="ServiceFactory.cs" company="Guilherme Branco Stracini ME">
-//     Copyright © 2020
+//     Copyright © 2023
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 
-using Newtonsoft.Json;
-
 namespace CEPAberto.Utils
 {
-    using GoodPractices;
+    using Newtonsoft.Json;
+    using CEPAberto.GoodPractices;
     using System;
     using System.Net.Http;
     using System.Net.Http.Headers;
     using System.Threading;
     using System.Threading.Tasks;
-    using Transport;
+    using CEPAberto.Transport;
 
     /// <summary>
     /// Class ServiceFactory. This class cannot be inherited.
@@ -34,7 +33,7 @@ namespace CEPAberto.Utils
         /// <summary>
         /// The service end point
         /// </summary>
-        private const string ServiceEndPoint = "https://www.cepaberto.com/api/v3/";
+        private const string _serviceEndPoint = "https://www.cepaberto.com/api/v3/";
 
         /// <summary>
         /// The configure await flag.
@@ -73,7 +72,7 @@ namespace CEPAberto.Utils
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri(ServiceEndPoint);
+                client.BaseAddress = new Uri(_serviceEndPoint);
                 client.DefaultRequestHeaders.ExpectContinue = false;
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

@@ -4,19 +4,19 @@
 // Created          : 15-08-2018
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 06-28-2020
+// Last Modified On : 01-10-2023
 // ***********************************************************************
 // <copyright file="CEPAbertoClientTest.cs" company="Guilherme Branco Stracini ME">
-//     Copyright © 2020
+//     Copyright © 2023
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
-using System.Threading;
-
 namespace CEPAberto.Tests
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System.Linq;
+    using System.Threading;
+
     /// <summary>
     /// Defines test class CEPAbertoClientTest.
     /// </summary>
