@@ -4,7 +4,7 @@ image: Visual Studio 2017
 configuration: Release
 
 environment:
-  SOLUTION_NAME: CEPAberto
+  SOLUTION_NAME: CEP Aberto
   SONAR_TOKEN: 
     secure: FZall4UDTaaxIAcigp9Z4pmSKa1YKxNB/ahexpxsRzKjIOsXBU/Ge1PoU2Qgt1zK
   GITHUB_TOKEN: 
@@ -52,7 +52,7 @@ build_script:
     /v:"$env:APPVEYOR_BUILD_NUMBER" 
     /d:sonar.exclusions="**/bin/**/*,**/obj/**/*" 
     /d:sonar.coverage.exclusions="**/$env:SOLUTION_NAME.Tests/**,**/*Tests.cs" 
-    /d:sonar.cs.opencover.reportsPaths="$env:CD\Tests\$env:SOLUTION_NAME.Tests\coverage.opencover.xml"
+    /d:sonar.cs.opencover.reportsPaths="$env:CD\$env:SOLUTION_NAME.Tests\coverage.opencover.xml"
     }'
 - ps: 'if ($env:APPVEYOR_PULL_REQUEST_NUMBER) { &
     SonarScanner.MSBuild.exe begin
@@ -64,7 +64,7 @@ build_script:
     /v:"$env:APPVEYOR_BUILD_NUMBER" 
     /d:sonar.exclusions="**/bin/**/*,**/obj/**/*" 
     /d:sonar.coverage.exclusions="**/$env:SOLUTION_NAME.Tests/**,**/*Tests.cs" 
-    /d:sonar.cs.opencover.reportsPaths="$env:CD\Tests\$env:SOLUTION_NAME.Tests\coverage.opencover.xml"
+    /d:sonar.cs.opencover.reportsPaths="$env:CD\$env:SOLUTION_NAME.Tests\coverage.opencover.xml"
     }'
 - msbuild /verbosity:quiet %SOLUTION_NAME%.sln
 - codecov -f "%CD%\Tests\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
