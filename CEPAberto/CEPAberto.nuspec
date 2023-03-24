@@ -13,8 +13,10 @@
         <description>Provides a easy-to-use interface for quering data in CEPAberto (http://www.cepaberto.com) API. Needs a API key (free after registration) to work. Find postal code, geocoordinates and city information about a postal code or a latitude/longitude data</description>
         <copyright>Copyright 2018 Guilherme Branco Stracini. All rights reserved.</copyright>
         <tags>SDK Correios CEP CEPAberto postal postal-code postalcode zip cities ibge latitude longitude geocoordinates geo coordinates</tags>
+        <readme>docs\README.nuget.md</readme>
     </metadata>
 	<files>
 		<file src="bin\$configuration$\$id$.pdb" target="lib\net472\" />
+        <file src="..\README.nuget.md" targe="docs\" />
 	</files>
 </package>
