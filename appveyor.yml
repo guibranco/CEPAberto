@@ -67,11 +67,11 @@ build_script:
     }'
 - msbuild -m "%SOLUTION_NAME%.sln" /property:Configuration=Release
 - coverlet 
- --output "%SOLUTION_NAME%.Tests\"
+ --output "CEPAberto.Tests\"
  --target "vstest.console.exe"
- --targetargs "%SOLUTION_NAME%.Tests\bin\Release\%SOLUTION_NAME%.Tests.dll"
+ --targetargs "CEPAberto.Tests\bin\Release\CEPAberto.Tests.dll"
  --format opencover
- CEPAberto.Tests\bin\Release\CEPAberto.Tests.dll 
+  CEPAberto.Tests\bin\Release\CEPAberto.Tests.dll
 - codecov -f "%CD%\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
 - java 
  -jar 
@@ -82,13 +82,13 @@ build_script:
 - SonarScanner.MSBuild.exe end /d:sonar.login="%SONAR_TOKEN%"
 
 after_build:
-- xcopy %APPVEYOR_BUILD_FOLDER%\%SOLUTION_NAME%\bin\Release\*.* %APPVEYOR_BUILD_FOLDER%\src\
+- xcopy %CD%\%SOLUTION_NAME%\bin\Release\*.* %CD%\src\
 
-- rd /s /q %APPVEYOR_BUILD_FOLDER%\%SOLUTION_NAME%\bin\Release\
+- rd /s /q %CD%\%SOLUTION_NAME%\bin\Release\
 
-- cd %APPVEYOR_BUILD_FOLDER%
+- cd %CD%
 
-- 7z a -tzip -mx9 "$%SOLUTION_NAME%.v%APPVEYOR_BUILD_VERSION%.zip" src
+- 7z a -tzip -mx9 "%SOLUTION_NAME%.v%APPVEYOR_BUILD_VERSION%.zip" src
 
 artifacts:
 - path: "%SOLUTION_NAME%.v%APPVEYOR_BUILD_VERSION%.zip"
