@@ -14,8 +14,14 @@
 
 namespace CEPAberto.Tests
 {
+    using System.Collections.Generic;
+
+    using CEPAberto.Utils;
+
     using GuiStracini.SDKBuilder;
+
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     using Transport;
 
     /// <summary>
@@ -86,6 +92,17 @@ namespace CEPAberto.Tests
             };
             var result = address.GetRequestAdditionalParameter(ActionMethod.GET).Replace("/?", "&");
             Assert.AreEqual(expected, result, "The additional parameter should be query string");
+        }
+
+        [TestMethod]
+        public void ValidateToKeyValue_MetaTokenIsNull_ReturnsEmptyDictionary()
+        {
+            var expected = new Dictionary<string, string>();
+            object obj = null;
+            var result = obj.ToKeyValue();
+
+            Assert.IsInstanceOfType<Dictionary<string, string>>(result);
+            Assert.IsTrue(0, result.Count);
         }
     }
 }
