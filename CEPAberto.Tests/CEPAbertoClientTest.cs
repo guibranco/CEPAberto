@@ -4,7 +4,7 @@
 // Created          : 15-08-2018
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 01-10-2023
+// Last Modified On : 25/03/2023
 // ***********************************************************************
 // <copyright file="CEPAbertoClientTest.cs" company="Guilherme Branco Stracini ME">
 //     Copyright © 2023
@@ -40,6 +40,7 @@ namespace CEPAberto.Tests
         public void TestInitialize()
         {
             _client = new CEPAbertoClient(_token);
+            Thread.Sleep(1000);
         }
 
         /// <summary>
@@ -48,8 +49,6 @@ namespace CEPAberto.Tests
         [TestMethod]
         public void TestSearchCep()
         {
-            Thread.Sleep(1000);
-
             var result = _client.GetData("40010000");
 
             Assert.IsTrue(result.Success);
@@ -75,8 +74,6 @@ namespace CEPAberto.Tests
         [TestMethod]
         public void TestSearchNearest()
         {
-            Thread.Sleep(1000);
-
             var result = _client.GetData("-20.55", "-43.63");
 
             Assert.IsTrue(result.Success);
@@ -101,12 +98,8 @@ namespace CEPAberto.Tests
         [TestMethod]
         public void TestSearchFullAddress()
         {
-
-            Thread.Sleep(1000);
-
             var result = _client.GetData("SP", "Ubatuba", string.Empty, string.Empty);
-
-
+            
             Assert.IsTrue(result.Success);
 
             Assert.AreEqual(4.8, result.Altitude);
@@ -130,8 +123,6 @@ namespace CEPAberto.Tests
         [TestMethod]
         public void TestSearchCities()
         {
-            Thread.Sleep(1000);
-
             var result = _client.GetCities("AM");
 
             Assert.IsTrue(result.Success);
@@ -145,8 +136,6 @@ namespace CEPAberto.Tests
         [TestMethod]
         public void TestUpdate()
         {
-            Thread.Sleep(1000);
-
             var postalCodeList = new[] { "03177010", "36420000" };
 
             var result = _client.Update(postalCodeList);
@@ -155,11 +144,12 @@ namespace CEPAberto.Tests
 
         }
 
+        /// <summary>
+        /// Defines the test method TestUpdateWrongData.
+        /// </summary>
         [TestMethod]
         public void TestUpdateWrongData()
         {
-            Thread.Sleep(1000);
-
             var postalCodeLIst = new[] { "03177010", "0012" };
 
             var result = _client.Update(postalCodeLIst);

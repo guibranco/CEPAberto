@@ -4,7 +4,7 @@
 // Created          : 2018-08-15
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 01-10-2023
+// Last Modified On : 25/03/2023
 // ***********************************************************************
 // <copyright file="NearestRequest.cs" company="Guilherme Branco Stracini ME">
 //     Copyright © 2023
@@ -13,14 +13,14 @@
 // ***********************************************************************
 namespace CEPAberto.Transport
 {
-    using Attributes;
+    using GuiStracini.SDKBuilder.Routing;
 
     /// <summary>
     /// The nearest request class.
     /// </summary>
-    /// <seealso cref="CEPAberto.Transport.BaseRequest" />
-    [RequestEndPoint("nearest?lat={Latitude}&lng={Longitude}")]
-    public sealed class NearestRequest : BaseRequest
+    /// <seealso cref="CEPAberto.Transport.CEPAbertoBaseRequest" />
+    [EndpointRoute("nearest?lat={Latitude}&lng={Longitude}")]
+    public sealed class NearestRequest : CEPAbertoBaseRequest
     {
         /// <summary>
         /// Gets or sets the latitude.
