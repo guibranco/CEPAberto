@@ -66,12 +66,11 @@ build_script:
     /d:sonar.cs.opencover.reportsPaths="$env:CD\$env:SOLUTION_NAME.Tests\coverage.opencover.xml"
     }'
 - msbuild -m "%SOLUTION_NAME%.sln" /property:Configuration=Release
-- coverlet 
- --output "CEPAberto.Tests\"
- --target "vstest.console.exe"
- --targetargs "CEPAberto.Tests\bin\Release\CEPAberto.Tests.dll"
- --format opencover
-  CEPAberto.Tests\bin\Release\CEPAberto.Tests.dll
+- coverlet CEPAberto.Tests\bin\Release\CEPAberto.Tests.dll 
+ -t "vstest.console.exe" 
+ -a "CEPAberto.Tests\bin\Release\CEPAberto.Tests.dll" 
+ -o "CEPAberto.Tests\\" 
+ -f opencover
 - codecov -f "%CD%\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
 - java 
  -jar 
