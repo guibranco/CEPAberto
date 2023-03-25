@@ -4,7 +4,7 @@ image: Visual Studio 2017
 configuration: Release
 
 environment:
-  SOLUTION_NAME: CEP Aberto
+  SOLUTION_NAME: CEPAberto
   SONAR_TOKEN: 
     secure: FZall4UDTaaxIAcigp9Z4pmSKa1YKxNB/ahexpxsRzKjIOsXBU/Ge1PoU2Qgt1zK
   GITHUB_TOKEN: 
@@ -65,10 +65,10 @@ build_script:
     /d:sonar.cs.opencover.reportsPaths="$env:CD\$env:SOLUTION_NAME.Tests\coverage.opencover.xml"
     }'
 - msbuild -m "%SOLUTION_NAME%.sln" /property:Configuration=Release
-- coverlet CEPAberto.Tests\bin\Release\CEPAberto.Tests.dll 
---output "$env:CD\$env:SOLUTION_NAME.Tests\"
---target "vstest.console.exe" 
---targetargs "CEPAberto.Tests\bin\Release\CEPAberto.Tests.dll"
+- coverlet %SOLUTION_NAME%..Tests\bin\Release\%SOLUTION_NAME%..Tests.dll 
+--output "%SOLUTION_NAME%..Tests\"
+--target "vstest.console.exe"
+--targetargs "%SOLUTION_NAME%..Tests\bin\Release\$%SOLUTION_NAME%..Tests.dll"
 --format opencover
 - codecov -f "%CD%\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
 - java 
@@ -80,16 +80,16 @@ build_script:
 - SonarScanner.MSBuild.exe end /d:sonar.login="%SONAR_TOKEN%"
 
 after_build:
-- xcopy C:\projects\cepaberto\CEPAberto\bin\Release\*.* C:\projects\cepaberto\src\
+- xcopy %APPVEYOR_BUILD_FOLDER%\%SOLUTION_NAME%\bin\Release\*.* %APPVEYOR_BUILD_FOLDER%\src\
 
-- rd /s /q C:\projects\cepaberto\CEPAberto\bin\Release\
+- rd /s /q %APPVEYOR_BUILD_FOLDER%\%SOLUTION_NAME%\bin\Release\
 
-- cd C:\projects\cepaberto\
+- cd %APPVEYOR_BUILD_FOLDER%
 
-- 7z a -tzip -mx9 "CEPAberto.v%APPVEYOR_BUILD_VERSION%.zip" src
+- 7z a -tzip -mx9 "$%SOLUTION_NAME%.v%APPVEYOR_BUILD_VERSION%.zip" src
 
 artifacts:
-- path: CEPAberto.v%APPVEYOR_BUILD_VERSION%.zip
+- path: "%SOLUTION_NAME%.v%APPVEYOR_BUILD_VERSION%.zip"
   name: ZipFile
 
 deploy:
