@@ -94,10 +94,8 @@ after_build:
 - 7z a -tzip -mx9 "%SOLUTION_NAME%.%APPVEYOR_BUILD_VERSION%.zip" Build
 - 7z a -tzip -mx9 "%SOLUTION_NAME%.%APPVEYOR_BUILD_VERSION%.Coverage.zip" Coverage
 
-test: off
-
 artifacts:
-- path: "%SOLUTION_NAME%.v%APPVEYOR_BUILD_VERSION%.zip"
+- path: "%SOLUTION_NAME%.%APPVEYOR_BUILD_VERSION%.zip"
   name: ZipFile
 
 - path: $(SOLUTION_NAME).%APPVEYOR_BUILD_VERSION%.nupkg

@@ -5,7 +5,6 @@ Implements all V3 features
 Fully tested!
 
 [![GitHub license](https://img.shields.io/github/license/guibranco/CEPAberto)](https://github.com/guibranco/CEPAberto)
-[![time tracker](https://wakatime.com/badge/github/guibranco/CEPAberto.svg)](https://wakatime.com/badge/github/guibranco/CEPAberto)
 
 ![CEPAberto](https://raw.githubusercontent.com/guibranco/CEPAberto/master/logo.png)
 
@@ -13,7 +12,7 @@ Fully tested!
 
 | Build status | Last commit | Tests | Coverage | Code Smells | LOC |
 |--------------|-------------|-------|----------|-------------|-----|
-| [![Build status](https://ci.appveyor.com/api/projects/status/l9cuqk1s1gdppqpn/branch/master?svg=true)](https://ci.appveyor.com/project/guibranco/CEPAberto) | [![GitHub last commit](https://img.shields.io/github/last-commit/guibranco/CEPAberto/master)](https://github.com/guibranco/CEPAberto) | ![AppVeyor tests (branch)](https://img.shields.io/appveyor/tests/guibranco/CEPAberto/master?compact_message) | [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guibranco_CEPAberto&metric=coverage)](https://sonarcloud.io/dashboard?id=guibranco_CEPAberto) | [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=guibranco_CEPAberto&metric=code_smells)](https://sonarcloud.io/dashboard?id=guibranco_CEPAberto) | [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=guibranco_CEPAberto&metric=ncloc)](https://sonarcloud.io/dashboard?id=guibranco_CEPAberto)
+| [![Build status](https://ci.appveyor.com/api/projects/status/l9cuqk1s1gdppqpn/branch/master?svg=true)](https://ci.appveyor.com/project/guibranco/CEPAberto) | [![GitHub last commit](https://img.shields.io/github/last-commit/guibranco/CEPAberto/master)](https://github.com/guibranco/CEPAberto) | [![AppVeyor tests (branch)](https://img.shields.io/appveyor/tests/guibranco/CEPAberto/master?compact_message)](https://ci.appveyor.com/project/guibranco/CEPAberto) | [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guibranco_CEPAberto&metric=coverage)](https://sonarcloud.io/dashboard?id=guibranco_CEPAberto) | [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=guibranco_CEPAberto&metric=code_smells)](https://sonarcloud.io/dashboard?id=guibranco_CEPAberto) | [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=guibranco_CEPAberto&metric=ncloc)](https://sonarcloud.io/dashboard?id=guibranco_CEPAberto)
 
 ## Code Quality
 
