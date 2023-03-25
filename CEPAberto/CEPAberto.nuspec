@@ -6,19 +6,20 @@
         <title>CEPAberto API Client</title>
         <authors>Guilherme Branco Stracini</authors>
         <owners>Guilherme Branco Stracini</owners>
-        <licenseUrl>https://github.com/guibranco/CEPAberto/blob/master/LICENSE</licenseUrl>
         <projectUrl>https://guibranco.github.io/CEPAberto/</projectUrl>
-        <repository type="git" url="https://github.com/GuiBranco/CEPAberto.git" />
+        <repository type="git" url="https://github.com/GuiBranco/CEPAberto" />
         <icon>packageLogo.png</icon>
+        <license type="file">LICENSE</license>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Provides a easy-to-use interface for quering data in CEPAberto (http://www.cepaberto.com) API. Needs a API key (free after registration) to work. Find postal code, geocoordinates and city information about a postal code or a latitude/longitude data</description>
-        <copyright>Copyright 2018 Guilherme Branco Stracini. All rights reserved.</copyright>
+        <copyright>Copyright 2023 Guilherme Branco Stracini. All rights reserved.</copyright>
         <tags>SDK Correios CEP CEPAberto postal postal-code postalcode zip cities ibge latitude longitude geocoordinates geo coordinates</tags>
         <readme>README.nuget.md</readme>
     </metadata>
-	<files>
-		<file src="bin\$configuration$\$id$.pdb" target="lib\net48\" />
+    <files>
+        <file src="bin\$configuration$\$id$.pdb" target="lib\net48\" />
         <file src="..\README.nuget.md" />
+        <file src="..\LICENSE" />
         <file src="..\packageLogo.png" />
-	</files>
+    </files>
 </package>
