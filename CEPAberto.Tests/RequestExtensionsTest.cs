@@ -97,8 +97,7 @@ namespace CEPAberto.Tests
         [TestMethod]
         public void ValidateToKeyValue_MetaTokenIsNull_ReturnsEmptyDictionary()
         {
-            object obj = null;
-            var result = obj.ToKeyValue();
+            var result = ((object)null).ToKeyValue();
 
             Assert.IsInstanceOfType<Dictionary<string, string>>(result);
             Assert.AreEqual(0, result.Count);

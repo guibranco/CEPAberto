@@ -83,9 +83,10 @@ namespace CEPAberto.Utils
                 }
 
                 var endpoint = requestObject.GetRequestEndPoint();
-                var additional = requestObject.GetRequestAdditionalParameter(method);
-
                 //TODO fix after updated GuiStracini.SDKBuilder
+                //var additional = requestObject.GetRequestAdditionalParameter(method);
+
+                
                 //if (!string.IsNullOrWhiteSpace(additional))
                 //{
                 //    if (endpoint.IndexOf("?", StringComparison.InvariantCultureIgnoreCase) == -1)
