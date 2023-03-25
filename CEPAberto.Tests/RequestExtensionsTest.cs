@@ -4,7 +4,7 @@
 // Created          : 16-08-2018
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 01-10-2023
+// Last Modified On : 25/03/2023
 // ***********************************************************************
 // <copyright file="RequestExtensionsTest.cs" company="Guilherme Branco Stracini ME">
 //     Copyright © 2023
@@ -14,9 +14,9 @@
 
 namespace CEPAberto.Tests
 {
+    using GuiStracini.SDKBuilder;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Transport;
-    using Utils;
 
     /// <summary>
     /// Defines test class RequestHelpersTest.
@@ -66,7 +66,7 @@ namespace CEPAberto.Tests
                 StateInitials = "SP",
                 City = "São Paulo"
             };
-            var result = address.GetRequestAdditionalParameter(ActionMethod.Get);
+            var result = address.GetRequestAdditionalParameter(ActionMethod.GET);
             Assert.AreEqual(string.Empty, result, "The endpoint was not resolves as expected");
         }
 
@@ -84,7 +84,7 @@ namespace CEPAberto.Tests
                 Neighborhood = "Centro",
                 Street = "Se"
             };
-            var result = address.GetRequestAdditionalParameter(ActionMethod.Get);
+            var result = address.GetRequestAdditionalParameter(ActionMethod.GET).Replace("/?", "&");
             Assert.AreEqual(expected, result, "The additional parameter should be query string");
         }
     }

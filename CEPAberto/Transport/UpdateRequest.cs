@@ -4,7 +4,7 @@
 // Created          : 06-28-2020
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 01-10-2023
+// Last Modified On : 25/03/2023
 // ***********************************************************************
 // <copyright file="UpdateRequest.cs" company="Guilherme Branco Stracini ME">
 //     Copyright © 2023
@@ -14,14 +14,14 @@
 
 namespace CEPAberto.Transport
 {
-    using CEPAberto.Attributes;
+    using GuiStracini.SDKBuilder.Routing;
     using Newtonsoft.Json;
 
     /// <summary>
     /// Class UpdateRequest. This class cannot be inherited.
     /// </summary>
-    [RequestEndPoint("update")]
-    public sealed class UpdateRequest : BaseRequest
+    [EndpointRoute("update")]
+    public sealed class UpdateRequest : CEPAbertoBaseRequest
     {
         /// <summary>
         /// Gets or sets the postal codes.

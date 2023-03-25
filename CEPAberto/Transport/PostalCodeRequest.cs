@@ -4,7 +4,7 @@
 // Created          : 2018-08-15
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 01-10-2023
+// Last Modified On : 25/03/2023
 // ***********************************************************************
 // <copyright file="PostalCodeRequest.cs" company="Guilherme Branco Stracini ME">
 //     Copyright © 2023
@@ -13,13 +13,13 @@
 // ***********************************************************************
 namespace CEPAberto.Transport
 {
-    using Attributes;
+    using GuiStracini.SDKBuilder.Routing;
 
     /// <summary>
     /// The postal code request class.
     /// </summary>
-    [RequestEndPoint("cep?cep={PostalCode}")]
-    public sealed class PostalCodeRequest : BaseRequest
+    [EndpointRoute("cep?cep={PostalCode}")]
+    public sealed class PostalCodeRequest : CEPAbertoBaseRequest
     {
         /// <summary>
         /// Gets or sets the postal code.

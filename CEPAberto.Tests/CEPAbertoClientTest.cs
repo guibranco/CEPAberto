@@ -4,7 +4,7 @@
 // Created          : 15-08-2018
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 01-10-2023
+// Last Modified On : 10/01/2023
 // ***********************************************************************
 // <copyright file="CEPAbertoClientTest.cs" company="Guilherme Branco Stracini ME">
 //     Copyright © 2023
@@ -105,8 +105,7 @@ namespace CEPAberto.Tests
             Thread.Sleep(1000);
 
             var result = _client.GetData("SP", "Ubatuba", string.Empty, string.Empty);
-
-
+            
             Assert.IsTrue(result.Success);
 
             Assert.AreEqual(4.8, result.Altitude);
@@ -155,6 +154,9 @@ namespace CEPAberto.Tests
 
         }
 
+        /// <summary>
+        /// Defines the test method TestUpdateWrongData.
+        /// </summary>
         [TestMethod]
         public void TestUpdateWrongData()
         {

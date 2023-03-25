@@ -4,7 +4,7 @@
 // Created          : 2018-08-15
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 01-10-2023
+// Last Modified On : 25/03/2023
 // ***********************************************************************
 // <copyright file="CitiesRequest.cs" company="Guilherme Branco Stracini ME">
 //     Copyright © 2023
@@ -13,14 +13,14 @@
 // ***********************************************************************
 namespace CEPAberto.Transport
 {
-    using Attributes;
+    using GuiStracini.SDKBuilder.Routing;
 
     /// <summary>
     /// The cities request class.
     /// </summary>
-    /// <seealso cref="CEPAberto.Transport.BaseRequest" />
-    [RequestEndPoint("cities?estado={StateInitials}")]
-    public sealed class CitiesRequest : BaseRequest
+    /// <seealso cref="CEPAberto.Transport.CEPAbertoBaseRequest" />
+    [EndpointRoute("cities?estado={StateInitials}")]
+    public sealed class CitiesRequest : CEPAbertoBaseRequest
     {
         /// <summary>
         /// Gets or sets the state initials.

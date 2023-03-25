@@ -4,7 +4,7 @@
 // Created          : 2018-08-15
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 01-10-2023
+// Last Modified On : 10/01/2023
 // ***********************************************************************
 // <copyright file="CEPAbertoClient.cs" company="Guilherme Branco Stracini ME">
 //     Copyright © 2023
@@ -102,7 +102,9 @@ namespace CEPAberto
             var result = await _service.Get<PostalCodeData, PostalCodeRequest>(data, cancellationToken).ConfigureAwait(_configureAwait);
 
             if (!string.IsNullOrEmpty(result.PostalCode))
+            {
                 result.Success = true;
+            }
 
             return result;
         }
@@ -126,7 +128,9 @@ namespace CEPAberto
             var result = await _service.Get<PostalCodeData, NearestRequest>(data, cancellationToken).ConfigureAwait(_configureAwait);
 
             if (!string.IsNullOrEmpty(result.PostalCode))
+            {
                 result.Success = true;
+            }
 
             return result;
         }
@@ -167,7 +171,9 @@ namespace CEPAberto
             var result = await _service.Get<PostalCodeData, AddressRequest>(data, cancellationToken).ConfigureAwait(_configureAwait);
 
             if (!string.IsNullOrEmpty(result.PostalCode))
+            {
                 result.Success = true;
+            }
 
             return result;
         }
@@ -234,12 +240,14 @@ namespace CEPAberto
             var result = await _service.Post<UpdateResponse, UpdateRequest>(data, cancellationToken).ConfigureAwait(_configureAwait);
 
             if (!string.IsNullOrWhiteSpace(result.Error))
+            {
                 return new UpdateData
                 {
                     Success = false,
                     ErrorCode = result.Status,
                     ErrorMessage = result.Error
                 };
+            }
 
             return new UpdateData
             {

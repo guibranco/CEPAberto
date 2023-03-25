@@ -1,3 +1,16 @@
+// ***********************************************************************
+// Assembly         : CEPAberto.Tests
+// Author           : Guilherme Branco Stracini
+// Created          : 10/01/2023
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 10/01/2023
+// ***********************************************************************
+// <copyright file="AssemblyInfo.cs" company="Guilherme Branco Stracini">
+//     Copyright © 2023
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 using System.Reflection;
 using System.Runtime.InteropServices;
 

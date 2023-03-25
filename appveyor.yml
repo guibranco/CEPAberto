@@ -64,7 +64,8 @@ build_script:
     /d:sonar.coverage.exclusions="**/$env:SOLUTION_NAME.Tests/**,**/*Tests.cs" 
     /d:sonar.cs.opencover.reportsPaths="$env:CD\$env:SOLUTION_NAME.Tests\coverage.opencover.xml"
     }'
-- msbuild /verbosity:quiet "%SOLUTION_NAME%.sln"
+- msbuild -m "%SOLUTION_NAME%.sln" /property:Configuration=Release
+- vstest.console /logger:Appveyor CEPAberto.Tests\bin\Release\CEPAbertos.Tests.dll
 - codecov -f "%CD%\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
 - java 
  -jar 
