@@ -71,7 +71,7 @@ build_script:
  --target "vstest.console.exe"
  --targetargs "%SOLUTION_NAME%.Tests\bin\Release\%SOLUTION_NAME%.Tests.dll"
  --format opencover
- %SOLUTION_NAME%.Tests\bin\Release\%SOLUTION_NAME%.Tests.dll 
+ CEPAberto.Tests\bin\Release\CEPAberto.Tests.dll 
 - codecov -f "%CD%\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
 - java 
  -jar 
