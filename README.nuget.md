@@ -21,6 +21,9 @@ Fully tested!
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/e9fd678b9bfe4d729e8970ed3fb506d9)](https://www.codacy.com/gh/guibranco/CEPAberto/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guibranco/CEPAberto&amp;utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/guibranco/CEPAberto/branch/master/graph/badge.svg)](https://codecov.io/gh/guibranco/CEPAberto)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/f12c9899307a319a1cc4/maintainability)](https://codeclimate.com/github/guibranco/CEPAberto/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/f12c9899307a319a1cc4/test_coverage)](https://codeclimate.com/github/guibranco/CEPAberto/test_coverage)
+
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=guibranco_CEPAberto&metric=alert_status)](https://sonarcloud.io/dashboard?id=guibranco_CEPAberto)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=guibranco_CEPAberto&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=guibranco_CEPAberto)
 
