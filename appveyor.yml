@@ -89,6 +89,8 @@ after_build:
 
 - 7z a -tzip -mx9 "%SOLUTION_NAME%.v%APPVEYOR_BUILD_VERSION%.zip" src
 
+test: off
+
 artifacts:
 - path: "%SOLUTION_NAME%.v%APPVEYOR_BUILD_VERSION%.zip"
   name: ZipFile
