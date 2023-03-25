@@ -55,11 +55,11 @@ Download the latest zip file from the [Release](https://github.com/GuiBranco/CEP
 
 This client supports the following operations/features of the API V3:
 
-1. Get data based on postal code (CEP).
-2. Get data of a nearest geo location (lat/lon) (Max of 10km).
-3. Get data based on state initials (UF), city, neighborhood and street/address.
-4. Get list of cities of a state based on state initials.
-5. Update the postal code (CEP).
+1.  Get data based on postal code (CEP).
+2.  Get data of a nearest geo location (lat/lon) (Max of 10km).
+3.  Get data based on state initials (UF), city, neighborhood and street/address.
+4.  Get list of cities of a state based on state initials.
+5.  Update the postal code (CEP).
 
  ---
 
