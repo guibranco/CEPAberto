@@ -85,16 +85,16 @@ namespace CEPAberto.Utils
                 var endpoint = requestObject.GetRequestEndPoint();
                 var additional = requestObject.GetRequestAdditionalParameter(method);
 
-                if (!string.IsNullOrWhiteSpace(additional))
-                {
-                    if (endpoint.IndexOf("?", StringComparison.InvariantCultureIgnoreCase) == -1)
-                    {
-                        endpoint += "?";
-                    }
-                    
-                    //TODO fix after updated GuiStracini.SDKBuilder
-                    //endpoint += additional.Replace("/?", "&");
-                }
+                //TODO fix after updated GuiStracini.SDKBuilder
+                //if (!string.IsNullOrWhiteSpace(additional))
+                //{
+                //    if (endpoint.IndexOf("?", StringComparison.InvariantCultureIgnoreCase) == -1)
+                //    {
+                //        endpoint += "?";
+                //    }
+
+                //    endpoint += additional.Replace("/?", "&");
+                //}
 
                 try
                 {
