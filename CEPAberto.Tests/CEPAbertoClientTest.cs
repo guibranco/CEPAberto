@@ -4,7 +4,7 @@
 // Created          : 15-08-2018
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 10/01/2023
+// Last Modified On : 25/03/2023
 // ***********************************************************************
 // <copyright file="CEPAbertoClientTest.cs" company="Guilherme Branco Stracini ME">
 //     Copyright © 2023
@@ -40,6 +40,7 @@ namespace CEPAberto.Tests
         public void TestInitialize()
         {
             _client = new CEPAbertoClient(_token);
+            Thread.Sleep(1000);
         }
 
         /// <summary>
@@ -97,7 +98,6 @@ namespace CEPAberto.Tests
         [TestMethod]
         public void TestSearchFullAddress()
         {
-
             var result = _client.GetData("SP", "Ubatuba", string.Empty, string.Empty);
             
             Assert.IsTrue(result.Success);

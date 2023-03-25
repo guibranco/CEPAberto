@@ -87,10 +87,11 @@ namespace CEPAberto.Utils
 
                 if (!string.IsNullOrWhiteSpace(additional))
                 {
-                    if (endpoint.IndexOf("?") == -1)
+                    if (endpoint.IndexOf("?", StringComparison.InvariantCultureIgnoreCase) == -1)
                     {
                         endpoint += "?";
                     }
+                    
                     //TODO fix after updated GuiStracini.SDKBuilder
                     //endpoint += additional.Replace("/?", "&");
                 }
