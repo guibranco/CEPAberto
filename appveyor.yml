@@ -82,13 +82,17 @@ build_script:
 - SonarScanner.MSBuild.exe end /d:sonar.login="%SONAR_TOKEN%"
 
 after_build:
-- xcopy %CD%\%SOLUTION_NAME%\bin\Release\*.* %CD%\src\
+- xcopy %CD%\%SOLUTION_NAME%\bin\Release\*.* %CD%\Build\
 
 - rd /s /q %CD%\%SOLUTION_NAME%\bin\Release\
 
+- xcopy %CD%\%SOLUTION_NAME%.Tests\*.xml %CD%\Coverage\
+- xcopy %CD%\%SOLUTION_NAME%.Tests\*.json %CD%\Coverage\
+
 - cd %CD%
 
-- 7z a -tzip -mx9 "%SOLUTION_NAME%.v%APPVEYOR_BUILD_VERSION%.zip" src
+- 7z a -tzip -mx9 "%SOLUTION_NAME%.%APPVEYOR_BUILD_VERSION%.zip" Build
+- 7z a -tzip -mx9 "%SOLUTION_NAME%.%APPVEYOR_BUILD_VERSION%.Coverage.zip" Coverage
 
 test: off
 
@@ -96,12 +100,19 @@ artifacts:
 - path: "%SOLUTION_NAME%.v%APPVEYOR_BUILD_VERSION%.zip"
   name: ZipFile
 
+- path: $(SOLUTION_NAME).%APPVEYOR_BUILD_VERSION%.nupkg
+  name: Package
+
+- path: $(SOLUTION_NAME).%APPVEYOR_BUILD_VERSION%.Coverage.zip
+  name: Coverage
+
 deploy:
 
 - provider: Environment
   on:
    branch: master
   name: NuGet
+  artifact: Package
 
 - provider: GitHub
   on:
@@ -110,3 +121,11 @@ deploy:
   auth_token: $(GITHUB_TOKEN)
   force_update: true
   artifact: ZipFile
+
+- provider: GitHub
+  on:
+   branch: master
+  tag: $(appveyor_build_version)
+  auth_token: $(GITHUB_TOKEN)
+  force_update: true
+  artifact: Coverage
