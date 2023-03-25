@@ -8,7 +8,7 @@
         <owners>Guilherme Branco Stracini</owners>
         <projectUrl>https://guibranco.github.io/CEPAberto/</projectUrl>
         <repository type="git" url="https://github.com/GuiBranco/CEPAberto" />
-        <icon>packageLogo.png</icon>
+        <icon>logo.png</icon>
         <license type="file">LICENSE</license>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Provides a easy-to-use interface for quering data in CEPAberto (http://www.cepaberto.com) API. Needs a API key (free after registration) to work. Find postal code, geocoordinates and city information about a postal code or a latitude/longitude data</description>
@@ -20,6 +20,6 @@
         <file src="bin\$configuration$\$id$.pdb" target="lib\net48\" />
         <file src="..\README.nuget.md" />
         <file src="..\LICENSE" />
-        <file src="..\packageLogo.png" />
+        <file src="..\logo.png" />
     </files>
 </package>
