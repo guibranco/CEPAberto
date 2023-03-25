@@ -97,7 +97,7 @@ after_build:
 test: off
 
 artifacts:
-- path: "%SOLUTION_NAME%.v%APPVEYOR_BUILD_VERSION%.zip"
+- path: "%SOLUTION_NAME%.%APPVEYOR_BUILD_VERSION%.zip"
   name: ZipFile
 
 - path: $(SOLUTION_NAME).%APPVEYOR_BUILD_VERSION%.nupkg
