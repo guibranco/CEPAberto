@@ -65,7 +65,7 @@ build_script:
     /d:sonar.cs.opencover.reportsPaths="$env:CD\$env:SOLUTION_NAME.Tests\coverage.opencover.xml"
     }'
 - msbuild -m "%SOLUTION_NAME%.sln" /property:Configuration=Release
-- vstest.console /logger:Appveyor CEPAberto.Tests\bin\Release\CEPAbertos.Tests.dll
+- vstest.console /logger:Appveyor CEPAberto.Tests\bin\Release\CEPAberto.Tests.dll /Enablecodecoverage
 - codecov -f "%CD%\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
 - java 
  -jar 
