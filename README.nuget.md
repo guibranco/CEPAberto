@@ -6,19 +6,19 @@ Fully tested!
 
 [![GitHub license](https://img.shields.io/github/license/guibranco/CEPAberto)](https://github.com/guibranco/CEPAberto)
 
-![CEPAberto](https://raw.githubusercontent.com/guibranco/CEPAberto/master/logo.png)
+![CEPAberto](https://raw.githubusercontent.com/guibranco/CEPAberto/main/logo.png)
 
 ## CI/CD
 
 | Build status | Last commit | Tests | Coverage | Code Smells | LOC |
 |--------------|-------------|-------|----------|-------------|-----|
-| [![Build status](https://ci.appveyor.com/api/projects/status/l9cuqk1s1gdppqpn/branch/master?svg=true)](https://ci.appveyor.com/project/guibranco/CEPAberto) | [![GitHub last commit](https://img.shields.io/github/last-commit/guibranco/CEPAberto/master)](https://github.com/guibranco/CEPAberto) | [![AppVeyor tests (branch)](https://img.shields.io/appveyor/tests/guibranco/CEPAberto/master?compact_message)](https://ci.appveyor.com/project/guibranco/CEPAberto) | [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guibranco_CEPAberto&metric=coverage)](https://sonarcloud.io/dashboard?id=guibranco_CEPAberto) | [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=guibranco_CEPAberto&metric=code_smells)](https://sonarcloud.io/dashboard?id=guibranco_CEPAberto) | [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=guibranco_CEPAberto&metric=ncloc)](https://sonarcloud.io/dashboard?id=guibranco_CEPAberto)
+| [![Build status](https://ci.appveyor.com/api/projects/status/l9cuqk1s1gdppqpn/branch/main?svg=true)](https://ci.appveyor.com/project/guibranco/CEPAberto) | [![GitHub last commit](https://img.shields.io/github/last-commit/guibranco/CEPAberto/main)](https://github.com/guibranco/CEPAberto) | [![AppVeyor tests (branch)](https://img.shields.io/appveyor/tests/guibranco/CEPAberto/main?compact_message)](https://ci.appveyor.com/project/guibranco/CEPAberto) | [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guibranco_CEPAberto&metric=coverage)](https://sonarcloud.io/dashboard?id=guibranco_CEPAberto) | [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=guibranco_CEPAberto&metric=code_smells)](https://sonarcloud.io/dashboard?id=guibranco_CEPAberto) | [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=guibranco_CEPAberto&metric=ncloc)](https://sonarcloud.io/dashboard?id=guibranco_CEPAberto)
 
 ## Code Quality
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e9fd678b9bfe4d729e8970ed3fb506d9)](https://www.codacy.com/gh/guibranco/CEPAberto/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guibranco/CEPAberto&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/e9fd678b9bfe4d729e8970ed3fb506d9)](https://www.codacy.com/gh/guibranco/CEPAberto/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guibranco/CEPAberto&amp;utm_campaign=Badge_Grade)
-[![codecov](https://codecov.io/gh/guibranco/CEPAberto/branch/master/graph/badge.svg)](https://codecov.io/gh/guibranco/CEPAberto)
+[![codecov](https://codecov.io/gh/guibranco/CEPAberto/branch/main/graph/badge.svg)](https://codecov.io/gh/guibranco/CEPAberto)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/f12c9899307a319a1cc4/maintainability)](https://codeclimate.com/github/guibranco/CEPAberto/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f12c9899307a319a1cc4/test_coverage)](https://codeclimate.com/github/guibranco/CEPAberto/test_coverage)
