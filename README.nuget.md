@@ -18,7 +18,9 @@ Fully tested!
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e9fd678b9bfe4d729e8970ed3fb506d9)](https://www.codacy.com/gh/guibranco/CEPAberto/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guibranco/CEPAberto&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/e9fd678b9bfe4d729e8970ed3fb506d9)](https://www.codacy.com/gh/guibranco/CEPAberto/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guibranco/CEPAberto&amp;utm_campaign=Badge_Grade)
+
 [![codecov](https://codecov.io/gh/guibranco/CEPAberto/branch/main/graph/badge.svg)](https://codecov.io/gh/guibranco/CEPAberto)
+[![CodeFactor](https://www.codefactor.io/repository/github/guibranco/CEPAberto/badge)](https://www.codefactor.io/repository/github/guibranco/CEPAberto)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/f12c9899307a319a1cc4/maintainability)](https://codeclimate.com/github/guibranco/CEPAberto/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f12c9899307a319a1cc4/test_coverage)](https://codeclimate.com/github/guibranco/CEPAberto/test_coverage)
