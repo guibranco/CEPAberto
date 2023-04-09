@@ -11,6 +11,8 @@ environment:
     secure: AD1z81FqZlvGkCEyDzJ3g6sIJ93ecUE9EuqfUxc4CMiFGW139pWZk+/huuTY5jzG
   CODACY_PROJECT_TOKEN:
     secure: jB+7YloyEU1QHmoy/MvUkkaH6cucrrlLnFQww11QxR47GXxpT31wnsDPghqwdIs0
+  CODECLIMATE_TOKEN:
+    secure: Z6vZGecdLZ2RRqJKWquHgJIrhXvGE5EvQcfTAS/yfuwbQGiSpXMW+++CQlg5vudkQqylPXcl7+1ZosJBhoUJYQuQFBPg0InDySD6c2DDHbA=
 
 assembly_info:
   patch: true
@@ -31,6 +33,7 @@ before_build:
 - cmd: choco install opencover.portable
 - cmd: choco install codecov
 - cmd: curl -L https://github.com/codacy/codacy-coverage-reporter/releases/latest/download/codacy-coverage-reporter-assembly.jar > ./codacy-test-reporter.jar
+- cmd: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-windows-amd64 > codeclimate-test-reporter.exe
 - cmd: dotnet tool install --global coverlet.console
 
 build:
@@ -41,44 +44,30 @@ build:
   verbosity: normal
 
 build_script:
-- ps: 'if (-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) { &
-    SonarScanner.MSBuild.exe begin 
-    /k:"$env:SONAR_PROJECT" 
-    /o:"$env:SONAR_ORGANIZATION" 
-    /d:sonar.branch.name="$env:APPVEYOR_REPO_BRANCH"
-    /d:sonar.host.url="https://sonarcloud.io" 
-    /d:sonar.login="$env:SONAR_TOKEN" 
-    /v:"$env:APPVEYOR_BUILD_NUMBER" 
-    /d:sonar.exclusions="**/bin/**/*,**/obj/**/*" 
-    /d:sonar.coverage.exclusions="**/$env:SOLUTION_NAME.Tests/**,**/*Tests.cs" 
-    /d:sonar.cs.opencover.reportsPaths="$env:CD\$env:SOLUTION_NAME.Tests\coverage.opencover.xml"
-    }'
-- ps: 'if ($env:APPVEYOR_PULL_REQUEST_NUMBER) { &
-    SonarScanner.MSBuild.exe begin
-    /k:"$env:SONAR_PROJECT" 
-    /o:"$env:SONAR_ORGANIZATION" 
-    /d:sonar.pullrequest.key="$env:APPVEYOR_PULL_REQUEST_NUMBER"
-    /d:sonar.host.url="https://sonarcloud.io" 
-    /d:sonar.login="$env:SONAR_TOKEN" 
-    /v:"$env:APPVEYOR_BUILD_NUMBER" 
-    /d:sonar.exclusions="**/bin/**/*,**/obj/**/*" 
-    /d:sonar.coverage.exclusions="**/$env:SOLUTION_NAME.Tests/**,**/*Tests.cs" 
-    /d:sonar.cs.opencover.reportsPaths="$env:CD\$env:SOLUTION_NAME.Tests\coverage.opencover.xml"
-    }'
+- ps: $Params =  "/k:`"$env:SONAR_PROJECT`"", "/o:`"$env:SONAR_ORGANIZATION`"", "/v:`"$env:APPVEYOR_BUILD_NUMBER`""
+- ps: $Params += "/d:sonar.host.url=`"https://sonarcloud.io`"", "/d:sonar.login=`"$env:SONAR_TOKEN`""
+- ps: $Params += "/d:sonar.exclusions=`"**/bin/**/*,**/obj/**/*`"", "/d:sonar.coverage.exclusions=`"**/$env:SOLUTION_NAME.Tests/**,**/*Tests.cs`""
+- ps: $Params += "/d:sonar.cs.opencover.reportsPaths=`"$env:CD\$env:SOLUTION_NAME.Tests\coverage.opencover.xml`""
+- ps: if(-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) { $Params += "/d:sonar.branch.name=`"$env:APPVEYOR_REPO_BRANCH`"" }
+- ps: if($env:APPVEYOR_PULL_REQUEST_NUMBER) { $Params += "/d:sonar.pullrequest.key=$env:APPVEYOR_PULL_REQUEST_NUMBER" }
+- ps: Start-process "SonarScanner.MSBuild.exe" "begin $($Params -join ' ')"
+- codeclimate-test-reporter before-build
 - msbuild -m "%SOLUTION_NAME%.sln" /property:Configuration=Release
 - nuget pack %SOLUTION_NAME% -Version %APPVEYOR_BUILD_VERSION%
-- coverlet CEPAberto.Tests\bin\Release\CEPAberto.Tests.dll 
- -t "vstest.console.exe" 
- -a "CEPAberto.Tests\bin\Release\CEPAberto.Tests.dll" 
- -o "CEPAberto.Tests\\" 
+- coverlet CEPAberto.Tests\bin\Release\CEPAberto.Tests.dll
+ -t "vstest.console.exe"
+ -a "CEPAberto.Tests\bin\Release\CEPAberto.Tests.dll"
+ -o "CEPAberto.Tests\\"
  -f opencover
+- coverlet CEPAberto.Tests\bin\Release\CEPAberto.Tests.dll
+ -t "vstest.console.exe"
+ -a "CEPAberto.Tests\bin\Release\CEPAberto.Tests.dll"
+ -o "CEPAberto.Tests\\"
+ -f lcov
+- codeclimate-test-reporter format-coverage -t lcov -o "%CD%\%SOLUTION_NAME%.Tests\code-climate.json" "%CD%\%SOLUTION_NAME%.Tests\coverage.info"
+- codeclimate-test-reporter upload-coverage -i "%CD%\%SOLUTION_NAME%.Tests\code-climate.json" -r %CODECLIMATE_TOKEN%
 - codecov -f "%CD%\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
-- java 
- -jar 
- ./codacy-test-reporter.jar report 
- -l CSharp 
- -t %CODACY_PROJECT_TOKEN% 
- -r "%CD%\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
+- java -jar ./codacy-test-reporter.jar report -l CSharp -t %CODACY_PROJECT_TOKEN% -r "%CD%\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
 - SonarScanner.MSBuild.exe end /d:sonar.login="%SONAR_TOKEN%"
 
 after_build:
@@ -88,6 +77,7 @@ after_build:
 
 - xcopy %CD%\%SOLUTION_NAME%.Tests\*.xml %CD%\Coverage\
 - xcopy %CD%\%SOLUTION_NAME%.Tests\*.json %CD%\Coverage\
+- xcopy %CD%\%SOLUTION_NAME%.Tests\*.info %CD%\Coverage\
 
 - cd %CD%
 
@@ -105,7 +95,6 @@ artifacts:
   name: Coverage
 
 deploy:
-
 - provider: Environment
   on:
    branch: main
