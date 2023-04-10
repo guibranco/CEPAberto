@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\coverlet.msbuild.3.2.0\build\coverlet.msbuild.props" Condition="Exists('..\packages\coverlet.msbuild.3.2.0\build\coverlet.msbuild.props')" />
   <Import Project="..\packages\MSTest.TestAdapter.3.0.2\build\net462\MSTest.TestAdapter.props" Condition="Exists('..\packages\MSTest.TestAdapter.3.0.2\build\net462\MSTest.TestAdapter.props')" />
+  <Import Project="..\packages\coverlet.msbuild.3.2.0\build\coverlet.msbuild.props" Condition="Exists('..\packages\coverlet.msbuild.3.2.0\build\coverlet.msbuild.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -44,8 +44,8 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GuiStracini.SDKBuilder, Version=3.0.85.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\GuiStracini.SDKBuilder.3.0.85\lib\netstandard2.0\GuiStracini.SDKBuilder.dll</HintPath>
+    <Reference Include="GuiStracini.SDKBuilder, Version=3.0.124.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GuiStracini.SDKBuilder.3.0.124\lib\netstandard2.0\GuiStracini.SDKBuilder.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.3.0.2\lib\net462\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
