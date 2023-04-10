@@ -2,7 +2,7 @@
 
 [CEP Aberto](htttp://www.cepaberto.com) API wrapper written in C# (.NET).
 Implements all V3 features
-Fully tested!
+
 
 [![GitHub license](https://img.shields.io/github/license/guibranco/CEPAberto)](https://github.com/guibranco/CEPAberto)
 [![time tracker](https://wakatime.com/badge/github/guibranco/CEPAberto.svg)](https://wakatime.com/badge/github/guibranco/CEPAberto)
