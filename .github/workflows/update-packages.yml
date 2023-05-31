@@ -1,0 +1,84 @@
+name: Update packages
+
+on: 
+  workflow_dispatch:
+
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  update_packages:
+    name: Update packages
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+            
+      - name: Set solution name
+        run: |
+          echo "solution=$(([io.fileinfo]$(Get-ChildItem -Path .\* -Include *.sln)).name)" | Out-File -FilePath $env:GITHUB_ENV -Append
+            
+      - name: Add MSBuild to PATH
+        uses: microsoft/setup-msbuild@v1.3
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+    
+      - name: Setup Nuget
+        uses: nuget/setup-nuget@v1     
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true    
+        
+      - name: Create new branch  
+        run: git branch features/update_dependencies_${{ github.run_number }}
+      
+      - name: Switch branch
+        run: git checkout features/update_dependencies_${{ github.run_number }}  
+      
+      - name: NuGet restore
+        run: nuget restore
+              
+      - name: Update NuGet packages
+        run: nuget update "${{ env.solution }}" -FileConflictAction Ignore
+
+      - name: Setup GIT config
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git config --global --add --bool push.autoSetupRemote true
+      
+      - name: Commit and Push
+        run: |
+          git add .
+          git commit -a -m "Packages update (CI)"
+          git push
+          
+  create_pull_request:
+    name: Create pull request
+    runs-on: ubuntu-latest
+    needs: update_packages
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: features/update_dependencies_${{ github.run_number }}
+    
+      - name: Create pull request
+        uses: devops-infra/action-pull-request@v0.5.5
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source_branch: features/update_dependencies_${{ github.run_number }}
+          target_branch: main
+          title: Update NuGet packages
+          assignee: guibranco
+          reviewer: guibranco
+          label: dependencies,.NET,infra,NuGet,packages
+          template: .github/PULL_REQUEST_TEMPLATE/FEATURE.md
+          get_diff: true
