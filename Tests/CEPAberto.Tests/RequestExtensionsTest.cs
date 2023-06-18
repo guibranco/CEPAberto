@@ -12,14 +12,13 @@
 // <summary></summary>
 // ***********************************************************************
 
+using GuiStracini.SDKBuilder;
+
 namespace CEPAberto.Tests
 {
     using System.Collections.Generic;
 
-    using CEPAberto.Utils;
-
-    using GuiStracini.SDKBuilder;
-
+    using Utils;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     using Transport;

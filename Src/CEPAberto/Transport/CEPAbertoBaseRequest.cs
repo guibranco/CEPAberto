@@ -12,9 +12,10 @@
 // <summary></summary>
 // ***********************************************************************
 
+using GuiStracini.SDKBuilder;
+
 namespace CEPAberto.Transport
 {
-    using GuiStracini.SDKBuilder;
     using Newtonsoft.Json;
 
     /// <summary>

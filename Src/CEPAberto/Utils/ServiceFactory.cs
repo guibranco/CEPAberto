@@ -12,17 +12,18 @@
 // <summary></summary>
 // ***********************************************************************
 
+using GuiStracini.SDKBuilder;
+
 namespace CEPAberto.Utils
 {
     using Newtonsoft.Json;
-    using CEPAberto.GoodPractices;
+    using GoodPractices;
     using System;
     using System.Net.Http;
     using System.Net.Http.Headers;
     using System.Threading;
     using System.Threading.Tasks;
-    using GuiStracini.SDKBuilder;
-    using CEPAbertoBaseRequest = CEPAberto.Transport.CEPAbertoBaseRequest;
+    using CEPAbertoBaseRequest = Transport.CEPAbertoBaseRequest;
 
     /// <summary>
     /// Class ServiceFactory. This class cannot be inherited.

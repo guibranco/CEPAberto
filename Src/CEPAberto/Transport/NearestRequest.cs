@@ -11,10 +11,11 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
+using GuiStracini.SDKBuilder.Routing;
+
 namespace CEPAberto.Transport
 {
-    using GuiStracini.SDKBuilder.Routing;
-
     /// <summary>
     /// The nearest request class.
     /// </summary>

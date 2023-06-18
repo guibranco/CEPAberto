@@ -18,8 +18,8 @@
     </metadata>
     <files>
         <file src="bin\$configuration$\$id$.pdb" target="lib\net48\" />
-        <file src="..\README.md" />
-        <file src="..\LICENSE" />
-        <file src="..\logo.png" />
+        <file src="..\..\README.md" />
+        <file src="..\..\LICENSE" />
+        <file src="..\..\logo.png" />
     </files>
 </package>
