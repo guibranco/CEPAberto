@@ -21,7 +21,6 @@ namespace CEPAberto.ValueObject
     /// </summary>
     public sealed class City
     {
-
         /// <summary>
         /// Gets or sets the area code.
         /// </summary>

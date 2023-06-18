@@ -1,31 +1,34 @@
 ﻿// ***********************************************************************
 // Assembly         : CEPAberto
 // Author           : Guilherme Branco Stracini
-// Created          : 2018-08-15
+// Created          : 06-28-2020
 //
 // Last Modified By : Guilherme Branco Stracini
 // Last Modified On : 25/03/2023
 // ***********************************************************************
-// <copyright file="CitiesRequest.cs" company="Guilherme Branco Stracini ME">
+// <copyright file="UpdateRequest.cs" company="Guilherme Branco Stracini ME">
 //     Copyright © 2023
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
+using GuiStracini.SDKBuilder.Routing;
+
 namespace CEPAberto.Transport
 {
-    using GuiStracini.SDKBuilder.Routing;
+    using Newtonsoft.Json;
 
     /// <summary>
-    /// The cities request class.
+    /// Class UpdateRequest. This class cannot be inherited.
     /// </summary>
-    /// <seealso cref="CEPAberto.Transport.CEPAbertoBaseRequest" />
-    [EndpointRoute("cities?estado={StateInitials}")]
-    public sealed class CitiesRequest : CEPAbertoBaseRequest
+    [EndpointRoute("update")]
+    public sealed class UpdateRequest : CEPAbertoBaseRequest
     {
         /// <summary>
-        /// Gets or sets the state initials.
+        /// Gets or sets the postal codes.
         /// </summary>
-        /// <value>The state initials.</value>
-        public string StateInitials { get; set; }
+        /// <value>The postal codes.</value>
+        [JsonProperty("ceps")]
+        public string PostalCodes { get; set; }
     }
 }

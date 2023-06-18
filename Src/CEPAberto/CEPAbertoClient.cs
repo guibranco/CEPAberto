@@ -91,15 +91,16 @@ namespace CEPAberto
         /// <param name="postalCode">The postal code.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>PostalCodeData.</returns>
-        public async Task<PostalCodeData> GetDataAsync(string postalCode, CancellationToken cancellationToken)
+        public async Task<PostalCodeData> GetDataAsync(
+            string postalCode,
+            CancellationToken cancellationToken
+        )
         {
-            var data = new PostalCodeRequest
-            {
-                Token = _token,
-                PostalCode = postalCode
-            };
+            var data = new PostalCodeRequest { Token = _token, PostalCode = postalCode };
 
-            var result = await _service.Get<PostalCodeData, PostalCodeRequest>(data, cancellationToken).ConfigureAwait(_configureAwait);
+            var result = await _service
+                .Get<PostalCodeData, PostalCodeRequest>(data, cancellationToken)
+                .ConfigureAwait(_configureAwait);
 
             if (!string.IsNullOrEmpty(result.PostalCode))
             {
@@ -116,7 +117,11 @@ namespace CEPAberto
         /// <param name="longitude">The longitude.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>PostalCodeData.</returns>
-        public async Task<PostalCodeData> GetDataAsync(string latitude, string longitude, CancellationToken cancellationToken)
+        public async Task<PostalCodeData> GetDataAsync(
+            string latitude,
+            string longitude,
+            CancellationToken cancellationToken
+        )
         {
             var data = new NearestRequest
             {
@@ -125,7 +130,9 @@ namespace CEPAberto
                 Longitude = longitude
             };
 
-            var result = await _service.Get<PostalCodeData, NearestRequest>(data, cancellationToken).ConfigureAwait(_configureAwait);
+            var result = await _service
+                .Get<PostalCodeData, NearestRequest>(data, cancellationToken)
+                .ConfigureAwait(_configureAwait);
 
             if (!string.IsNullOrEmpty(result.PostalCode))
             {
@@ -143,9 +150,20 @@ namespace CEPAberto
         /// <param name="neighborhood">The neighborhood.</param>
         /// <param name="street">The street.</param>
         /// <returns>PostalCodeData.</returns>
-        public PostalCodeData GetData(string stateInitials, string city, string neighborhood, string street)
+        public PostalCodeData GetData(
+            string stateInitials,
+            string city,
+            string neighborhood,
+            string street
+        )
         {
-            return GetDataAsync(stateInitials, city, neighborhood, street, CancellationToken.None).Result;
+            return GetDataAsync(
+                stateInitials,
+                city,
+                neighborhood,
+                street,
+                CancellationToken.None
+            ).Result;
         }
 
         /// <summary>
@@ -157,7 +175,13 @@ namespace CEPAberto
         /// <param name="street">The street.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>PostalCodeData.</returns>
-        public async Task<PostalCodeData> GetDataAsync(string stateInitials, string city, string neighborhood, string street, CancellationToken cancellationToken)
+        public async Task<PostalCodeData> GetDataAsync(
+            string stateInitials,
+            string city,
+            string neighborhood,
+            string street,
+            CancellationToken cancellationToken
+        )
         {
             var data = new AddressRequest
             {
@@ -168,7 +192,9 @@ namespace CEPAberto
                 Street = street
             };
 
-            var result = await _service.Get<PostalCodeData, AddressRequest>(data, cancellationToken).ConfigureAwait(_configureAwait);
+            var result = await _service
+                .Get<PostalCodeData, AddressRequest>(data, cancellationToken)
+                .ConfigureAwait(_configureAwait);
 
             if (!string.IsNullOrEmpty(result.PostalCode))
             {
@@ -194,16 +220,16 @@ namespace CEPAberto
         /// <param name="stateInitials">The state initials.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>CitiesData.</returns>
-        public async Task<CitiesData> GetCitiesAsync(string stateInitials, CancellationToken cancellationToken)
+        public async Task<CitiesData> GetCitiesAsync(
+            string stateInitials,
+            CancellationToken cancellationToken
+        )
         {
-            var data = new CitiesRequest
-            {
-                Token = _token,
-                StateInitials = stateInitials,
+            var data = new CitiesRequest { Token = _token, StateInitials = stateInitials, };
 
-            };
-
-            var results = await _service.Get<City[], CitiesRequest>(data, cancellationToken).ConfigureAwait(_configureAwait);
+            var results = await _service
+                .Get<City[], CitiesRequest>(data, cancellationToken)
+                .ConfigureAwait(_configureAwait);
 
             return new CitiesData
             {
@@ -229,7 +255,10 @@ namespace CEPAberto
         /// <param name="postalCodeList">The postal code list.</param>
         /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Task&lt;UpdateData&gt;.</returns>
-        public async Task<UpdateData> UpdateAsync(string[] postalCodeList, CancellationToken cancellationToken)
+        public async Task<UpdateData> UpdateAsync(
+            string[] postalCodeList,
+            CancellationToken cancellationToken
+        )
         {
             var data = new UpdateRequest
             {
@@ -237,7 +266,9 @@ namespace CEPAberto
                 PostalCodes = string.Join(",", postalCodeList)
             };
 
-            var result = await _service.Post<UpdateResponse, UpdateRequest>(data, cancellationToken).ConfigureAwait(_configureAwait);
+            var result = await _service
+                .Post<UpdateResponse, UpdateRequest>(data, cancellationToken)
+                .ConfigureAwait(_configureAwait);
 
             if (!string.IsNullOrWhiteSpace(result.Error))
             {
@@ -249,15 +280,9 @@ namespace CEPAberto
                 };
             }
 
-            return new UpdateData
-            {
-                Success = true,
-                PostalCodeList = result.Content
-            };
+            return new UpdateData { Success = true, PostalCodeList = result.Content };
         }
-
 
         #endregion
     }
 }
-

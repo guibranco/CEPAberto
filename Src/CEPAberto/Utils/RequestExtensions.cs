@@ -53,7 +53,8 @@ namespace CEPAberto.Utils
                         var childContent = child.ToKeyValue();
                         if (childContent != null)
                         {
-                            contentData = contentData.Concat(childContent)
+                            contentData = contentData
+                                .Concat(childContent)
                                 .ToDictionary(k => k.Key, v => v.Value);
                         }
                     }
@@ -67,7 +68,10 @@ namespace CEPAberto.Utils
                     return new Dictionary<string, string>();
                 }
 
-                var value = jValue.Type == JTokenType.Date ? jValue.ToString("o", CultureInfo.InvariantCulture) : jValue.ToString(CultureInfo.InvariantCulture);
+                var value =
+                    jValue.Type == JTokenType.Date
+                        ? jValue.ToString("o", CultureInfo.InvariantCulture)
+                        : jValue.ToString(CultureInfo.InvariantCulture);
 
                 return new Dictionary<string, string> { { token.Path, value } };
             }

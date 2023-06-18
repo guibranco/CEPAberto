@@ -12,14 +12,13 @@
 // <summary></summary>
 // ***********************************************************************
 
+using GuiStracini.SDKBuilder;
+
 namespace CEPAberto.Tests
 {
     using System.Collections.Generic;
 
-    using CEPAberto.Utils;
-
-    using GuiStracini.SDKBuilder;
-
+    using Utils;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     using Transport;
@@ -37,10 +36,7 @@ namespace CEPAberto.Tests
         public void RequestEndPoint()
         {
             const string expected = "cep?cep=12345678";
-            var postalCode = new PostalCodeRequest
-            {
-                PostalCode = "12345678"
-            };
+            var postalCode = new PostalCodeRequest { PostalCode = "12345678" };
             var result = postalCode.GetRequestEndPoint();
             Assert.AreEqual(expected, result, "The endpoint was not resolves as expected");
         }
@@ -52,11 +48,7 @@ namespace CEPAberto.Tests
         public void RequestEndPointWithMultipleParameters()
         {
             const string expected = "nearest?lat=10&lng=-20";
-            var nearest = new NearestRequest
-            {
-                Latitude = "10",
-                Longitude = "-20"
-            };
+            var nearest = new NearestRequest { Latitude = "10", Longitude = "-20" };
             var result = nearest.GetRequestEndPoint();
             Assert.AreEqual(expected, result, "The endpoint was not resolves as expected");
         }
@@ -67,11 +59,7 @@ namespace CEPAberto.Tests
         [TestMethod]
         public void RequestEndPointWithNullValues()
         {
-            var address = new AddressRequest
-            {
-                StateInitials = "SP",
-                City = "São Paulo"
-            };
+            var address = new AddressRequest { StateInitials = "SP", City = "São Paulo" };
             var result = address.GetRequestAdditionalParameter(ActionMethod.GET);
             Assert.AreEqual(string.Empty, result, "The endpoint was not resolves as expected");
         }

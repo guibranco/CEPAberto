@@ -12,11 +12,12 @@
 // <summary></summary>
 // ***********************************************************************
 
+using GuiStracini.SDKBuilder;
+using GuiStracini.SDKBuilder.Routing;
+
 namespace CEPAberto.Transport
 {
     using Newtonsoft.Json;
-    using GuiStracini.SDKBuilder;
-    using GuiStracini.SDKBuilder.Routing;
 
     /// <summary>
     /// The address request class.
