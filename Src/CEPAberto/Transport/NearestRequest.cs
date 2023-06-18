@@ -34,6 +34,5 @@ namespace CEPAberto.Transport
         /// </summary>
         /// <value>The longitude.</value>
         public string Longitude { get; set; }
-
     }
 }
