@@ -53,7 +53,7 @@ build_script:
 - ps: Start-process "SonarScanner.MSBuild.exe" "begin $($Params -join ' ')"
 - codeclimate-test-reporter before-build
 - msbuild -m "%SOLUTION_NAME%.sln" /property:Configuration=Release
-- nuget pack %SOLUTION_NAME% -Version %APPVEYOR_BUILD_VERSION%
+- nuget pack Src/%SOLUTION_NAME% -Version %APPVEYOR_BUILD_VERSION%
 - coverlet CEPAberto.Tests\bin\Release\CEPAberto.Tests.dll
  -t "vstest.console.exe"
  -a "CEPAberto.Tests\bin\Release\CEPAberto.Tests.dll"
