@@ -13,8 +13,11 @@
 // ***********************************************************************
 using System.Reflection;
 using System.Runtime.InteropServices;
+
 [assembly: AssemblyTitle("CEPAberto")]
-[assembly: AssemblyDescription("Provides a simple implementation of the CEP Aberto REST API in C#/.NET")]
+[assembly: AssemblyDescription(
+    "Provides a simple implementation of the CEP Aberto REST API in C#/.NET"
+)]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Guilherme Branco Stracini")]
 [assembly: AssemblyProduct("CEPAberto")]
