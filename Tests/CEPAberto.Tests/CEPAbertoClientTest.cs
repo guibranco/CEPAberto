@@ -65,7 +65,6 @@ namespace CEPAberto.Tests
             Assert.AreEqual(2927408, result.City.FiscalCode);
             Assert.AreEqual("Salvador", result.City.Name);
             Assert.AreEqual("BA", result.State.Initials);
-
         }
 
         /// <summary>
@@ -99,7 +98,7 @@ namespace CEPAberto.Tests
         public void TestSearchFullAddress()
         {
             var result = _client.GetData("SP", "Ubatuba", string.Empty, string.Empty);
-            
+
             Assert.IsTrue(result.Success);
 
             Assert.AreEqual(4.8, result.Altitude);
@@ -116,7 +115,6 @@ namespace CEPAberto.Tests
             Assert.AreEqual("SP", result.State.Initials);
         }
 
-
         /// <summary>
         /// Defines the test method TestSearchCities.
         /// </summary>
@@ -127,7 +125,10 @@ namespace CEPAberto.Tests
 
             Assert.IsTrue(result.Success);
 
-            Assert.AreEqual("Agrovila São Sebastião do Caburi (Parintins)", result.Cities.First().Name);
+            Assert.AreEqual(
+                "Agrovila São Sebastião do Caburi (Parintins)",
+                result.Cities.First().Name
+            );
         }
 
         /// <summary>
@@ -141,7 +142,6 @@ namespace CEPAberto.Tests
             var result = _client.Update(postalCodeList);
 
             Assert.IsTrue(result.Success);
-
         }
 
         /// <summary>
@@ -156,6 +156,5 @@ namespace CEPAberto.Tests
 
             Assert.IsFalse(result.Success);
         }
-
     }
 }

@@ -52,7 +52,11 @@ namespace CEPAberto
         /// <param name="longitude">The longitude.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>Task&lt;PostalCodeData&gt;.</returns>
-        Task<PostalCodeData> GetDataAsync(string latitude, string longitude, CancellationToken cancellationToken);
+        Task<PostalCodeData> GetDataAsync(
+            string latitude,
+            string longitude,
+            CancellationToken cancellationToken
+        );
 
         /// <summary>
         /// Gets the data.
@@ -62,7 +66,12 @@ namespace CEPAberto
         /// <param name="neighborhood">The neighborhood.</param>
         /// <param name="street">The street.</param>
         /// <returns>PostalCodeData.</returns>
-        PostalCodeData GetData(string stateInitials, string city, string neighborhood, string street);
+        PostalCodeData GetData(
+            string stateInitials,
+            string city,
+            string neighborhood,
+            string street
+        );
 
         /// <summary>
         /// Gets the data asynchronous.
@@ -73,7 +82,13 @@ namespace CEPAberto
         /// <param name="street">The street.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>Task&lt;PostalCodeData&gt;.</returns>
-        Task<PostalCodeData> GetDataAsync(string stateInitials, string city, string neighborhood, string street, CancellationToken cancellationToken);
+        Task<PostalCodeData> GetDataAsync(
+            string stateInitials,
+            string city,
+            string neighborhood,
+            string street,
+            CancellationToken cancellationToken
+        );
 
         /// <summary>
         /// Gets the cities.

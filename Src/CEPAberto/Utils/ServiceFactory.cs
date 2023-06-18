@@ -12,17 +12,18 @@
 // <summary></summary>
 // ***********************************************************************
 
+using GuiStracini.SDKBuilder;
+
 namespace CEPAberto.Utils
 {
     using Newtonsoft.Json;
-    using CEPAberto.GoodPractices;
+    using GoodPractices;
     using System;
     using System.Net.Http;
     using System.Net.Http.Headers;
     using System.Threading;
     using System.Threading.Tasks;
-    using GuiStracini.SDKBuilder;
-    using CEPAbertoBaseRequest = CEPAberto.Transport.CEPAbertoBaseRequest;
+    using CEPAbertoBaseRequest = Transport.CEPAbertoBaseRequest;
 
     /// <summary>
     /// Class ServiceFactory. This class cannot be inherited.
@@ -69,24 +70,34 @@ namespace CEPAberto.Utils
         /// <returns>Returns the response as <typeparamref name="TOut" /></returns>
         /// <exception cref="System.Net.Http.HttpRequestException">Requested method {method} not implemented in V3</exception>
         /// <exception cref="CEPAberto.GoodPractices.CEPAbertoApiException"></exception>
-        private async Task<TOut> Execute<TOut, TIn>(ActionMethod method, TIn requestObject, CancellationToken cancellationToken) where TIn : CEPAbertoBaseRequest
+        private async Task<TOut> Execute<TOut, TIn>(
+            ActionMethod method,
+            TIn requestObject,
+            CancellationToken cancellationToken
+        )
+            where TIn : CEPAbertoBaseRequest
         {
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(_serviceEndPoint);
                 client.DefaultRequestHeaders.ExpectContinue = false;
                 client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json")
+                );
                 if (!string.IsNullOrEmpty(requestObject.Token))
                 {
-                    client.DefaultRequestHeaders.Add("Authorization", string.Concat("Token token=", requestObject.Token));
+                    client.DefaultRequestHeaders.Add(
+                        "Authorization",
+                        string.Concat("Token token=", requestObject.Token)
+                    );
                 }
 
                 var endpoint = requestObject.GetRequestEndPoint();
                 //TODO fix after updated GuiStracini.SDKBuilder
                 //var additional = requestObject.GetRequestAdditionalParameter(method);
 
-                
+
                 //if (!string.IsNullOrWhiteSpace(additional))
                 //{
                 //    if (endpoint.IndexOf("?", StringComparison.InvariantCultureIgnoreCase) == -1)
@@ -104,17 +115,25 @@ namespace CEPAberto.Utils
                     {
                         case ActionMethod.GET:
 
-                            response = await client.GetAsync(endpoint, cancellationToken).ConfigureAwait(_configureAwait);
+                            response = await client
+                                .GetAsync(endpoint, cancellationToken)
+                                .ConfigureAwait(_configureAwait);
 
-                            return await response.Content.ReadAsAsync<TOut>(cancellationToken).ConfigureAwait(_configureAwait);
+                            return await response.Content
+                                .ReadAsAsync<TOut>(cancellationToken)
+                                .ConfigureAwait(_configureAwait);
                         case ActionMethod.POST:
 
                             var data = requestObject.ToKeyValue();
                             var content = new FormUrlEncodedContent(data);
 
-                            response = await client.PostAsync(endpoint, content, cancellationToken).ConfigureAwait(_configureAwait);
+                            response = await client
+                                .PostAsync(endpoint, content, cancellationToken)
+                                .ConfigureAwait(_configureAwait);
 
-                            var result = await response.Content.ReadAsStringAsync().ConfigureAwait(_configureAwait);
+                            var result = await response.Content
+                                .ReadAsStringAsync()
+                                .ConfigureAwait(_configureAwait);
 
                             if (result.StartsWith("["))
                             {
@@ -123,7 +142,9 @@ namespace CEPAberto.Utils
 
                             return JsonConvert.DeserializeObject<TOut>(result);
                         default:
-                            throw new HttpRequestException($"Requested method {method} not implemented in V3");
+                            throw new HttpRequestException(
+                                $"Requested method {method} not implemented in V3"
+                            );
                     }
                 }
                 catch (HttpRequestException e)
@@ -145,8 +166,10 @@ namespace CEPAberto.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="token">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>TOut.</returns>
-        public async Task<TOut> Get<TOut, TIn>(TIn requestObject, CancellationToken token) where TIn : CEPAbertoBaseRequest
-            => await Execute<TOut, TIn>(ActionMethod.GET, requestObject, token).ConfigureAwait(_configureAwait);
+        public async Task<TOut> Get<TOut, TIn>(TIn requestObject, CancellationToken token)
+            where TIn : CEPAbertoBaseRequest =>
+            await Execute<TOut, TIn>(ActionMethod.GET, requestObject, token)
+                .ConfigureAwait(_configureAwait);
 
         /// <summary>
         /// Posts the specified request object.
@@ -156,8 +179,13 @@ namespace CEPAberto.Utils
         /// <param name="requestObject">The request object.</param>
         /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>TOut.</returns>
-        public async Task<TOut> Post<TOut, TIn>(TIn requestObject, CancellationToken cancellationToken) where TIn : CEPAbertoBaseRequest
-            => await Execute<TOut, TIn>(ActionMethod.POST, requestObject, cancellationToken).ConfigureAwait(_configureAwait);
+        public async Task<TOut> Post<TOut, TIn>(
+            TIn requestObject,
+            CancellationToken cancellationToken
+        )
+            where TIn : CEPAbertoBaseRequest =>
+            await Execute<TOut, TIn>(ActionMethod.POST, requestObject, cancellationToken)
+                .ConfigureAwait(_configureAwait);
 
         #endregion
     }
