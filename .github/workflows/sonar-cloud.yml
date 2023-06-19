@@ -1,5 +1,6 @@
 name: Sonar Cloud Analysis
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
