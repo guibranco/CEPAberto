@@ -4,11 +4,8 @@ image: Visual Studio 2022
 configuration: Release
 
 environment:
-  SOLUTION_NAME: CEPAberto
   SONAR_TOKEN: 
     secure: FZall4UDTaaxIAcigp9Z4pmSKa1YKxNB/ahexpxsRzKjIOsXBU/Ge1PoU2Qgt1zK
-  GITHUB_TOKEN: 
-    secure: AD1z81FqZlvGkCEyDzJ3g6sIJ93ecUE9EuqfUxc4CMiFGW139pWZk+/huuTY5jzG
   CODACY_PROJECT_TOKEN:
     secure: jB+7YloyEU1QHmoy/MvUkkaH6cucrrlLnFQww11QxR47GXxpT31wnsDPghqwdIs0
   CODECLIMATE_TOKEN:
@@ -26,6 +23,7 @@ init:
 - SET PATH=%JAVA_HOME%\bin;%PATH%
 
 before_build:
+- ps: $env:SOLUTION_NAME = $([io.path]::GetFileNameWithoutExtension($(Get-ChildItem -Path .\* -Include *.sln)))
 - ps: $env:SONAR_PROJECT = "$env:APPVEYOR_REPO_NAME" -replace "/","_"
 - ps: $env:SONAR_ORGANIZATION = "$env:APPVEYOR_REPO_NAME" -replace "/.*$","-github"
 - cmd: nuget restore
@@ -49,7 +47,7 @@ build_script:
 - ps: $Params += "/d:sonar.exclusions=`"**/bin/**/*,**/obj/**/*`"", "/d:sonar.coverage.exclusions=`"**/$env:SOLUTION_NAME.Tests/**,**/*Tests.cs`""
 - ps: $Params += "/d:sonar.cs.opencover.reportsPaths=`"$env:CD\$env:SOLUTION_NAME.Tests\coverage.opencover.xml`""
 - ps: if(-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) { $Params += "/d:sonar.branch.name=`"$env:APPVEYOR_REPO_BRANCH`"" }
-- ps: if($env:APPVEYOR_PULL_REQUEST_NUMBER) { $Params += "/d:sonar.pullrequest.key=$env:APPVEYOR_PULL_REQUEST_NUMBER" }
+- ps: if($env:APPVEYOR_PULL_REQUEST_NUMBER) { $Params += "/d:sonar.pullrequest.key=$env:APPVEYOR_PULL_REQUEST_NUMBER", "/d:sonar.pullrequest.branch=`"$env:APPVEYOR_REPO_BRANCH`"" }
 - ps: Start-process "SonarScanner.MSBuild.exe" "begin $($Params -join ' ')"
 - codeclimate-test-reporter before-build
 - msbuild -m "%SOLUTION_NAME%.sln" /property:Configuration=Release
@@ -95,24 +93,18 @@ artifacts:
   name: Coverage
 
 deploy:
-- provider: Environment
+- provider: NuGet
+  api_key: $(NUGET_TOKEN)
+  skip_symbols: false
   on:
    branch: main
-  name: NuGet
   artifact: Package
 
 - provider: GitHub
   on:
    branch: main
-  tag: $(appveyor_build_version)
+  tag: v$(appveyor_build_version)
+  description: 'Release of $(SOLUTION_NAME) - v($appveyor_build_version)'
   auth_token: $(GITHUB_TOKEN)
   force_update: true
-  artifact: ZipFile
-
-- provider: GitHub
-  on:
-   branch: main
-  tag: $(appveyor_build_version)
-  auth_token: $(GITHUB_TOKEN)
-  force_update: true
-  artifact: Coverage
+  artifact: ZipFile, Package, Coverage
