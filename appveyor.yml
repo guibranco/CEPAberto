@@ -48,8 +48,8 @@ build_script:
 - ps: $Params += "/d:sonar.cs.opencover.reportsPaths=`"\Tests\$env:SOLUTION_NAME.Tests\coverage.opencover.xml`""
 - ps: if(-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) { $Params += "/d:sonar.branch.name=`"$env:APPVEYOR_REPO_BRANCH`"" }
 - ps: if($env:APPVEYOR_PULL_REQUEST_NUMBER) { $Params += "/d:sonar.pullrequest.key=$env:APPVEYOR_PULL_REQUEST_NUMBER", "/d:sonar.pullrequest.branch=`"$env:APPVEYOR_PULL_REQUEST_HEAD_REPO_BRANCH`"" }
-- echo $Params
-- SonarScanner.MSBuild.exe begin $Params
+- echo %Params%
+- SonarScanner.MSBuild.exe begin %Params%
 - codeclimate-test-reporter before-build
 - msbuild -m "%SOLUTION_NAME%.sln" /property:Configuration=Release
 - nuget pack Src\%SOLUTION_NAME% -Version %APPVEYOR_BUILD_VERSION%
