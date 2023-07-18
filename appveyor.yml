@@ -45,7 +45,7 @@ build_script:
 - ps: $Params =  "/k:`"$env:SONAR_PROJECT`"", "/o:`"$env:SONAR_ORGANIZATION`"", "/v:`"$env:APPVEYOR_BUILD_NUMBER`""
 - ps: $Params += "/d:sonar.host.url=`"https://sonarcloud.io`"", "/d:sonar.token=`"$env:SONAR_TOKEN`""
 - ps: $Params += "/d:sonar.exclusions=`"**/bin/**/*,**/obj/**/*`"", "/d:sonar.coverage.exclusions=`"**/$env:SOLUTION_NAME.Tests/**,**/*Tests.cs`""
-- ps: $Params += "/d:sonar.cs.opencover.reportsPaths=`"\Tests\$env:SOLUTION_NAME.Tests\coverage.opencover.xml`""
+- ps: $Params += "/d:sonar.cs.opencover.reportsPaths=`"Tests\$env:SOLUTION_NAME.Tests\coverage.opencover.xml`""
 - ps: if(-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) { $Params += "/d:sonar.branch.name=`"$env:APPVEYOR_REPO_BRANCH`"" }
 - ps: if($env:APPVEYOR_PULL_REQUEST_NUMBER) { $Params += "/d:sonar.pullrequest.key=$env:APPVEYOR_PULL_REQUEST_NUMBER", "/d:sonar.pullrequest.branch=`"$env:APPVEYOR_PULL_REQUEST_HEAD_REPO_BRANCH`"" }
 - ps: Start-process "SonarScanner.MSBuild.exe" "begin $($Params -join ' ')"
@@ -62,20 +62,20 @@ build_script:
  -a "Tests\%SOLUTION_NAME%.Tests\bin\Release\%SOLUTION_NAME%.Tests.dll"
  -o "Tests\%SOLUTION_NAME%.Tests\\"
  -f lcov
-- codeclimate-test-reporter format-coverage -t lcov -o "\Tests\%SOLUTION_NAME%.Tests\code-climate.json" "\Tests\%SOLUTION_NAME%.Tests\coverage.info"
-- codeclimate-test-reporter upload-coverage -i "\Tests\%SOLUTION_NAME%.Tests\code-climate.json" -r %CODECLIMATE_TOKEN%
-- codecov -f "\Tests\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
-- java -jar ./codacy-test-reporter.jar report -l CSharp -t %CODACY_PROJECT_TOKEN% -r "\Tests\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
+- codeclimate-test-reporter format-coverage -t lcov -o "Tests\%SOLUTION_NAME%.Tests\code-climate.json" "Tests\%SOLUTION_NAME%.Tests\coverage.info"
+- codeclimate-test-reporter upload-coverage -i "Tests\%SOLUTION_NAME%.Tests\code-climate.json" -r %CODECLIMATE_TOKEN%
+- codecov -f "Tests\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
+- java -jar ./codacy-test-reporter.jar report -l CSharp -t %CODACY_PROJECT_TOKEN% -r "Tests\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
 - SonarScanner.MSBuild.exe end /d:sonar.token="%SONAR_TOKEN%"
 
 after_build:
-- xcopy \Src\%SOLUTION_NAME%\bin\Release\*.* \Build\
+- xcopy Src\%SOLUTION_NAME%\bin\Release\*.* Build\
 
-- rd /s /q \Src\%SOLUTION_NAME%\bin\Release\
+- rd /s /q Src\%SOLUTION_NAME%\bin\Release\
 
-- xcopy \Tests\%SOLUTION_NAME%.Tests\*.xml \Coverage\
-- xcopy \Tests\%SOLUTION_NAME%.Tests\*.json \Coverage\
-- xcopy \Tests\%SOLUTION_NAME%.Tests\*.info \Coverage\
+- xcopy Tests\%SOLUTION_NAME%.Tests\*.xml Coverage\
+- xcopy Tests\%SOLUTION_NAME%.Tests\*.json Coverage\
+- xcopy Tests\%SOLUTION_NAME%.Tests\*.info Coverage\
 
 - 7z a -tzip -mx9 "%SOLUTION_NAME%.%APPVEYOR_BUILD_VERSION%.zip" Build
 - 7z a -tzip -mx9 "%SOLUTION_NAME%.%APPVEYOR_BUILD_VERSION%.Coverage.zip" Coverage
