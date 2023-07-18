@@ -45,10 +45,9 @@ build_script:
 - ps: $Params =  "/k:`"$env:SONAR_PROJECT`"", "/o:`"$env:SONAR_ORGANIZATION`"", "/v:`"$env:APPVEYOR_BUILD_NUMBER`""
 - ps: $Params += "/d:sonar.host.url=`"https://sonarcloud.io`"", "/d:sonar.token=`"$env:SONAR_TOKEN`""
 - ps: $Params += "/d:sonar.exclusions=`"**/bin/**/*,**/obj/**/*`"", "/d:sonar.coverage.exclusions=`"**/$env:SOLUTION_NAME.Tests/**,**/*Tests.cs`""
-- ps: $Params += "/d:sonar.cs.opencover.reportsPaths=`"$env:APPVEYOR_BUILD_FOLDER\Tests\$env:SOLUTION_NAME.Tests\coverage.opencover.xml`""
+- ps: $Params += "/d:sonar.cs.opencover.reportsPaths=`"Tests\$env:SOLUTION_NAME.Tests\coverage.opencover.xml`""
 - ps: if(-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) { $Params += "/d:sonar.branch.name=`"$env:APPVEYOR_REPO_BRANCH`"" }
 - ps: if($env:APPVEYOR_PULL_REQUEST_NUMBER) { $Params += "/d:sonar.pullrequest.key=$env:APPVEYOR_PULL_REQUEST_NUMBER", "/d:sonar.pullrequest.branch=`"$env:APPVEYOR_PULL_REQUEST_HEAD_REPO_BRANCH`"" }
-- ps: echo $($Params -join ' ')
 - ps: Start-process "SonarScanner.MSBuild.exe" "begin $($Params -join ' ')" -NoNewWindow -PassThru -Wait
 - codeclimate-test-reporter before-build
 - msbuild -m "%SOLUTION_NAME%.sln" /property:Configuration=Release
