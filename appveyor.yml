@@ -48,10 +48,10 @@ build_script:
 - ps: $Params += "/d:sonar.cs.opencover.reportsPaths=`"$env:CD\$env:SOLUTION_NAME.Tests\coverage.opencover.xml`""
 - ps: if(-Not $env:APPVEYOR_PULL_REQUEST_NUMBER) { $Params += "/d:sonar.branch.name=`"$env:APPVEYOR_REPO_BRANCH`"" }
 - ps: if($env:APPVEYOR_PULL_REQUEST_NUMBER) { $Params += "/d:sonar.pullrequest.key=$env:APPVEYOR_PULL_REQUEST_NUMBER", "/d:sonar.pullrequest.branch=`"$env:APPVEYOR_REPO_BRANCH`"" }
+- ps: echo $Params
 - ps: Start-process "SonarScanner.MSBuild.exe" "begin $($Params -join ' ')"
 - codeclimate-test-reporter before-build
 - msbuild -m "%SOLUTION_NAME%.sln" /property:Configuration=Release
-- SonarScanner.MSBuild.exe end /d:sonar.login="%SONAR_TOKEN%"
 - nuget pack Src\%SOLUTION_NAME% -Version %APPVEYOR_BUILD_VERSION%
 - coverlet Tests\%SOLUTION_NAME%.Tests\bin\Release\%SOLUTION_NAME%.Tests.dll
  -t "vstest.console.exe"
@@ -67,6 +67,7 @@ build_script:
 - codeclimate-test-reporter upload-coverage -i "%CD%\Tests\%SOLUTION_NAME%.Tests\code-climate.json" -r %CODECLIMATE_TOKEN%
 - codecov -f "%CD%\Tests\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
 - java -jar ./codacy-test-reporter.jar report -l CSharp -t %CODACY_PROJECT_TOKEN% -r "%CD%\Tests\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
+- SonarScanner.MSBuild.exe end /d:sonar.login="%SONAR_TOKEN%"
 
 after_build:
 - xcopy %CD%\Src\%SOLUTION_NAME%\bin\Release\*.* %CD%\Build\
