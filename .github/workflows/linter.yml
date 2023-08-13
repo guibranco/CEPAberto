@@ -1,11 +1,13 @@
 name: Linter check
 on:
-  pull_request
+  pull_request:
+  workflow_dispatch:
+  
 jobs:
   linter-check:
     runs-on: ubuntu-latest
     steps:
-    
+
       - name: Checkout repo
         uses: actions/checkout@v3
 
