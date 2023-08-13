@@ -57,7 +57,7 @@ jobs:
         with:
           name: coverage
           path: Tests\${{ env.solution }}.Tests\bin\Release\coverage.cobertura.xml
-  
+
   deep-source:
     name: Deep Source Coverage report
     needs: build
