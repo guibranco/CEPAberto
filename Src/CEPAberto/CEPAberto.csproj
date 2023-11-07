@@ -34,8 +34,8 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GuiStracini.SDKBuilder, Version=3.0.333.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\packages\GuiStracini.SDKBuilder.3.0.333\lib\netstandard2.0\GuiStracini.SDKBuilder.dll</HintPath>
+    <Reference Include="GuiStracini.SDKBuilder, Version=3.0.339.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\GuiStracini.SDKBuilder.3.0.339\lib\netstandard2.0\GuiStracini.SDKBuilder.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
