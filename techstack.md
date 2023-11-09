@@ -125,14 +125,14 @@ Full tech stack [here](/techstack.md)
 
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
-|[MSTest.TestFramework](https://www.nuget.org/MSTest.TestFramework)|v3.1.1|11/07/23|net-framework-updater[bot] |MIT|N/A|
-|[Microsoft.AspNet.WebApi.Client](https://www.nuget.org/Microsoft.AspNet.WebApi.Client)|v6.0.0|10/24/23|net-framework-updater[bot] |Apache-2.0|N/A|
-|[Newtonsoft.Json](https://www.nuget.org/Newtonsoft.Json)|v13.0.3|10/24/23|net-framework-updater[bot] |MIT|N/A|
-|[Newtonsoft.Json.Bson](https://www.nuget.org/Newtonsoft.Json.Bson)|v1.0.2|10/24/23|net-framework-updater[bot] |MIT|N/A|
-|[System.Buffers](https://www.nuget.org/System.Buffers)|v4.5.1|10/24/23|net-framework-updater[bot] |N/A|N/A|
-|[System.Memory](https://www.nuget.org/System.Memory)|v4.5.5|10/24/23|net-framework-updater[bot] |N/A|N/A|
-|[System.Numerics.Vectors](https://www.nuget.org/System.Numerics.Vectors)|v4.5.0|10/24/23|net-framework-updater[bot] |N/A|N/A|
-|[System.Threading.Tasks.Extensions](https://www.nuget.org/System.Threading.Tasks.Extensions)|v4.5.4|11/07/23|net-framework-updater[bot] |N/A|N/A|
+|[MSTest.TestFramework](https://www.nuget.org/MSTest.TestFramework)|v3.1.1|11/07/23|net-framework-updater\[bot] |MIT|N/A|
+|[Microsoft.AspNet.WebApi.Client](https://www.nuget.org/Microsoft.AspNet.WebApi.Client)|v6.0.0|10/24/23|net-framework-updater\[bot] |Apache-2.0|N/A|
+|[Newtonsoft.Json](https://www.nuget.org/Newtonsoft.Json)|v13.0.3|10/24/23|net-framework-updater\[bot] |MIT|N/A|
+|[Newtonsoft.Json.Bson](https://www.nuget.org/Newtonsoft.Json.Bson)|v1.0.2|10/24/23|net-framework-updater\[bot] |MIT|N/A|
+|[System.Buffers](https://www.nuget.org/System.Buffers)|v4.5.1|10/24/23|net-framework-updater\[bot] |N/A|N/A|
+|[System.Memory](https://www.nuget.org/System.Memory)|v4.5.5|10/24/23|net-framework-updater\[bot] |N/A|N/A|
+|[System.Numerics.Vectors](https://www.nuget.org/System.Numerics.Vectors)|v4.5.0|10/24/23|net-framework-updater\[bot] |N/A|N/A|
+|[System.Threading.Tasks.Extensions](https://www.nuget.org/System.Threading.Tasks.Extensions)|v4.5.4|11/07/23|net-framework-updater\[bot] |N/A|N/A|
 
 <br/>
 <div align='center'>
