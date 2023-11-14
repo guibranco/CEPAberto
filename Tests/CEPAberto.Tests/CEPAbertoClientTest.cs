@@ -13,9 +13,9 @@
 // ***********************************************************************
 namespace CEPAberto.Tests
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System.Linq;
     using System.Threading;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
     /// Defines test class CEPAbertoClientTest.

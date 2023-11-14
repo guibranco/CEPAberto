@@ -16,13 +16,13 @@ using GuiStracini.SDKBuilder;
 
 namespace CEPAberto.Utils
 {
-    using Newtonsoft.Json;
-    using GoodPractices;
     using System;
     using System.Net.Http;
     using System.Net.Http.Headers;
     using System.Threading;
     using System.Threading.Tasks;
+    using GoodPractices;
+    using Newtonsoft.Json;
     using CEPAbertoBaseRequest = Transport.CEPAbertoBaseRequest;
 
     /// <summary>
@@ -82,15 +82,15 @@ namespace CEPAberto.Utils
                 client.BaseAddress = new Uri(_serviceEndPoint);
                 client.DefaultRequestHeaders.ExpectContinue = false;
                 client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(
-                    new MediaTypeWithQualityHeaderValue("application/json")
-                );
+                client
+                    .DefaultRequestHeaders
+                    .Accept
+                    .Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 if (!string.IsNullOrEmpty(requestObject.Token))
                 {
-                    client.DefaultRequestHeaders.Add(
-                        "Authorization",
-                        string.Concat("Token token=", requestObject.Token)
-                    );
+                    client
+                        .DefaultRequestHeaders
+                        .Add("Authorization", string.Concat("Token token=", requestObject.Token));
                 }
 
                 var endpoint = requestObject.GetRequestEndPoint();
@@ -119,7 +119,8 @@ namespace CEPAberto.Utils
                                 .GetAsync(endpoint, cancellationToken)
                                 .ConfigureAwait(_configureAwait);
 
-                            return await response.Content
+                            return await response
+                                .Content
                                 .ReadAsAsync<TOut>(cancellationToken)
                                 .ConfigureAwait(_configureAwait);
                         case ActionMethod.POST:
@@ -131,7 +132,8 @@ namespace CEPAberto.Utils
                                 .PostAsync(endpoint, content, cancellationToken)
                                 .ConfigureAwait(_configureAwait);
 
-                            var result = await response.Content
+                            var result = await response
+                                .Content
                                 .ReadAsStringAsync()
                                 .ConfigureAwait(_configureAwait);
 

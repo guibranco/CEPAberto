@@ -17,11 +17,9 @@ using GuiStracini.SDKBuilder;
 namespace CEPAberto.Tests
 {
     using System.Collections.Generic;
-
-    using Utils;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-
     using Transport;
+    using Utils;
 
     /// <summary>
     /// Defines test class RequestHelpersTest.
