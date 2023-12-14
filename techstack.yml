@@ -1,7 +1,7 @@
 repo_name: guibranco/CEPAberto
-report_id: 68a8886f7609bf43597b708c1b47abe6
+report_id: 23649d67eab78bb0336086407c2901a8
 repo_type: Public
-timestamp: '2023-11-09T15:29:51+00:00'
+timestamp: '2023-12-14T09:37:26+00:00'
 requested_by: net-framework-updater[bot]
 provider: github
 branch: main
@@ -17,8 +17,8 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/6755/2c45151a4a11d3a3c8e71bb34dd069d6_400x400.png
-  detection_source_url: Src/CEPAberto/CEPAberto.csproj
-  detection_source: Tests/CEPAberto.Tests/CEPAberto.Tests.csproj
+  detection_source_url: https://github.com/guibranco/CEPAberto/blob/main/Src/CEPAberto/CEPAberto.csproj
+  detection_source: Src/CEPAberto/CEPAberto.csproj
   last_updated_by: guibranco
   last_updated_on: 2018-08-15 22:59:15.000000000 Z
 - name: C#
@@ -61,7 +61,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Continuous Integration
   image_url: https://img.stackshare.io/service/11563/actions.png
-  detection_source: ".github/workflows/update-packages.yml"
+  detection_source: ".github/workflows/deep-source.yml"
   last_updated_by: dependabot[bot]
   last_updated_on: 2023-09-11 06:07:22.000000000 Z
 - name: NuGet
@@ -107,10 +107,10 @@ tools:
   category: Libraries
   sub_category: NuGet Packages
   image_url: https://img.stackshare.io/package/13142/default_a057bdad489be3cb053d372a68695da4ac94962d.png
-  detection_source_url: Tests/CEPAberto.Tests/packages.config
+  detection_source_url: https://github.com/guibranco/CEPAberto/blob/main/Tests/CEPAberto.Tests/packages.config
   detection_source: Tests/CEPAberto.Tests/packages.config
   last_updated_by: net-framework-updater[bot]
-  last_updated_on: 2023-11-07 12:39:58.000000000 Z
+  last_updated_on: 2023-12-12 12:34:15.000000000 Z
 - name: Microsoft.AspNet.WebApi.Client
   description: This package adds support for formatting and content negotiation to
     System.Net.Http
@@ -122,7 +122,7 @@ tools:
   category: Libraries
   sub_category: NuGet Packages
   image_url: https://img.stackshare.io/package/12870/default_3ee9e3bfd65cbae9db28ab78b712a58bcd81af27.png
-  detection_source_url: Src/CEPAberto/packages.config
+  detection_source_url: https://github.com/guibranco/CEPAberto/blob/main/Src/CEPAberto/packages.config
   detection_source: Src/CEPAberto/packages.config
   last_updated_by: net-framework-updater[bot]
   last_updated_on: 2023-10-24 17:15:33.000000000 Z
@@ -136,8 +136,8 @@ tools:
   category: Libraries
   sub_category: NuGet Packages
   image_url: https://img.stackshare.io/package/nuget/image.png
-  detection_source_url: Src/CEPAberto/packages.config
-  detection_source: Tests/CEPAberto.Tests/packages.config
+  detection_source_url: https://github.com/guibranco/CEPAberto/blob/main/Src/CEPAberto/packages.config
+  detection_source: Src/CEPAberto/packages.config
   last_updated_by: net-framework-updater[bot]
   last_updated_on: 2023-10-24 17:15:33.000000000 Z
 - name: Newtonsoft.Json.Bson
@@ -150,7 +150,7 @@ tools:
   category: Libraries
   sub_category: NuGet Packages
   image_url: https://img.stackshare.io/package/13417/default_de77a8370e47861dfbe30f06e25c22916ed609b5.png
-  detection_source_url: Src/CEPAberto/packages.config
+  detection_source_url: https://github.com/guibranco/CEPAberto/blob/main/Src/CEPAberto/packages.config
   detection_source: Src/CEPAberto/packages.config
   last_updated_by: net-framework-updater[bot]
   last_updated_on: 2023-10-24 17:15:33.000000000 Z
@@ -164,7 +164,7 @@ tools:
   category: Libraries
   sub_category: NuGet Packages
   image_url: https://img.stackshare.io/package/13038/default_a0b0eac5a401515996bd8fc359ffcfbc844cbe90.png
-  detection_source_url: Src/CEPAberto/packages.config
+  detection_source_url: https://github.com/guibranco/CEPAberto/blob/main/Src/CEPAberto/packages.config
   detection_source: Src/CEPAberto/packages.config
   last_updated_by: net-framework-updater[bot]
   last_updated_on: 2023-10-24 17:15:33.000000000 Z
@@ -177,7 +177,7 @@ tools:
   category: Libraries
   sub_category: NuGet Packages
   image_url: https://img.stackshare.io/package/12974/default_d871263d8798790404638a4d3692cc70b6389166.png
-  detection_source_url: Src/CEPAberto/packages.config
+  detection_source_url: https://github.com/guibranco/CEPAberto/blob/main/Src/CEPAberto/packages.config
   detection_source: Src/CEPAberto/packages.config
   last_updated_by: net-framework-updater[bot]
   last_updated_on: 2023-10-24 17:15:33.000000000 Z
@@ -191,7 +191,7 @@ tools:
   category: Libraries
   sub_category: NuGet Packages
   image_url: https://img.stackshare.io/package/13087/default_1b8be57b16f1f491c0e5f67e5d1021f4df68ea30.png
-  detection_source_url: Src/CEPAberto/packages.config
+  detection_source_url: https://github.com/guibranco/CEPAberto/blob/main/Src/CEPAberto/packages.config
   detection_source: Src/CEPAberto/packages.config
   last_updated_by: net-framework-updater[bot]
   last_updated_on: 2023-10-24 17:15:33.000000000 Z
@@ -205,7 +205,7 @@ tools:
   category: Libraries
   sub_category: NuGet Packages
   image_url: https://img.stackshare.io/package/12998/default_aa8a6e377c22dbeff795489a5ab127b1d597b5ed.png
-  detection_source_url: Src/CEPAberto/packages.config
-  detection_source: Tests/CEPAberto.Tests/packages.config
+  detection_source_url: https://github.com/guibranco/CEPAberto/blob/main/Src/CEPAberto/packages.config
+  detection_source: Src/CEPAberto/packages.config
   last_updated_by: net-framework-updater[bot]
-  last_updated_on: 2023-11-07 12:39:58.000000000 Z
+  last_updated_on: 2023-12-12 12:34:15.000000000 Z

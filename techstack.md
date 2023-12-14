@@ -1,7 +1,8 @@
 <!--
---- Readme.md Snippet without images Start ---
+&lt;--- Readme.md Snippet without images Start ---&gt;
 ## Tech Stack
 guibranco/CEPAberto is built on the following main stack:
+
 - [.NET](http://www.microsoft.com/net/) – Frameworks (Full Stack)
 - [C#](http://csharp.net) – Languages
 - [Visual Studio](http://msdn.microsoft.com/en-us/vstudio/aa718325.aspx) – Integrated Development Environment
@@ -10,11 +11,13 @@ guibranco/CEPAberto is built on the following main stack:
 - [GitHub Actions](https://github.com/features/actions) – Continuous Integration
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet without images End ---
 
---- Readme.md Snippet with images Start ---
+&lt;--- Readme.md Snippet without images End ---&gt;
+
+&lt;--- Readme.md Snippet with images Start ---&gt;
 ## Tech Stack
 guibranco/CEPAberto is built on the following main stack:
+
 - <img width='25' height='25' src='https://img.stackshare.io/service/1014/IoPy1dce_400x400.png' alt='.NET'/> [.NET](http://www.microsoft.com/net/) – Frameworks (Full Stack)
 - <img width='25' height='25' src='https://img.stackshare.io/service/1015/1200px-C_Sharp_wordmark.svg.png' alt='C#'/> [C#](http://csharp.net) – Languages
 - <img width='25' height='25' src='https://img.stackshare.io/service/1451/SR2hUhQN.png' alt='Visual Studio'/> [Visual Studio](http://msdn.microsoft.com/en-us/vstudio/aa718325.aspx) – Integrated Development Environment
@@ -23,14 +26,15 @@ guibranco/CEPAberto is built on the following main stack:
 - <img width='25' height='25' src='https://img.stackshare.io/service/11563/actions.png' alt='GitHub Actions'/> [GitHub Actions](https://github.com/features/actions) – Continuous Integration
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet with images End ---
+
+&lt;--- Readme.md Snippet with images End ---&gt;
 -->
 <div align="center">
 
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [guibranco/CEPAberto](https://github.com/guibranco/CEPAberto)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|16<br/>Tools used|11/09/23 <br/>Report generated|
+|16<br/>Tools used|12/14/23 <br/>Report generated|
 |------|------|
 </div>
 
@@ -118,22 +122,23 @@ Full tech stack [here](/techstack.md)
 </tr>
 </table>
 
+
 ## <img src='https://img.stackshare.io/group.svg' /> Open source packages (8)</h2>
 
 ## <img width='24' height='24' src='https://img.stackshare.io/service/2637/6I3oEOP4_400x400.jpg'/> NuGet (8)
 
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
-|[MSTest.TestFramework](https://www.nuget.org/MSTest.TestFramework)|v3.1.1|11/07/23|net-framework-updater\[bot] |MIT|N/A|
-|[Microsoft.AspNet.WebApi.Client](https://www.nuget.org/Microsoft.AspNet.WebApi.Client)|v6.0.0|10/24/23|net-framework-updater\[bot] |Apache-2.0|N/A|
-|[Newtonsoft.Json](https://www.nuget.org/Newtonsoft.Json)|v13.0.3|10/24/23|net-framework-updater\[bot] |MIT|N/A|
-|[Newtonsoft.Json.Bson](https://www.nuget.org/Newtonsoft.Json.Bson)|v1.0.2|10/24/23|net-framework-updater\[bot] |MIT|N/A|
-|[System.Buffers](https://www.nuget.org/System.Buffers)|v4.5.1|10/24/23|net-framework-updater\[bot] |N/A|N/A|
-|[System.Memory](https://www.nuget.org/System.Memory)|v4.5.5|10/24/23|net-framework-updater\[bot] |N/A|N/A|
-|[System.Numerics.Vectors](https://www.nuget.org/System.Numerics.Vectors)|v4.5.0|10/24/23|net-framework-updater\[bot] |N/A|N/A|
-|[System.Threading.Tasks.Extensions](https://www.nuget.org/System.Threading.Tasks.Extensions)|v4.5.4|11/07/23|net-framework-updater\[bot] |N/A|N/A|
+|[MSTest.TestFramework](https://www.nuget.org/MSTest.TestFramework)|v3.1.1|12/12/23|net-framework-updater[bot] |MIT|N/A|
+|[Microsoft.AspNet.WebApi.Client](https://www.nuget.org/Microsoft.AspNet.WebApi.Client)|v6.0.0|10/24/23|net-framework-updater[bot] |Apache-2.0|N/A|
+|[Newtonsoft.Json](https://www.nuget.org/Newtonsoft.Json)|v13.0.3|10/24/23|net-framework-updater[bot] |MIT|N/A|
+|[Newtonsoft.Json.Bson](https://www.nuget.org/Newtonsoft.Json.Bson)|v1.0.2|10/24/23|net-framework-updater[bot] |MIT|N/A|
+|[System.Buffers](https://www.nuget.org/System.Buffers)|v4.5.1|10/24/23|net-framework-updater[bot] |N/A|N/A|
+|[System.Memory](https://www.nuget.org/System.Memory)|v4.5.5|10/24/23|net-framework-updater[bot] |N/A|N/A|
+|[System.Numerics.Vectors](https://www.nuget.org/System.Numerics.Vectors)|v4.5.0|10/24/23|net-framework-updater[bot] |N/A|N/A|
+|[System.Threading.Tasks.Extensions](https://www.nuget.org/System.Threading.Tasks.Extensions)|v4.5.4|12/12/23|net-framework-updater[bot] |N/A|N/A|
 
 <br/>
 <div align='center'>
 
-Generated via [Stack File](https://github.com/apps/stack-file)
+Generated via [Stack File](https://github.com/marketplace/stack-file)
