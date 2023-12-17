@@ -71,7 +71,7 @@ public class RequestHelpersTest
         // Arrange
 
         // Act
-        var result = ((object)null).ToKeyValue();
+        var result = (null as object).ToKeyValue();
 
         // Assert
         result.Should().NotBeNull();

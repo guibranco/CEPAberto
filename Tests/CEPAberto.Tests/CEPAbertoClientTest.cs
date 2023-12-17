@@ -84,7 +84,7 @@ public class CEPAbertoClientTest
         result.Success.Should().BeTrue();
         result.Cities.Should().NotBeEmpty();
         result.Cities.Should().Contain(x => x.Name == "Manaus");
-        result.Cities.First().Name.Should().Be("Agrovila São Sebastião do Caburi (Parintins)");
+        result.Cities[0].Name.Should().Be("Agrovila São Sebastião do Caburi (Parintins)");
     }
 
     [Fact]
