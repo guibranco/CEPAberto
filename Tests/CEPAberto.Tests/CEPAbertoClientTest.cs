@@ -10,6 +10,7 @@ public class CEPAbertoClientTest
     public void TestSearchCep()
     {
         // Arrange
+        Thread.Sleep(1000);
 
         // Act
         var result = _client.GetData("40010000");
@@ -32,6 +33,7 @@ public class CEPAbertoClientTest
     public void TestSearchNearest()
     {
         // Arrange
+        Thread.Sleep(1000);
 
         // Act
         var result = _client.GetData("-20.55", "-43.63");
@@ -54,6 +56,7 @@ public class CEPAbertoClientTest
     public void TestSearchFullAddress()
     {
         // Arrange
+        Thread.Sleep(1000);
 
         // Act
         var result = _client.GetData("SP", "Ubatuba", string.Empty, string.Empty);
@@ -76,6 +79,7 @@ public class CEPAbertoClientTest
     public void TestSearchCities()
     {
         // Arrange
+        Thread.Sleep(1000);
 
         // Act
         var result = _client.GetCities("AM");
@@ -91,6 +95,7 @@ public class CEPAbertoClientTest
     public void TestUpdate()
     {
         // Arrange
+        Thread.Sleep(1000);
         var postalCodeList = new[] { "03177010", "36420000" };
 
         // Act
@@ -104,6 +109,7 @@ public class CEPAbertoClientTest
     public void TestUpdateWrongData()
     {
         // Arrange
+        Thread.Sleep(1000);
         var postalCodeList = new[] { "03177010", "0012" };
 
         // Act
