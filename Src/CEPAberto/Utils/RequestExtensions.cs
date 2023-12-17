@@ -12,13 +12,13 @@
 // <summary></summary>
 // ***********************************************************************
 
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using Newtonsoft.Json.Linq;
+
 namespace CEPAberto.Utils
 {
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Linq;
-    using Newtonsoft.Json.Linq;
-
     /// <summary>
     /// Class Extensions.
     /// </summary>

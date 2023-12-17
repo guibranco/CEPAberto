@@ -13,11 +13,10 @@
 // ***********************************************************************
 
 using GuiStracini.SDKBuilder;
+using Newtonsoft.Json;
 
 namespace CEPAberto.Transport
 {
-    using Newtonsoft.Json;
-
     /// <summary>
     /// All classes that performs a direct request to the CEP Aberto API must inherit from this class.
     /// </summary>

@@ -13,11 +13,10 @@
 // ***********************************************************************
 
 using GuiStracini.SDKBuilder.Routing;
+using Newtonsoft.Json;
 
 namespace CEPAberto.Transport
 {
-    using Newtonsoft.Json;
-
     /// <summary>
     /// Class UpdateRequest. This class cannot be inherited.
     /// </summary>

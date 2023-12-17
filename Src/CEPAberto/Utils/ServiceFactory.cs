@@ -1,37 +1,31 @@
-﻿// ***********************************************************************
-// Assembly         : CEPAberto
-// Author           : Guilherme Branco Stracini
-// Created          : 2018-08-15
+﻿// *********************************************************************** Assembly : CEPAberto
+// Author : Guilherme Branco Stracini Created : 2018-08-15
 //
-// Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 25/03/2023
-// ***********************************************************************
+// Last Modified By : Guilherme Branco Stracini Last Modified On : 25/03/2023 ***********************************************************************
 // <copyright file="ServiceFactory.cs" company="Guilherme Branco Stracini ME">
 //     Copyright © 2023
 // </copyright>
-// <summary></summary>
+// <summary>
+// </summary>
 // ***********************************************************************
 
+using System;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading;
+using System.Threading.Tasks;
+using CEPAberto.GoodPractices;
 using GuiStracini.SDKBuilder;
+using Newtonsoft.Json;
+using CEPAbertoBaseRequest = CEPAberto.Transport.CEPAbertoBaseRequest;
 
 namespace CEPAberto.Utils
 {
-    using System;
-    using System.Net.Http;
-    using System.Net.Http.Headers;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using GoodPractices;
-    using Newtonsoft.Json;
-    using CEPAbertoBaseRequest = Transport.CEPAbertoBaseRequest;
-
     /// <summary>
     /// Class ServiceFactory. This class cannot be inherited.
     /// </summary>
     internal sealed class ServiceFactory
     {
-        #region Private fields
-
         /// <summary>
         /// The service end point
         /// </summary>
@@ -42,12 +36,8 @@ namespace CEPAberto.Utils
         /// </summary>
         private readonly bool _configureAwait;
 
-        #endregion
-
-        #region ~Ctor
-
         /// <summary>
-        /// Initializes a new instance of the <see cref="ServiceFactory" /> class.
+        /// Initializes a new instance of the <see cref="ServiceFactory"/> class.
         /// </summary>
         /// <param name="configureAwait">if set to <c>true</c> [configure await].</param>
         public ServiceFactory(bool configureAwait = false)
@@ -55,20 +45,18 @@ namespace CEPAberto.Utils
             _configureAwait = configureAwait;
         }
 
-        #endregion
-
-        #region Private methods
-
         /// <summary>
-        /// Executes the request in the specified HTTP <paramref name="method" />.
+        /// Executes the request in the specified HTTP <paramref name="method"/>.
         /// </summary>
         /// <typeparam name="TOut">The type of the out.</typeparam>
         /// <typeparam name="TIn">The type of the in.</typeparam>
         /// <param name="method">The request HTTP method.</param>
         /// <param name="requestObject">The request object.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>Returns the response as <typeparamref name="TOut" /></returns>
-        /// <exception cref="System.Net.Http.HttpRequestException">Requested method {method} not implemented in V3</exception>
+        /// <returns>Returns the response as <typeparamref name="TOut"/></returns>
+        /// <exception cref="System.Net.Http.HttpRequestException">
+        /// Requested method {method} not implemented in V3
+        /// </exception>
         /// <exception cref="CEPAberto.GoodPractices.CEPAbertoApiException"></exception>
         private async Task<TOut> Execute<TOut, TIn>(
             ActionMethod method,
@@ -97,7 +85,6 @@ namespace CEPAberto.Utils
                 //TODO fix after updated GuiStracini.SDKBuilder
                 //var additional = requestObject.GetRequestAdditionalParameter(method);
 
-
                 //if (!string.IsNullOrWhiteSpace(additional))
                 //{
                 //    if (endpoint.IndexOf("?", StringComparison.InvariantCultureIgnoreCase) == -1)
@@ -123,6 +110,7 @@ namespace CEPAberto.Utils
                                 .Content
                                 .ReadAsAsync<TOut>(cancellationToken)
                                 .ConfigureAwait(_configureAwait);
+
                         case ActionMethod.POST:
 
                             var data = requestObject.ToKeyValue();
@@ -143,6 +131,7 @@ namespace CEPAberto.Utils
                             }
 
                             return JsonConvert.DeserializeObject<TOut>(result);
+
                         default:
                             throw new HttpRequestException(
                                 $"Requested method {method} not implemented in V3"
@@ -156,17 +145,15 @@ namespace CEPAberto.Utils
             }
         }
 
-        #endregion
-
-        #region Public methods
-
         /// <summary>
         /// Gets the specified request object.
         /// </summary>
         /// <typeparam name="TOut">The type of the t out.</typeparam>
         /// <typeparam name="TIn">The type of the t in.</typeparam>
         /// <param name="requestObject">The request object.</param>
-        /// <param name="token">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="token">
+        /// The cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
         /// <returns>TOut.</returns>
         public async Task<TOut> Get<TOut, TIn>(TIn requestObject, CancellationToken token)
             where TIn : CEPAbertoBaseRequest =>
@@ -179,7 +166,9 @@ namespace CEPAberto.Utils
         /// <typeparam name="TOut">The type of the t out.</typeparam>
         /// <typeparam name="TIn">The type of the t in.</typeparam>
         /// <param name="requestObject">The request object.</param>
-        /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="cancellationToken">
+        /// The cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
         /// <returns>TOut.</returns>
         public async Task<TOut> Post<TOut, TIn>(
             TIn requestObject,
@@ -188,7 +177,5 @@ namespace CEPAberto.Utils
             where TIn : CEPAbertoBaseRequest =>
             await Execute<TOut, TIn>(ActionMethod.POST, requestObject, cancellationToken)
                 .ConfigureAwait(_configureAwait);
-
-        #endregion
     }
 }

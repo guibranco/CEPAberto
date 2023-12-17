@@ -11,11 +11,11 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using System;
+using System.Runtime.Serialization;
+
 namespace CEPAberto.GoodPractices
 {
-    using System;
-    using System.Runtime.Serialization;
-
     /// <inheritdoc />
     /// <summary>
     /// Throws when a exception occurs in the <see cref="T:CEPAberto.ServiceFactory" /> <c>Execute</c> method.

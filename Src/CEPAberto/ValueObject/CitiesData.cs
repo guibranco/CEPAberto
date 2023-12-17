@@ -12,10 +12,10 @@
 // <summary></summary>
 // ***********************************************************************
 
+using Newtonsoft.Json;
+
 namespace CEPAberto.ValueObject
 {
-    using Newtonsoft.Json;
-
     /// <summary>
     /// The cities data response class.
     /// </summary>

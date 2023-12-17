@@ -1,34 +1,28 @@
-﻿// ***********************************************************************
-// Assembly         : CEPAberto
-// Author           : Guilherme Branco Stracini
-// Created          : 2018-08-15
+﻿// *********************************************************************** Assembly : CEPAberto
+// Author : Guilherme Branco Stracini Created : 2018-08-15
 //
-// Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 10/01/2023
-// ***********************************************************************
+// Last Modified By : Guilherme Branco Stracini Last Modified On : 10/01/2023 ***********************************************************************
 // <copyright file="CEPAbertoClient.cs" company="Guilherme Branco Stracini ME">
 //     Copyright © 2023
 // </copyright>
-// <summary></summary>
+// <summary>
+// </summary>
 // ***********************************************************************
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using CEPAberto.Transport;
+using CEPAberto.Utils;
+using CEPAberto.ValueObject;
+
 namespace CEPAberto
 {
-    using System.Linq;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using Transport;
-    using Utils;
-    using ValueObject;
-
     /// <summary>
-    /// Class CEPAbertoClient. This class cannot be inherited.
-    /// Implements the <see cref="CEPAberto.ICEPAbertoClient" />
+    /// Class CEPAbertoClient. This class cannot be inherited. Implements the <see cref="CEPAberto.ICEPAbertoClient"/>
     /// </summary>
-    /// <seealso cref="CEPAberto.ICEPAbertoClient" />
+    /// <seealso cref="CEPAberto.ICEPAbertoClient"/>
     public sealed class CEPAbertoClient : ICEPAbertoClient
     {
-        #region Private fields
-
         /// <summary>
         /// The service
         /// </summary>
@@ -44,12 +38,8 @@ namespace CEPAberto
         /// </summary>
         private readonly bool _configureAwait;
 
-        #endregion
-
-        #region ~Ctor
-
         /// <summary>
-        /// Initializes a new instance of the <see cref="CEPAbertoClient" /> class.
+        /// Initializes a new instance of the <see cref="CEPAbertoClient"/> class.
         /// </summary>
         /// <param name="token">The token.</param>
         /// <param name="configureAwait">if set to <c>true</c> [configure await].</param>
@@ -59,10 +49,6 @@ namespace CEPAberto
             _configureAwait = configureAwait;
             _service = new ServiceFactory(_configureAwait);
         }
-
-        #endregion
-
-        #region Implementation of ICEPAbertoClient
 
         /// <summary>
         /// Gets the data.
@@ -253,7 +239,9 @@ namespace CEPAberto
         /// update as an asynchronous operation.
         /// </summary>
         /// <param name="postalCodeList">The postal code list.</param>
-        /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <param name="cancellationToken">
+        /// The cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
         /// <returns>Task&lt;UpdateData&gt;.</returns>
         public async Task<UpdateData> UpdateAsync(
             string[] postalCodeList,
@@ -282,7 +270,5 @@ namespace CEPAberto
 
             return new UpdateData { Success = true, PostalCodeList = result.Content };
         }
-
-        #endregion
     }
 }

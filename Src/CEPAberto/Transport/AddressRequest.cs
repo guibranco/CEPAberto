@@ -1,28 +1,24 @@
-﻿// ***********************************************************************
-// Assembly         : CEPAberto
-// Author           : Guilherme Branco Stracini
-// Created          : 2018-08-15
+﻿// *********************************************************************** Assembly : CEPAberto
+// Author : Guilherme Branco Stracini Created : 2018-08-15
 //
-// Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 25/03/2023
-// ***********************************************************************
+// Last Modified By : Guilherme Branco Stracini Last Modified On : 25/03/2023 ***********************************************************************
 // <copyright file="AddressRequest.cs" company="Guilherme Branco Stracini ME">
 //     Copyright © 2023
 // </copyright>
-// <summary></summary>
+// <summary>
+// </summary>
 // ***********************************************************************
 
 using GuiStracini.SDKBuilder;
 using GuiStracini.SDKBuilder.Routing;
+using Newtonsoft.Json;
 
 namespace CEPAberto.Transport
 {
-    using Newtonsoft.Json;
-
     /// <summary>
     /// The address request class.
     /// </summary>
-    /// <seealso cref="CEPAberto.Transport.CEPAbertoBaseRequest" />
+    /// <seealso cref="CEPAberto.Transport.CEPAbertoBaseRequest"/>
     [EndpointRoute("address?estado={StateInitials}&cidade={City}")]
     public sealed class AddressRequest : CEPAbertoBaseRequest
     {

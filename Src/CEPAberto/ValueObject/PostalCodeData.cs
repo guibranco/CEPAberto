@@ -12,10 +12,10 @@
 // <summary></summary>
 // ***********************************************************************
 
+using Newtonsoft.Json;
+
 namespace CEPAberto.ValueObject
 {
-    using Newtonsoft.Json;
-
     /// <summary>
     /// The postal code data class.
     /// This class contains the response of a request to the API

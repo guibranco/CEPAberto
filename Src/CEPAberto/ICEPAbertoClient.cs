@@ -11,12 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using System.Threading;
+using System.Threading.Tasks;
+using CEPAberto.ValueObject;
+
 namespace CEPAberto
 {
-    using System.Threading;
-    using System.Threading.Tasks;
-    using ValueObject;
-
     /// <summary>
     /// The CEP Aberto client interface
     /// </summary>
