@@ -59,15 +59,15 @@ internal sealed class ServiceFactory
             client.BaseAddress = new Uri(_serviceEndPoint);
             client.DefaultRequestHeaders.ExpectContinue = false;
             client.DefaultRequestHeaders.Accept.Clear();
-            client
-                .DefaultRequestHeaders
-                .Accept
-                .Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json")
+            );
             if (!string.IsNullOrEmpty(requestObject.Token))
             {
-                client
-                    .DefaultRequestHeaders
-                    .Add("Authorization", string.Concat("Token token=", requestObject.Token));
+                client.DefaultRequestHeaders.Add(
+                    "Authorization",
+                    string.Concat("Token token=", requestObject.Token)
+                );
             }
 
             var endpoint = requestObject.GetRequestEndPoint();
@@ -96,8 +96,7 @@ internal sealed class ServiceFactory
                             .ConfigureAwait(_configureAwait);
 
                         return await response
-                            .Content
-                            .ReadAsAsync<TOut>(cancellationToken)
+                            .Content.ReadAsAsync<TOut>(cancellationToken)
                             .ConfigureAwait(_configureAwait);
 
                     case ActionMethod.POST:
@@ -110,8 +109,7 @@ internal sealed class ServiceFactory
                             .ConfigureAwait(_configureAwait);
 
                         var result = await response
-                            .Content
-                            .ReadAsStringAsync()
+                            .Content.ReadAsStringAsync()
                             .ConfigureAwait(_configureAwait);
 
                         if (result.StartsWith("["))
