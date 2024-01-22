@@ -51,13 +51,13 @@ jobs:
         run: msbuild ${{ env.solution }}.sln /p:Configuration=Release
 
       - name: Test
-        run: coverlet Tests\${{ env.solution }}.Tests\bin\Release\${{ env.solution }}.Tests.dll -t "vstest.console.exe" -a "Tests\${{ env.solution }}.Tests\bin\Release\${{ env.solution }}.Tests.dll" -o "Tests\${{ env.solution }}.Tests\bin\Release\\" -f cobertura
+        run: coverlet Tests\${{ env.solution }}.Tests\bin\Release\net8.0\${{ env.solution }}.Tests.dll -t "vstest.console.exe" -a "Tests\${{ env.solution }}.Tests\bin\Release\net8.0\${{ env.solution }}.Tests.dll" -o "Tests\${{ env.solution }}.Tests\\" -f cobertura
 
       - name: Upload artifact test coverage
         uses: actions/upload-artifact@v4.2.0
         with:
           name: coverage
-          path: Tests\${{ env.solution }}.Tests\bin\Release\coverage.cobertura.xml
+          path: Tests\${{ env.solution }}.Tests\coverage.cobertura.xml
 
   deep-source:
     name: Deep Source Coverage report
