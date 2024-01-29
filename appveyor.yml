@@ -55,7 +55,7 @@ build_script:
 - ps: Start-process "dotnet" "sonarscanner begin $($Params -join ' ')"
 - codeclimate-test-reporter before-build
 - dotnet build %SOLUTION_NAME%.sln
-- ps: $TEST_PROJECTS = (Get-ChildItem -Path .Tests** -Recurse -Include *.csproj).Fullname
+- ps: $TEST_PROJECTS = (Get-ChildItem -Path .\Tests\**\ -Recurse -Include *.csproj).Fullname
 - ps: |
     foreach($testProject in $TEST_PROJECTS)
     {
