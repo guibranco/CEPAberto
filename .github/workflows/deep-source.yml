@@ -30,7 +30,7 @@ jobs:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
       - name: Setup Nuget
-        uses: NuGet/setup-nuget@v1.2
+        uses: NuGet/setup-nuget@v2.0
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
