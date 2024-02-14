@@ -1,4 +1,4 @@
-# CEP Aberto
+# CEP Aberto SDK .NET
 
 [CEP Aberto](htttp://www.cepaberto.com) API wrapper written in C# (.NET).
 
