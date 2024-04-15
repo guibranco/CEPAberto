@@ -43,7 +43,7 @@ public class CEPAbertoClientTest
         result.Altitude.Should().Be(1072.4);
         result.PostalCode.Should().Be("36420970");
         result.Latitude.Should().Be("-20.5246307637");
-        result.Longitude.Should().Be("-43.691412");
+        result.Longitude.Should().Be("-43.690328668");
         result.Street.Should().BeNull();
         result.Neighborhood.Should().BeNull();
         result.City.AreaCode.Should().Be(31);
