@@ -41,7 +41,7 @@ public class CEPAbertoClientTest
         // Assert
         result.Success.Should().BeTrue();
         result.Altitude.Should().Be(1072.4);
-        result.PostalCode.Should().Be("36420000");
+        result.PostalCode.Should().Be("36420970");
         result.Latitude.Should().Be("-20.5236387");
         result.Longitude.Should().Be("-43.691412");
         result.Street.Should().BeNull();
