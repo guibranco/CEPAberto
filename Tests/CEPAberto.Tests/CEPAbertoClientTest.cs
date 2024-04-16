@@ -44,8 +44,8 @@ public class CEPAbertoClientTest
         result.PostalCode.Should().Be("36420970");
         result.Latitude.Should().Be("-20.5246307637");
         result.Longitude.Should().Be("-43.690328668");
-        result.Street.Should().BeNull();
-        result.Neighborhood.Should().BeNull();
+        result.Street.Should().Be("Praça Edmundo Pinto 116");
+        result.Neighborhood.Should().Be("Centro");
         result.City.AreaCode.Should().Be(31);
         result.City.FiscalCode.Should().Be(3145901);
         result.City.Name.Should().Be("Ouro Branco");
