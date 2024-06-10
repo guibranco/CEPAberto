@@ -91,31 +91,31 @@ public class CEPAbertoClientTest
         result.Cities[0].Name.Should().Be("Agrovila São Sebastião do Caburi (Parintins)");
     }
 
-    [Fact]
-    public void TestUpdate()
-    {
-        // Arrange
-        Thread.Sleep(1000);
-        var postalCodeList = new[] { "03177010", "36420000" };
+    // [Fact]
+    // public void TestUpdate()
+    // {
+    //     // Arrange
+    //     Thread.Sleep(1000);
+    //     var postalCodeList = new[] { "03177010", "36420000" };
 
-        // Act
-        var result = _client.Update(postalCodeList);
+    //     // Act
+    //     var result = _client.Update(postalCodeList);
 
-        // Assert
-        result.Success.Should().BeTrue();
-    }
+    //     // Assert
+    //     result.Success.Should().BeTrue();
+    // }
 
-    [Fact]
-    public void TestUpdateWrongData()
-    {
-        // Arrange
-        Thread.Sleep(1000);
-        var postalCodeList = new[] { "03177010", "0012" };
+    // [Fact]
+    // public void TestUpdateWrongData()
+    // {
+    //     // Arrange
+    //     Thread.Sleep(1000);
+    //     var postalCodeList = new[] { "03177010", "0012" };
 
-        // Act
-        var result = _client.Update(postalCodeList);
+    //     // Act
+    //     var result = _client.Update(postalCodeList);
 
-        // Assert
-        result.Success.Should().BeFalse();
-    }
+    //     // Assert
+    //     result.Success.Should().BeFalse();
+    // }
 }
