@@ -2,7 +2,7 @@
 
 // public class CEPAbertoClientTest
 // {
-//     private const string Token = "97bd98aa2ab0bab41140a06a7f7742a4";
+//     private const string Token = "";
 
 //     private readonly CEPAbertoClient _client = new(Token);
 
