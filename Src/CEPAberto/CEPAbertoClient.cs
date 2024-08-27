@@ -103,7 +103,7 @@ public sealed class CEPAbertoClient : ICEPAbertoClient
         {
             Token = _token,
             Latitude = latitude,
-            Longitude = longitude
+            Longitude = longitude,
         };
 
         var result = await _service
@@ -165,7 +165,7 @@ public sealed class CEPAbertoClient : ICEPAbertoClient
             StateInitials = stateInitials,
             City = city,
             Neighborhood = neighborhood,
-            Street = street
+            Street = street,
         };
 
         var result = await _service
@@ -201,7 +201,7 @@ public sealed class CEPAbertoClient : ICEPAbertoClient
         CancellationToken cancellationToken
     )
     {
-        var data = new CitiesRequest { Token = _token, StateInitials = stateInitials, };
+        var data = new CitiesRequest { Token = _token, StateInitials = stateInitials };
 
         var results = await _service
             .Get<City[], CitiesRequest>(data, cancellationToken)
@@ -211,7 +211,7 @@ public sealed class CEPAbertoClient : ICEPAbertoClient
         {
             Cities = results,
             StateInitials = stateInitials,
-            Success = results.Any()
+            Success = results.Any(),
         };
     }
 
@@ -241,7 +241,7 @@ public sealed class CEPAbertoClient : ICEPAbertoClient
         var data = new UpdateRequest
         {
             Token = _token,
-            PostalCodes = string.Join(",", postalCodeList)
+            PostalCodes = string.Join(",", postalCodeList),
         };
 
         var result = await _service
@@ -254,7 +254,7 @@ public sealed class CEPAbertoClient : ICEPAbertoClient
             {
                 Success = false,
                 ErrorCode = result.Status,
-                ErrorMessage = result.Error
+                ErrorMessage = result.Error,
             };
         }
 
