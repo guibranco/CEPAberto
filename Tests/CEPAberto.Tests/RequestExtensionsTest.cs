@@ -55,7 +55,7 @@ public class RequestHelpersTest
             StateInitials = "SP",
             City = "São Paulo",
             Neighborhood = "Centro",
-            Street = "Se"
+            Street = "Se",
         };
 
         // Act
