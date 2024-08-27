@@ -62,11 +62,20 @@ public sealed class CEPAbertoClient : ICEPAbertoClient
     }
 
     /// <summary>
-    /// Gets the data asynchronous.
+    /// Asynchronously retrieves postal code data based on the provided address parameters.
     /// </summary>
-    /// <param name="postalCode">The postal code.</param>
-    /// <param name="cancellationToken">The cancellation token.</param>
-    /// <returns>PostalCodeData.</returns>
+    /// <param name="stateInitials">The initials of the state for the address.</param>
+    /// <param name="city">The city for the address.</param>
+    /// <param name="neighborhood">The neighborhood for the address.</param>
+    /// <param name="street">The street for the address.</param>
+    /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
+    /// <returns>A task that represents the asynchronous operation, containing the postal code data for the specified address.</returns>
+    /// <remarks>
+    /// This method constructs an address request using the provided parameters and sends it to a service to retrieve postal code information.
+    /// The service call is made asynchronously, allowing for non-blocking execution.
+    /// If a valid postal code is returned, the success property of the result is set to true.
+    /// The method utilizes a cancellation token to allow for graceful cancellation of the request if necessary.
+    /// </remarks>
     public async Task<PostalCodeData> GetDataAsync(
         string postalCode,
         CancellationToken cancellationToken
@@ -191,11 +200,18 @@ public sealed class CEPAbertoClient : ICEPAbertoClient
     }
 
     /// <summary>
-    /// Gets the cities asynchronous.
+    /// Asynchronously retrieves a list of cities for a specified state using its initials.
     /// </summary>
-    /// <param name="stateInitials">The state initials.</param>
-    /// <param name="cancellationToken">The cancellation token.</param>
-    /// <returns>CitiesData.</returns>
+    /// <param name="stateInitials">The initials of the state for which to retrieve the cities.</param>
+    /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result contains a <see cref="CitiesData"/> object with the retrieved cities and state information.</returns>
+    /// <remarks>
+    /// This method constructs a request to fetch city data based on the provided state initials.
+    /// It utilizes an asynchronous service call to retrieve the data, ensuring that the operation does not block the calling thread.
+    /// The results are wrapped in a <see cref="CitiesData"/> object, which includes the list of cities, the state initials,
+    /// and a success flag indicating whether any cities were found.
+    /// This method is particularly useful in applications that require dynamic city data based on user input or selections.
+    /// </remarks>
     public async Task<CitiesData> GetCitiesAsync(
         string stateInitials,
         CancellationToken cancellationToken
@@ -226,13 +242,18 @@ public sealed class CEPAbertoClient : ICEPAbertoClient
     }
 
     /// <summary>
-    /// update as an asynchronous operation.
+    /// Asynchronously updates data based on a list of postal codes.
     /// </summary>
-    /// <param name="postalCodeList">The postal code list.</param>
-    /// <param name="cancellationToken">
-    /// The cancellation token that can be used by other objects or threads to receive notice of cancellation.
-    /// </param>
-    /// <returns>Task&lt;UpdateData&gt;.</returns>
+    /// <param name="postalCodeList">An array of postal codes to be updated.</param>
+    /// <param name="cancellationToken">A token that can be used to cancel the operation.</param>
+    /// <returns>A task that represents the asynchronous operation, containing an <see cref="UpdateData"/> object with the result of the update.</returns>
+    /// <remarks>
+    /// This method constructs an <see cref="UpdateRequest"/> object with a token and a comma-separated list of postal codes.
+    /// It then sends this request to a service using the <see cref="_service.Post"/> method.
+    /// If the response contains an error, it returns an <see cref="UpdateData"/> object indicating failure, along with the error code and message.
+    /// If the operation is successful, it returns an <see cref="UpdateData"/> object indicating success and includes the updated postal code list.
+    /// This method is designed to be used in scenarios where postal code data needs to be updated asynchronously, allowing for responsive applications.
+    /// </remarks>
     public async Task<UpdateData> UpdateAsync(
         string[] postalCodeList,
         CancellationToken cancellationToken
