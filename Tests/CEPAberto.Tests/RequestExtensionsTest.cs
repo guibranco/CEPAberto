@@ -45,6 +45,16 @@ public class RequestHelpersTest
         result.Should().Be(string.Empty, "The endpoint was not resolves as expected");
     }
 
+    /// <summary>
+    /// Tests the generation of additional parameters as a query string from an AddressRequest object.
+    /// </summary>
+    /// <remarks>
+    /// This unit test verifies that the method <c>GetRequestAdditionalParameter</c> correctly formats the additional parameters
+    /// of an address into a query string format. The test sets up an <c>AddressRequest</c> object with specific properties such as
+    /// state initials, city, neighborhood, and street. It then calls the method with the HTTP GET action method and checks
+    /// that the resulting query string matches the expected format. The expected output is a string that includes the neighborhood
+    /// and street as query parameters. The test uses FluentAssertions to assert that the result is as expected.
+    /// </remarks>
     [Fact]
     public void RequestAdditionalParameterAsQueryString()
     {
