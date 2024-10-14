@@ -54,7 +54,7 @@ jobs:
         run: coverlet Tests\${{ env.solution }}.Tests\bin\Release\net8.0\${{ env.solution }}.Tests.dll -t "vstest.console.exe" -a "Tests\${{ env.solution }}.Tests\bin\Release\net8.0\${{ env.solution }}.Tests.dll" -o "Tests\${{ env.solution }}.Tests\\" -f cobertura
 
       - name: Upload artifact test coverage
-        uses: actions/upload-artifact@v4.4.0
+        uses: actions/upload-artifact@v4.4.3
         with:
           name: coverage
           path: Tests\${{ env.solution }}.Tests\coverage.cobertura.xml
