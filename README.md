@@ -7,6 +7,7 @@ Implements all V3 features
 
 [![GitHub license](https://img.shields.io/github/license/guibranco/CEPAberto)](https://github.com/guibranco/CEPAberto)
 [![time tracker](https://wakatime.com/badge/github/guibranco/CEPAberto.svg)](https://wakatime.com/badge/github/guibranco/CEPAberto)
+[![DeepSource](https://deepsource.io/gh/guibranco/CEPAberto.svg/?label=active)](https://deepsource.io/gh/guibranco/CEPAberto/?ref=repository-badge)
 
 ![CEPAberto](https://raw.githubusercontent.com/guibranco/CEPAberto/main/logo.png)
 
