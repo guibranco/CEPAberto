@@ -21,7 +21,7 @@
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="GuiStracini.SDKBuilder" Version="3.0.622" />
+    <PackageReference Include="GuiStracini.SDKBuilder" Version="3.1.35" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
