@@ -18,7 +18,7 @@ internal sealed class ServiceFactory
     /// <summary>
     /// The service end point
     /// </summary>
-    private const string _serviceEndPoint = "https://www.cepaberto.com/api/v3/";
+    private const string ServiceEndPoint = "https://www.cepaberto.com/api/v3/";
 
     /// <summary>
     /// The configure await flag.
@@ -56,7 +56,7 @@ internal sealed class ServiceFactory
     {
         using (var client = new HttpClient())
         {
-            client.BaseAddress = new Uri(_serviceEndPoint);
+            client.BaseAddress = new Uri(ServiceEndPoint);
             client.DefaultRequestHeaders.ExpectContinue = false;
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
