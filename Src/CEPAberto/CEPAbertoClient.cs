@@ -64,10 +64,7 @@ public sealed class CEPAbertoClient : ICEPAbertoClient
     /// <summary>
     /// Asynchronously retrieves postal code data based on the provided address parameters.
     /// </summary>
-    /// <param name="stateInitials">The initials of the state for the address.</param>
-    /// <param name="city">The city for the address.</param>
-    /// <param name="neighborhood">The neighborhood for the address.</param>
-    /// <param name="street">The street for the address.</param>
+    /// <param name="postalCode">The postal code to search for.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A task that represents the asynchronous operation, containing the postal code data for the specified address.</returns>
     /// <remarks>
@@ -249,7 +246,7 @@ public sealed class CEPAbertoClient : ICEPAbertoClient
     /// <returns>A task that represents the asynchronous operation, containing an <see cref="UpdateData"/> object with the result of the update.</returns>
     /// <remarks>
     /// This method constructs an <see cref="UpdateRequest"/> object with a token and a comma-separated list of postal codes.
-    /// It then sends this request to a service using the <see cref="_service.Post"/> method.
+    /// It then sends this request to a service using the Post method.
     /// If the response contains an error, it returns an <see cref="UpdateData"/> object indicating failure, along with the error code and message.
     /// If the operation is successful, it returns an <see cref="UpdateData"/> object indicating success and includes the updated postal code list.
     /// This method is designed to be used in scenarios where postal code data needs to be updated asynchronously, allowing for responsive applications.
