@@ -5,7 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="coverlet.msbuild" Version="6.0.4" />
-    <PackageVersion Include="FluentAssertions" Version="8.4.0" />
+    <PackageVersion Include="FluentAssertions" Version="8.5.0" />
     <PackageVersion Include="GuiStracini.SDKBuilder" Version="3.1.35" />
     <PackageVersion Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
@@ -13,8 +13,8 @@
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageVersion Include="RichardSzalay.MockHttp" Version="7.0.0" />
     <PackageVersion Include="Testcontainers" Version="4.6.0" />
-    <PackageVersion Include="WireMock.Net" Version="1.8.13" />
+    <PackageVersion Include="WireMock.Net" Version="1.8.14" />
     <PackageVersion Include="xunit" Version="2.9.3" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.1" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.2" />
   </ItemGroup>
 </Project>
