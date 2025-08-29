@@ -6,7 +6,7 @@
   <ItemGroup>
     <PackageVersion Include="coverlet.msbuild" Version="6.0.4" />
     <PackageVersion Include="FluentAssertions" Version="8.5.0" />
-    <PackageVersion Include="GuiStracini.SDKBuilder" Version="3.1.59" />
+    <PackageVersion Include="GuiStracini.SDKBuilder" Version="3.1.78" />
     <PackageVersion Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
     <PackageVersion Include="Moq" Version="4.20.72" />
